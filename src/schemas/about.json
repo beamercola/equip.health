@@ -1,0 +1,127 @@
+{
+  "Main": {
+    "features": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading1",
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Features"
+      }
+    },
+    "button_text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Button Text",
+        "placeholder": "Get In Touch"
+      }
+    },
+    "button_path": {
+      "type": "Link",
+      "config": {
+        "label": "Button Link"
+      }
+    },
+    "callout_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Callout Title"
+      }
+    },
+    "callout_link_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Callout Link Title"
+      }
+    },
+    "callout_url": {
+      "type": "Link",
+      "config": {
+        "label": "Callout Link URL"
+      }
+    },
+    "insurance_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Insurance Title"
+      }
+    },
+    "insurance_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Insurance Description"
+      }
+    },
+    "insurance_logos": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Logo"
+            }
+          }
+        },
+        "label": "Insurance Logos"
+      }
+    },
+    "philosophy": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "Title"
+            }
+          },
+          "description": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+              "label": "Description"
+            }
+          }
+        },
+        "label": "Philosophy"
+      }
+    }
+  }
+}

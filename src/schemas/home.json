@@ -1,0 +1,94 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
+      }
+    },
+    "features" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Image"
+            }
+          },
+          "header" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading4",
+              "label" : "Header"
+            }
+          },
+          "subtitle" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item",
+              "label" : "Subtitle"
+            }
+          }
+        },
+        "label" : "Features"
+      }
+    },
+    "testimonials" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "name" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1",
+              "label" : "Name"
+            }
+          },
+          "subtitle" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "paragraph, strong, em, hyperlink",
+              "label" : "Person Description",
+              "placeholder" : "Parent from Connecticut"
+            }
+          },
+          "quote" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "strong, em, hyperlink",
+              "label" : "Quote"
+            }
+          }
+        },
+        "label" : "Testimonials"
+      }
+    },
+    "press" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "logo" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "Logo"
+            }
+          },
+          "text" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, strong, em, hyperlink, o-list-item",
+              "label" : "Text"
+            }
+          }
+        },
+        "label" : "Press"
+      }
+    }
+  }
+}

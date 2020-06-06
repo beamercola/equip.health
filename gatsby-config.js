@@ -16,19 +16,55 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-theme-tailwindcss`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        postCssPlugins: [require("autoprefixer")],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-prismic",
+      options: {
+        repositoryName: "equiphealth",
+        accessToken: process.env.PRISMIC_TOKEN,
+
+        linkResolver: ({ node, key, value }) => doc => {
+          // Your link resolver
+        },
+
+        fetchLinks: [
+          // Your list of links
+        ],
+
+        // Set an HTML serializer function used to process formatted content.
+        // Fields with rich text formatting use this function to generate the
+        // correct HTML.
+        // The document node, field key (i.e. API ID), and field value are
+        // provided to the function, as seen below. This allows you to use
+        // different HTML serializer logic for each field if necessary.
+        // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
+        htmlSerializer: ({ node, key, value }) => (
+          type,
+          element,
+          content,
+          children
+        ) => {
+          // Your HTML serializer
+        },
+
+        schemas: {
+          home: require("./src/schemas/home.json"),
+          about: require("./src/schemas/about.json"),
+        },
+
+        // Set a default language when fetching documents. The default value is
+        // '*' which will fetch all languages.
+        // See: https://prismic.io/docs/javascript/query-the-api/query-by-language
+        lang: "*",
+
+        shouldDownloadImage: ({ node, key, value }) => {
+          return false
+        },
+      },
+    },
   ],
 }
