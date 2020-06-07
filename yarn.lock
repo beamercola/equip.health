@@ -7118,6 +7118,21 @@ gatsby-source-graphql@^2.5.2:
     node-fetch "^1.7.3"
     uuid "^3.4.0"
 
+gatsby-source-graphql@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.5.3.tgz#353f2949502bf73875caf06653a68265923b9fa7"
+  integrity sha512-6WiEdyCpjFKFUzWvY26jrQUF3sBg5F0cpVLndJtSMtwvv6GYeiqllhMC2f8ygGYZvUVBCq1NHN/5Z/wGd0d0ww==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+    apollo-link "1.2.14"
+    apollo-link-http "^1.5.17"
+    dataloader "^2.0.0"
+    graphql "^14.6.0"
+    graphql-tools "^5.0.0"
+    invariant "^2.2.4"
+    node-fetch "^1.7.3"
+    uuid "^3.4.0"
+
 gatsby-source-prismic@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-prismic/-/gatsby-source-prismic-3.1.1.tgz#02272045562ca0012b52abea6b145de359c30674"

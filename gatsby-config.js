@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -19,6 +23,19 @@ module.exports = {
       resolve: `gatsby-theme-tailwindcss`,
       options: {
         postCssPlugins: [require("autoprefixer")],
+      },
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "TS",
+        fieldName: "takeshape",
+        url: `https://api.takeshape.io/project/${process.env.TAKESHAPE_PROJECT}/graphql`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.TAKESHAPE_API_KEY}`,
+        },
+        fetchOptions: {},
       },
     },
     {
