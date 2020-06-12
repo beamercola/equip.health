@@ -12,53 +12,62 @@ const IndexPage = ({
     },
   },
 }) => {
-  console.log(features)
   return (
     <Layout>
       <SEO title="Home" />
       <div className="container">
-        <div className="flex items-center mt-12">
-          <div className="flex-grow pr-12">
-            <h1 className="text-5xl font-semibold leading-tight tracking-wider mr-8 mb-8">
+        <div className="flex flex-col items-center mt-12 -mx-8 lg:flex-row">
+          <div className="w-full px-8 mb-8 lg:mb-0 lg:w-1/2">
+            <h1 className="text-4xl lg:text-5xl font-semibold leading-tight tracking-wider mr-8 mb-8">
               {hero.title}
             </h1>
             <button className="bg-teal-600 text-yellow-100 px-6 py-3 text-2xl rounded-lg tracking-wider">
-              {hero.buttonText}
+              {hero.callToAction}
             </button>
           </div>
-          <img
-            className="bg-gray-200 shadow-2xl"
-            src="https://source.unsplash.com/random/600x400"
-          />
+          <div className="w-full px-8 lg:w-1/2">
+            <img
+              className="bg-gray-200 shadow-2xl w-full"
+              src="https://source.unsplash.com/random/600x400"
+            />
+          </div>
         </div>
 
         <section className="my-32">
-          <h2 className="text-6xl mb-8 tracking-wider">{features.title}</h2>
-          <div className="flex -mx-8">
+          <h2 className="text-3xl lg:text-6xl mb-8 tracking-wider">
+            {features.title}
+          </h2>
+          <div className="flex flex-col -mx-8 lg:flex-row">
             {features.items.map(({ contentHtml, title }) => (
-              <div className="w-1/3 px-8">
-                <img className="w-16 h-16 bg-gray-100 mb-4" src="" alt="" />
-                <h4 className="text-2xl font-semibold tracking-wider leading-snug mb-2">
-                  {title}
-                </h4>
-                <div dangerouslySetInnerHTML={{ __html: contentHtml }}></div>
+              <div className="flex flex-row px-8 mb-12 lg:mb-0 lg:w-1/3 lg:flex-col">
+                <img
+                  className="w-16 h-16 bg-gray-100 mb-4 flex-shrink-0 mr-8"
+                  src=""
+                  alt=""
+                />
+                <div>
+                  <h4 className="text-xl lg:text-2xl font-semibold tracking-wider leading-snug mb-2">
+                    {title}
+                  </h4>
+                  <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-16">
+          <div className="text-center lg:mt-16">
             <button className="text-2xl py-4 px-6 bg-teal-600 text-yellow-100 rounded-lg tracking-wider">
-              {features.buttonTitle}
+              {features.callToAction}
             </button>
           </div>
         </section>
         <section className="my-32">
-          <div className="flex -mx-12">
-            {testimonials.map(({ quoteHtml, name, title }) => (
-              <div className="flex items-center w-1/2 px-12">
+          <div className="flex flex-col flex-wrap -mx-8 lg:flex-row">
+            {testimonials.testimonials.map(({ quoteHtml, name, title }) => (
+              <div className="flex items-center px-8 mb-8 lg:mb-0 lg:w-1/2">
                 <img className="w-24 h-24 mr-8 flex-shrink-0" src="" alt="" />
                 <div className="">
                   <div
-                    className="text-xl"
+                    className="text-sm lg:text-base"
                     dangerouslySetInnerHTML={{ __html: quoteHtml }}
                   />
                   <p className="italic">{name}</p>
@@ -96,9 +105,12 @@ export const IndexPageQuery = graphql`
     takeshape {
       home {
         testimonials {
-          quoteHtml
-          name
           title
+          testimonials {
+            name
+            quoteHtml
+            title
+          }
         }
         press {
           companies {
@@ -110,15 +122,15 @@ export const IndexPageQuery = graphql`
           title
         }
         hero {
-          buttonText
           image {
             sourceUrl
           }
           title
+          callToAction
+          ctaPath
         }
         features {
           title
-          buttonTitle
           items {
             contentHtml
             image {
@@ -126,6 +138,8 @@ export const IndexPageQuery = graphql`
             }
             title
           }
+          callToAction
+          ctaPath
         }
       }
     }

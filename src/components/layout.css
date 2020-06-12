@@ -1,7 +1,45 @@
+@import "../fonts/plain.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "LaNord";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/LaNord-Regular.woff2") format("woff2"),
+    url("../fonts/LaNord-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "LaNord";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/LaNord-Medium.woff2") format("woff2"),
+    url("../fonts/LaNord-Medium.woff") format("woff");
+}
+
 body {
   @apply bg-yellow-100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading font-medium;
+}
+
+article p {
+  @apply mb-8;
+}
+
+form label {
+  @apply block mb-1 text-xs text-teal-700 uppercase px-2;
+}
+
+form input[type="text"] {
+  @apply rounded-lg bg-white px-4 py-3 w-full;
 }
