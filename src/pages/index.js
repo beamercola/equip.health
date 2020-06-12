@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-
+import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -27,8 +27,8 @@ const IndexPage = ({
           </div>
           <div className="w-full px-8 lg:w-1/2">
             <img
-              className="bg-gray-200 shadow-2xl w-full"
-              src="https://source.unsplash.com/random/600x400"
+              className="bg-gray-200 shadow-2xl w-full rounded-lg"
+              src={getImageUrl(hero.image.path)}
             />
           </div>
         </div>
@@ -38,21 +38,23 @@ const IndexPage = ({
             {features.title}
           </h2>
           <div className="flex flex-col -mx-8 lg:flex-row">
-            {features.items.map(({ contentHtml, title }) => (
-              <div className="flex flex-row px-8 mb-12 lg:mb-0 lg:w-1/3 lg:flex-col">
-                <img
-                  className="w-16 h-16 bg-gray-100 mb-4 flex-shrink-0 mr-8"
-                  src=""
-                  alt=""
-                />
-                <div>
-                  <h4 className="text-xl lg:text-2xl font-semibold tracking-wider leading-snug mb-2">
-                    {title}
-                  </h4>
-                  <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+            {features.items.map(
+              ({ contentHtml, title, image: { path: image } }) => (
+                <div className="flex flex-row px-8 mb-12 lg:mb-0 lg:w-1/3 lg:flex-col">
+                  <img
+                    className="w-32 h-32 mb-4 flex-shrink-0 mr-8"
+                    src={getImageUrl(image)}
+                    alt=""
+                  />
+                  <div>
+                    <h4 className="text-xl lg:text-2xl font-semibold tracking-wider leading-snug mb-2">
+                      {title}
+                    </h4>
+                    <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
           <div className="text-center lg:mt-16">
             <button className="text-2xl py-4 px-6 bg-teal-600 text-yellow-100 rounded-lg tracking-wider">
@@ -116,14 +118,14 @@ export const IndexPageQuery = graphql`
           companies {
             quoteHtml
             logo {
-              sourceUrl
+              path
             }
           }
           title
         }
         hero {
           image {
-            sourceUrl
+            path
           }
           title
           callToAction
@@ -134,7 +136,7 @@ export const IndexPageQuery = graphql`
           items {
             contentHtml
             image {
-              sourceUrl
+              path
             }
             title
           }

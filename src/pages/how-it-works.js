@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 
 const HowItWorks = ({
@@ -47,17 +48,17 @@ const HowItWorks = ({
             {philosophy.items.map(({ heading, contentHtml, image }) => (
               <div className="w-1/3 mb-20 px-8">
                 <img
-                  className="w-32 h-32 mb-8"
-                  src={image && image.sourceUrl}
+                  className="w-32 h-32 mb-4"
+                  src={image && getImageUrl(image.path)}
                   alt=""
                 />
-                <h4 className="font-semibold tracking-wider mb-2 text-blue-900">
+                <h4 className="text-xl font-semibold tracking-wider mb-2 text-blue-900">
                   {heading}
                 </h4>
                 <div
                   className="text- text-gray-600"
                   dangerouslySetInnerHTML={{ __html: contentHtml }}
-                ></div>
+                />
               </div>
             ))}
           </div>
