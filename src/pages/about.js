@@ -4,43 +4,36 @@ import Layout from "../components/layout"
 
 const About = ({
   data: {
-    prismicAbout: {
-      data: {
-        features,
-        philosophy,
-        callout_title: { text: calloutTitle },
-        callout_link_title: { text: calloutLinkTitle },
-      },
+    takeshape: {
+      about: { callout, feature, philosophy, logos },
     },
   },
 }) => {
   return (
     <Layout>
       <div className="container">
-        <h1 className="text-7xl py-12 tracking-wider">What You Get At Equip</h1>
+        <h1 className="text-7xl py-12 tracking-wider">{feature.title}</h1>
 
         <div className="flex flex-col py-24">
-          {features.map(
-            ({ title: { text: title }, content: { html: content } }) => (
-              <div className="flex mb-24 -mx-12">
-                <h4 className="w-1/3 px-12 text-2xl font-semibold tracking-wider">
-                  {title}
-                </h4>
-                <div
-                  className="w-2/3 px-12 text-2xl leading-snug"
-                  dangerouslySetInnerHTML={{ __html: content }}
-                />
-              </div>
-            )
-          )}
+          {feature.features.map(({ title, contentHtml }) => (
+            <div className="flex mb-24 -mx-12">
+              <h4 className="w-1/3 px-12 text-2xl font-semibold tracking-wider">
+                {title}
+              </h4>
+              <div
+                className="w-2/3 px-12 text-2xl leading-snug"
+                dangerouslySetInnerHTML={{ __html: contentHtml }}
+              />
+            </div>
+          ))}
         </div>
       </div>
       <section className="bg-blue-800 text-blue-200 py-24">
         <div className="container">
           <div className="-mx-12 flex items-center">
-            <h3 className="text-5xl w-1/2 px-12">{calloutTitle}</h3>
-            <Link className="px-12 w-1/2 text-2xl underline" to="/">
-              {calloutLinkTitle}
+            <h3 className="text-5xl w-1/2 px-12">{callout.heading}</h3>
+            <Link className="px-12 w-1/2 text-2xl underline" to={callout.path}>
+              {callout.linkText}
             </Link>
           </div>
         </div>
@@ -48,15 +41,19 @@ const About = ({
       <div className="container">
         <section className="my-24">
           <div className="flex flex-wrap -mx-8">
-            {philosophy.map(({ title, description: { html: description } }) => (
+            {philosophy.items.map(({ heading, contentHtml, image }) => (
               <div className="w-1/3 mb-20 px-8">
-                <img className="w-32 h-32 mb-8" src="" alt="" />
+                <img
+                  className="w-32 h-32 mb-8"
+                  src={image && image.sourceUrl}
+                  alt=""
+                />
                 <h4 className="font-semibold tracking-wider mb-2 text-blue-900">
-                  {title}
+                  {heading}
                 </h4>
                 <div
                   className="text- text-gray-600"
-                  dangerouslySetInnerHTML={{ __html: description }}
+                  dangerouslySetInnerHTML={{ __html: contentHtml }}
                 ></div>
               </div>
             ))}
@@ -71,29 +68,34 @@ export default About
 
 export const AboutPageQuery = graphql`
   query AboutPageQuery {
-    prismicAbout {
-      data {
-        features {
-          title {
-            text
-          }
-          image {
-            url
-          }
-          content {
-            html
-          }
+    takeshape {
+      about {
+        callout {
+          heading
+          linkText
+          path
         }
-        callout_title {
-          text
-        }
-        callout_link_title {
-          text
+        feature {
+          buttonTitle
+          features {
+            title
+            contentHtml
+          }
+          title
         }
         philosophy {
+          items {
+            heading
+            contentHtml
+            image {
+              sourceUrl
+            }
+          }
           title
-          description {
-            html
+        }
+        logos {
+          logo {
+            sourceUrl
           }
         }
       }
