@@ -20,6 +20,7 @@ module.exports = {
   },
   variants: {
     boxShadow: ["hover"],
+    borderColor: ["hover"],
   },
   plugins: [],
 }
