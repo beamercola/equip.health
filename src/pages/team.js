@@ -31,7 +31,7 @@ const TeamPage = ({
           {members.map((member, index) => (
             <div className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8" key={index}>
               <img
-                className="mb-2"
+                className="mb-4"
                 alt={member.name}
                 src={`https://source.unsplash.com/800x950?avatar&sig=${index}`}
               />
@@ -99,16 +99,16 @@ const TeamPage = ({
       <div className="container">
         <section className="my-12 lg:my-24">
           <h2 className="text-5xl lg:text-7xl mb-12 lg:mb-24">{story.title}</h2>
-          <div className="flex flex-col lg:flex-row lg:-mx-12">
-            <div className="mb-12 lg:w-1/4 lg:px-12">
-              <img src="https://source.unsplash.com/600x900?two+women" />
+          <div className="flex flex-col lg:flex-row lg:-mx-8">
+            <div className="mb-12 lg:w-2/5 lg:px-8">
+              <img src="https://source.unsplash.com/900x600?two+women" />
               <div
                 className=""
                 dangerouslySetInnerHTML={{ __html: story.captionHtml }}
               />
             </div>
             <article
-              className="lg:w-3/4 lg:px-8 text-3xl lg:pr-64"
+              className="lg:w-3/5 lg:px-8 text-2xl lg:pr-48"
               dangerouslySetInnerHTML={{ __html: story.contentHtml }}
             />
           </div>

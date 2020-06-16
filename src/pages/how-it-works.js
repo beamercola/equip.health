@@ -17,7 +17,7 @@ const HowItWorks = ({
 
         <div className="flex flex-col">
           {feature.features.map(({ title, contentHtml }) => (
-            <div className="flex mb-24 -mx-12">
+            <div className="flex mb-24 -mx-12 content">
               <h4 className="w-1/3 px-12 text-2xl font-semibold tracking-wider">
                 {title}
               </h4>
@@ -46,17 +46,17 @@ const HowItWorks = ({
         <section className="my-24">
           <div className="flex flex-wrap -mx-8">
             {philosophy.items.map(({ heading, contentHtml, image }) => (
-              <div className="w-1/3 mb-20 px-8">
+              <div className="w-1/3 mb-12 px-8 text-center">
                 <img
-                  className="w-32 h-32 mb-4"
+                  className="w-48 h-48 mx-auto"
                   src={image && getImageUrl(image.path)}
                   alt=""
                 />
-                <h4 className="text-xl font-semibold tracking-wider mb-2 text-blue-900">
+                <h4 className="text-lg tracking-wider mb-2 text-blue-900">
                   {heading}
                 </h4>
                 <div
-                  className="text- text-gray-600"
+                  className="text-sm text-gray-600"
                   dangerouslySetInnerHTML={{ __html: contentHtml }}
                 />
               </div>

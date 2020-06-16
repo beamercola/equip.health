@@ -43,3 +43,11 @@ form label {
 form input[type="text"] {
   @apply rounded-lg bg-white px-4 py-3 w-full;
 }
+
+.content ul {
+  @apply list-disc;
+}
+
+.content li {
+  @apply mb-4;
+}
