@@ -18,7 +18,7 @@ const IndexPage = ({
       <div className="container">
         <div className="flex flex-col items-center mt-12 -mx-4 lg:flex-row">
           <div className="px-4 mb-8 lg:mb-0 lg:w-3/5">
-            <h1 className="text-5xl xl:text-6xl font-semibold leading-none tracking-wider mb-8">
+            <h1 className="text-5xl xl:text-6xl font-semibold leading-tight tracking-wider mb-8">
               {hero.title}
             </h1>
             <button className="bg-teal-600 text-yellow-100 px-6 py-3 text-2xl rounded-lg tracking-wide">
@@ -75,12 +75,12 @@ const IndexPage = ({
       </section>
 
       <div className="container">
-        <section className="my-32">
+        <section className="my-24 lg:my-32">
           <div className="flex flex-col flex-wrap -mx-8 lg:flex-row -my-8">
             {testimonials.testimonials.map(({ quoteHtml, name, title }) => (
-              <div className="flex items-start px-8 mb-8 lg:mb-0 lg:w-1/2 py-8">
+              <div className="px-8 py-8 mb-8 lg:mb-0 lg:w-1/2">
                 <img
-                  className="w-24 h-24 mr-8 flex-shrink-0 bg-blue-800 rounded-full"
+                  className="w-24 h-24 mb-8 flex-shrink-0 bg-blue-800 rounded-full"
                   src=""
                   alt=""
                 />
