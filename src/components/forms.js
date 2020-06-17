@@ -1,14 +1,17 @@
 import React, { useState } from "react"
 
-export const Select = ({ children }) => {
+export const Select = ({ children, onChange }) => {
   return (
-    <div class="inline-block relative w-full">
-      <select class="block text-lg text-black appearance-none w-full bg-white px-5 py-3 pr-8 rounded-full shadow-lg focus:outline-none">
+    <div className="inline-block relative w-full">
+      <select
+        className="block text-lg text-black appearance-none w-full bg-white px-5 py-3 pr-8 rounded-full shadow-lg focus:outline-none"
+        onChange={onChange}
+      >
         {children}
       </select>
-      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
         <svg
-          class="fill-current h-4 w-4"
+          className="fill-current h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
         >
@@ -29,25 +32,31 @@ export const Input = props => {
 }
 
 export const NotifyForm = () => {
-  const [params, setParams] = useState({})
+  const types = ["Patient", "Loved One", "Referring Provider", "Other"]
+  const ages = ["5 and under", "6-27", "28+"]
+  const [params, setParams] = useState({
+    type: types[0],
+    age: ages[0],
+    state: states[0].value,
+  })
 
   const handleChange = e => {
     setParams({ ...params, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault()
     console.log(params)
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="mt-5 -mx-2">
         <label>I am a</label>
-        <Select onChange={handleChange}>
-          <option>Patient</option>
-          <option>Loved One</option>
-          <option>Referring Provider</option>
-          <option>Other</option>
+        <Select name="type" onChange={handleChange}>
+          {types.map(t => (
+            <option>{t}</option>
+          ))}
         </Select>
       </div>
       <div className="my-5 -mx-2">
@@ -64,27 +73,26 @@ export const NotifyForm = () => {
       </div>
       <div className="my-5 -mx-2">
         <label htmlFor="name">Age of patient</label>
-        <Select onChange={handleChange}>
-          <option>5 and under</option>
-          <option>6-27</option>
-          <option>28+</option>
+        <Select name="age" onChange={handleChange}>
+          {ages.map(t => (
+            <option selected={t === params.age}>{t}</option>
+          ))}
         </Select>
       </div>
       <div className="my-5 -mx-2">
         <label htmlFor="name">State</label>
-        <Select onChange={handleChange}>
+        <Select name="state" onChange={handleChange}>
           {states.map(state => (
             <option>{state.value}</option>
           ))}
         </Select>
       </div>
       <div className="my-8 -mx-2">
-        <button
-          className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl"
-          handleSubmit={handleSubmit}
-        >
-          Submit
-        </button>
+        <input
+          className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer"
+          type="submit"
+          value="Submit"
+        />
       </div>
     </form>
   )

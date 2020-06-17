@@ -14,7 +14,7 @@ const HowItWorks = ({
   return (
     <Layout>
       <div className="container">
-        <h1 className="text-7xl pt-16 pb-24 tracking-wider text-blue-900">
+        <h1 className="text-7xl pt-16 pb-24 tracking-wider text-blue-900 leading-none">
           {highlights.title}
         </h1>
 
@@ -24,7 +24,9 @@ const HowItWorks = ({
             return (
               <div className="flex mb-24">
                 <div className={`w-1/2 content ${even && "order-2"}`}>
-                  <h4 className="text-4xl tracking-wider mb-4">{title}</h4>
+                  <h4 className="text-4xl tracking-wider mb-4 leading-tight">
+                    {title}
+                  </h4>
                   <div
                     className="text-xl leading-snug"
                     dangerouslySetInnerHTML={{ __html: contentHtml }}
