@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 export const Select = ({ children }) => {
   return (
@@ -25,6 +25,68 @@ export const Input = props => {
       {...props}
       className={`${props.className} rounded-full bg-white px-5 py-3 placeholder-gray-600 text-black bg-white px-3 py-2 w-full outline-none`}
     />
+  )
+}
+
+export const NotifyForm = () => {
+  const [params, setParams] = useState({})
+
+  const handleChange = e => {
+    setParams({ ...params, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = () => {
+    console.log(params)
+  }
+
+  return (
+    <form>
+      <div className="mt-5 -mx-2">
+        <label>I am a</label>
+        <Select onChange={handleChange}>
+          <option>Patient</option>
+          <option>Loved One</option>
+          <option>Referring Provider</option>
+          <option>Other</option>
+        </Select>
+      </div>
+      <div className="my-5 -mx-2">
+        <label htmlFor="name">Name</label>
+        <Input type="text" name="name" onChange={handleChange} />
+      </div>
+      <div className="my-5 -mx-2">
+        <label htmlFor="name">Email</label>
+        <Input type="email" name="email" onChange={handleChange} />
+      </div>
+      <div className="my-5 -mx-2">
+        <label htmlFor="name">Phone</label>
+        <Input type="text" name="phone" onChange={handleChange} />
+      </div>
+      <div className="my-5 -mx-2">
+        <label htmlFor="name">Age of patient</label>
+        <Select onChange={handleChange}>
+          <option>5 and under</option>
+          <option>6-27</option>
+          <option>28+</option>
+        </Select>
+      </div>
+      <div className="my-5 -mx-2">
+        <label htmlFor="name">State</label>
+        <Select onChange={handleChange}>
+          {states.map(state => (
+            <option>{state.value}</option>
+          ))}
+        </Select>
+      </div>
+      <div className="my-8 -mx-2">
+        <button
+          className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl"
+          handleSubmit={handleSubmit}
+        >
+          Submit
+        </button>
+      </div>
+    </form>
   )
 }
 

@@ -5,16 +5,16 @@ import { Logo } from "./svg"
 const Footer = () => (
   <footer>
     <div className="bg-teal-800 py-12">
-      <div className="container">
+      <div className="px-16">
         <div className="flex -mx-12">
           <div className="w-2/6 px-12">
             <Logo className="fill-sky" />
           </div>
-          <div className="w-3/6 px-12 text-blue-200 text-xl">
+          <div className="w-3/6 px-12 text-blue-200 text-4xl leading-tight">
             <ul>
               <li>
                 <Link
-                  className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                  className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
                   to="/"
                 >
                   Home
@@ -22,7 +22,7 @@ const Footer = () => (
               </li>
               <li>
                 <Link
-                  className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                  className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
                   to="/how-it-works"
                 >
                   How It Works
@@ -30,7 +30,7 @@ const Footer = () => (
               </li>
               <li>
                 <Link
-                  className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                  className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
                   to="/team"
                 >
                   Team
@@ -38,7 +38,7 @@ const Footer = () => (
               </li>
               <li>
                 <Link
-                  className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                  className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
                   to="/contact"
                 >
                   Contact
@@ -46,7 +46,7 @@ const Footer = () => (
               </li>
               <li>
                 <Link
-                  className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                  className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
                   to="/privacy"
                 >
                   Privacy
@@ -54,7 +54,7 @@ const Footer = () => (
               </li>
               <li>
                 <Link
-                  className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                  className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
                   to="/enterprise"
                 >
                   Enterprise Partnerships

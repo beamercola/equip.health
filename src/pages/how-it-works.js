@@ -2,37 +2,49 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
-import { Input, Select, states } from "../components/forms"
+import { NotifyForm } from "../components/forms"
 
 const HowItWorks = ({
   data: {
     takeshape: {
-      howItWorks: { callout, feature, philosophy, insurance, logos },
+      howItWorks: { callout, highlights, philosophy, insurance, logos },
     },
   },
 }) => {
   return (
     <Layout>
       <div className="container">
-        <h1 className="text-7xl pt-16 pb-24 tracking-wider">{feature.title}</h1>
+        <h1 className="text-7xl pt-16 pb-24 tracking-wider text-blue-900">
+          {highlights.title}
+        </h1>
 
-        <div className="flex flex-col">
-          {feature.features.map(({ title, contentHtml }) => (
-            <div className="flex mb-24 -mx-12 content">
-              <h4 className="w-1/3 px-12 text-2xl font-semibold tracking-wider">
-                {title}
-              </h4>
-              <div
-                className="w-2/3 px-12 text-2xl leading-snug"
-                dangerouslySetInnerHTML={{ __html: contentHtml }}
-              />
-            </div>
-          ))}
+        <div className="">
+          {highlights.highlights.map(({ title, contentHtml, image }, i) => {
+            const even = i % 2 === 0
+            return (
+              <div className="flex mb-24">
+                <div className={`w-1/2 content ${even && "order-2"}`}>
+                  <h4 className="text-4xl tracking-wider mb-4">{title}</h4>
+                  <div
+                    className="text-xl leading-snug"
+                    dangerouslySetInnerHTML={{ __html: contentHtml }}
+                  />
+                </div>
+                <div className="flex items-center justify-center w-1/2">
+                  <img
+                    className="w-96 h-96"
+                    src={image && getImageUrl(image.path)}
+                    alt=""
+                  />
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
 
-      <section className="bg-blue-800 text-blue-200 py-24">
-        <div className="container">
+      <section className="bg-blue-200 text-blue-900 py-24">
+        <div className="px-12">
           <div className="-mx-12 flex items-center">
             <h3 className="text-5xl w-1/2 px-12">{callout.heading}</h3>
             <Link
@@ -45,7 +57,7 @@ const HowItWorks = ({
         </div>
       </section>
 
-      <section className="my-12 lg:my-24 bg-blue-800 text-blue-200">
+      <section className="bg-blue-800 text-blue-200">
         <div className="flex flex-col lg:flex-row items-stretch">
           <div className="flex flex-col justify-center lg:w-1/2 p-8 lg:py-12 lg:px-16">
             <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
@@ -60,55 +72,12 @@ const HowItWorks = ({
               Don’t see your plan listed? Sign up and we’ll notify you when it
               is.
             </p>
-            <form>
-              <div className="mt-5 -mx-2">
-                <label>I am a</label>
-                <Select>
-                  <option>Patient</option>
-                  <option>Loved One</option>
-                  <option>Referring Provider</option>
-                  <option>Other</option>
-                </Select>
-              </div>
-              <div className="my-5 -mx-2">
-                <label htmlFor="name">Name</label>
-                <Input type="text" name="name" />
-              </div>
-              <div className="my-5 -mx-2">
-                <label htmlFor="name">Email</label>
-                <Input type="email" name="email" />
-              </div>
-              <div className="my-5 -mx-2">
-                <label htmlFor="name">Phone</label>
-                <Input type="text" name="phone" />
-              </div>
-              <div className="my-5 -mx-2">
-                <label htmlFor="name">Age of patient</label>
-                <Select>
-                  <option>5 and under</option>
-                  <option>6-27</option>
-                  <option>28+</option>
-                </Select>
-              </div>
-              <div className="my-5 -mx-2">
-                <label htmlFor="name">State</label>
-                <Select>
-                  {states.map(state => (
-                    <option>{state.value}</option>
-                  ))}
-                </Select>
-              </div>
-              <div className="my-8 -mx-2">
-                <button className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl">
-                  Submit
-                </button>
-              </div>
-            </form>
+            <NotifyForm />
           </div>
         </div>
       </section>
 
-      <section className="my-24 text-center md:px-24 lg:px-48">
+      <section className="mx-32 border-b border-blue-900 text-blue-900 py-24 text-center lg:px-24">
         <h2 className="text-5xl">Who we serve</h2>
         <p className="text-xl py-2">
           Equip aims to serve everyone. We are currently in-network with Optum
@@ -122,6 +91,9 @@ const HowItWorks = ({
 
       <div className="container">
         <section className="my-24">
+          <h2 className="text-5xl text-center text-blue-900">
+            {philosophy.title}
+          </h2>
           <div className="flex flex-wrap -mx-8">
             {philosophy.items.map(({ heading, contentHtml, image }) => (
               <div className="w-1/3 mb-12 px-8 text-center">
@@ -157,11 +129,14 @@ export const HowItWorksPageQuery = graphql`
           callToAction
           ctaPath
         }
-        feature {
+        highlights {
           callToAction
-          features {
+          highlights {
             title
             contentHtml
+            image {
+              path
+            }
           }
           title
         }

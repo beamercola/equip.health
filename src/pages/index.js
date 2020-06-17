@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 const IndexPage = ({
   data: {
     takeshape: {
-      home: { press, hero, features, testimonials },
+      home: { press, hero, highlights, testimonials },
     },
   },
 }) => {
@@ -16,7 +16,7 @@ const IndexPage = ({
     <Layout>
       <SEO title="Home" />
       <div className="overflow-x-hidden pb-24">
-        <div className="container">
+        <div className="px-16">
           <div className="flex flex-col items-center mt-12 -mx-4 lg:flex-row">
             <div className="px-4 mb-8 lg:mb-0 lg:w-3/5">
               <h1 className="text-5xl xl:text-6xl font-semibold leading-tight tracking-wider mb-8">
@@ -38,16 +38,16 @@ const IndexPage = ({
         </div>
       </div>
 
-      <section className="mb-24 bg-teal-700 text-yellow-100 pt-48 lg:py-24">
-        <div className="container">
+      <section className="mb-24 bg-teal-700 text-yellow-100 pt-48 lg:py-12">
+        <div className="px-12">
           <h2 className="text-4xl lg:text-5xl tracking-wider leading-none mb-12 text-center">
-            {features.title}
+            {highlights.title}
           </h2>
-          <div className="flex flex-col -mx-8 lg:mt-24 lg:flex-row">
-            {features.items.map(
-              ({ contentHtml, title, image: { path: image } }) => (
+          <div className="flex flex-col -mx-8 lg:mt-12 lg:flex-row">
+            {highlights.highlights.map(
+              ({ captionHtml, title, image: { path: image } }) => (
                 <div className="flex flex-row px-8 mb-12 lg:mb-0 lg:w-1/3 lg:flex-col lg:text-center">
-                  <div className="bg-blue-200 w-56 h-56 flex items-center justify-center rounded-full mx-auto mb-12 p-4">
+                  <div className="bg-blue-200 w-48 h-48 flex items-center justify-center rounded-full mx-auto mb-12 p-4">
                     <img
                       className="h-full w-full flex-shrink-0 lg:mx-auto"
                       src={getImageUrl(image)}
@@ -61,22 +61,22 @@ const IndexPage = ({
                     </h4>
                     <div
                       className="font-light"
-                      dangerouslySetInnerHTML={{ __html: contentHtml }}
+                      dangerouslySetInnerHTML={{ __html: captionHtml }}
                     />
                   </div>
                 </div>
               )
             )}
           </div>
-          <div className="text-center lg:mt-16">
+          <div className="text-center lg:mt-12">
             <a className="text-2xl py-2 border-b border-yellow-100" href="">
-              {features.callToAction}
+              {highlights.callToAction}
             </a>
           </div>
         </div>
       </section>
 
-      <div className="container">
+      <div className="px-16">
         <section className="my-24 lg:my-32">
           <div className="flex flex-col flex-wrap -mx-8 lg:flex-row -my-8">
             {testimonials.testimonials.map(({ quoteHtml, name, title }) => (
@@ -100,7 +100,7 @@ const IndexPage = ({
         </section>
       </div>
       <section className="bg-blue-900 text-white py-8">
-        <div className="container">
+        <div className="px-16">
           <h2 className="text-6xl tracking-widest">{press.title}</h2>
           <blockquote
             className="py-12 px-48 text-4xl italic text-center"
@@ -150,10 +150,10 @@ export const IndexPageQuery = graphql`
           callToAction
           ctaPath
         }
-        features {
+        highlights {
           title
-          items {
-            contentHtml
+          highlights {
+            captionHtml
             image {
               path
             }

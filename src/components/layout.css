@@ -20,7 +20,7 @@
 }
 
 body {
-  @apply bg-yellow-100;
+  @apply bg-yellow-100 text-blue-900;
 }
 
 h1,
@@ -32,6 +32,10 @@ h6 {
   @apply font-heading font-medium;
 }
 
+.container {
+  @apply px-16;
+}
+
 article p {
   @apply mb-8;
 }
@@ -41,7 +45,7 @@ form label {
 }
 
 .content ul {
-  @apply list-disc;
+  @apply list-disc ml-6;
 }
 
 .content li {

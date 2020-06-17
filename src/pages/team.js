@@ -18,7 +18,7 @@ const TeamPage = ({
 }) => {
   return (
     <Layout>
-      <div className="container">
+      <div className="px-16">
         <div className="pt-16 pb-24">
           <h1 className="text-7xl tracking-wider">{title}</h1>
           <div
