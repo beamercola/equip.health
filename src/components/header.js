@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import { Logo, Wordmark } from "../components/svg"
 import useScrollPosition from "@react-hook/window-scroll"
 
@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header
-      className={`my-4 py-2 sticky top-0 bg-yellow-100 border-b ${
+      className={`my-4 py-2 sticky top-0 bg-yellow-100 border-b transition-all duration-300 ${
         sticky ? "border-blue-900" : "border-transparent"
       }`}
     >
@@ -37,28 +37,39 @@ const Header = () => {
 const NavItem = ({ children, to }) => {
   const getLinkProps = ({ isPartiallyCurrent }) => {
     const c =
-      "lg:mx-4 xl:mx-8 py-1 border-b-2 hover:border-blue-900 text-blue-900"
+      "transition-all duration-300 lg:mx-4 xl:mx-8 py-1 border-b-2 hover:border-blue-900 text-blue-900"
     if (isPartiallyCurrent) {
-      return { className: `${c} border-black` }
+      return { className: `${c} border-blue-900` }
     } else {
       return { className: `${c} border-transparent` }
     }
   }
 
   return (
-    <Link activeClassName="border-black" to={to} getProps={getLinkProps}>
+    <Link activeClassName="border-blue-900" to={to} getProps={getLinkProps}>
       {children}
     </Link>
   )
 }
 
-const SignUpButton = () => (
-  <button className="bg-white ml-4 border-2 shadow-l tracking-wide lg:tracking-wider border-blue-900 text-blue-900 pl-2 pr-4 py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:shadow-lg flex items-center whitespace-no-wrap leading-none">
-    <span className="inline-block">
-      <Logo className="h-6 w-6 mr-2 fill-navy" />
-    </span>
-    Sign Up
-  </button>
-)
+const SignUpButton = () => {
+  const [hover, setHover] = useState(false)
+  return (
+    <button
+      className="bg-white hover:bg-blue-900 ml-4 border-2 shadow-l tracking-wide lg:tracking-wider border-blue-900 text-blue-900 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:shadow-lg flex items-center whitespace-no-wrap leading-none transform hover:scale-105"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <span className="inline-block">
+        <Logo
+          className={`h-6 w-6 mr-2 transition-all duration-300 ${
+            hover ? "fill-white" : "fill-navy"
+          }`}
+        />
+      </span>
+      Sign Up
+    </button>
+  )
+}
 
 export default Header

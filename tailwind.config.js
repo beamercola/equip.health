@@ -20,6 +20,7 @@ module.exports = {
       teal: theme("colors.teal.600"),
       sky: theme("colors.blue.200"),
       navy: theme("colors.blue.900"),
+      white: theme("colors.white"),
     }),
     fontFamily: {
       heading: ["LaNord", "sans-serif"],
@@ -29,6 +30,7 @@ module.exports = {
   variants: {
     boxShadow: ["hover"],
     borderColor: ["hover"],
+    scale: ["hover"],
   },
   plugins: [],
 }
