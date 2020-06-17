@@ -47,7 +47,7 @@ const HowItWorks = ({
 
       <section className="my-12 lg:my-24 bg-blue-800 text-blue-200">
         <div className="flex flex-col lg:flex-row items-stretch">
-          <div className="lg:w-3/5 p-8 lg:p-24">
+          <div className="flex flex-col justify-center lg:w-1/2 p-8 lg:py-12 lg:px-16">
             <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
             <div
               className="text-xl lg:text-2xl"
@@ -55,7 +55,7 @@ const HowItWorks = ({
             />
             <button></button>
           </div>
-          <div className="lg:w-2/5 bg-teal-600 text-white p-8 lg:py-12 lg:px-16">
+          <div className="lg:w-1/2 bg-teal-600 text-white p-8 lg:py-12 lg:px-16">
             <p>
               Don’t see your plan listed? Sign up and we’ll notify you when it
               is.
@@ -106,6 +106,18 @@ const HowItWorks = ({
             </form>
           </div>
         </div>
+      </section>
+
+      <section className="my-24 text-center md:px-24 lg:px-48">
+        <h2 className="text-5xl">Who we serve</h2>
+        <p className="text-xl py-2">
+          Equip aims to serve everyone. We are currently in-network with Optum
+          in California, Texas, and New York.
+        </p>
+        <p className="text-xl py-2">
+          If you live in another state, have another insurance provider, or are
+          uninsured—let us know. We hope to help you in the near future.
+        </p>
       </section>
 
       <div className="container">
