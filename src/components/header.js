@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-import Logo from "../images/logo.svg"
+import { Logo } from "../components/svg"
 import Wordmark from "../images/wordmark.svg"
 
 const Header = () => {
@@ -51,7 +51,7 @@ const Header = () => {
           </Link>
           <button className="bg-white border-2 shadow-lg tracking-wide lg:tracking-wider border-black text-black px-3 pr-4 py-2 rounded-full text-sm lg:text-lg transition-all duration-500 hover:shadow flex items-center whitespace-no-wrap leading-none">
             <div className="">
-              <img className="h-6 w-6 mr-2" src={Logo} />
+              <Logo className="h-6 w-6 mr-2" />
             </div>
             Sign Up
           </button>

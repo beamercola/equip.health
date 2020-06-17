@@ -15,28 +15,30 @@ const IndexPage = ({
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="container">
-        <div className="flex flex-col items-center mt-12 -mx-4 lg:flex-row">
-          <div className="px-4 mb-8 lg:mb-0 lg:w-3/5">
-            <h1 className="text-5xl xl:text-6xl font-semibold leading-tight tracking-wider mb-8">
-              {hero.title}
-            </h1>
-            <button className="bg-teal-600 text-yellow-100 px-6 py-3 text-2xl rounded-lg tracking-wide">
-              {hero.callToAction}
-            </button>
-          </div>
-          <div className="w-full px-4 lg:w-2/5">
-            <div className="-mx-4 lg:-ml-0 lg:-mr-32">
-              <img
-                className="bg-gray-200 shadow-2xl w-full rounded"
-                src={getImageUrl(hero.image.path)}
-              />
+      <div className="overflow-x-hidden pb-24">
+        <div className="container">
+          <div className="flex flex-col items-center mt-12 -mx-4 lg:flex-row">
+            <div className="px-4 mb-8 lg:mb-0 lg:w-3/5">
+              <h1 className="text-5xl xl:text-6xl font-semibold leading-tight tracking-wider mb-8">
+                {hero.title}
+              </h1>
+              <button className="bg-teal-600 text-yellow-100 px-6 py-3 text-2xl rounded-lg tracking-wide">
+                {hero.callToAction}
+              </button>
+            </div>
+            <div className="w-full px-4 lg:w-2/5">
+              <div className="-mx-4 lg:-ml-0 lg:-mr-32">
+                <img
+                  className="bg-gray-200 shadow-2xl w-full rounded"
+                  src={getImageUrl(hero.image.path)}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <section className="my-24 bg-teal-700 text-yellow-100 pt-48 lg:py-24">
+      <section className="mb-24 bg-teal-700 text-yellow-100 pt-48 lg:py-24">
         <div className="container">
           <h2 className="text-4xl lg:text-5xl tracking-wider leading-none mb-12 text-center">
             {features.title}
