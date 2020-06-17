@@ -37,11 +37,7 @@ article p {
 }
 
 form label {
-  @apply block mb-1 text-xs text-teal-700 uppercase px-2;
-}
-
-form input[type="text"] {
-  @apply rounded-lg bg-white px-4 py-3 w-full;
+  @apply block mb-1 text-xs text-yellow-100 uppercase px-3;
 }
 
 .content ul {

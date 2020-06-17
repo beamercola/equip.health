@@ -46,7 +46,11 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex w-1/4 justify-end">
-          <Link className="mx-6 py-2" to="/contact" getProps={getLinkProps}>
+          <Link
+            className="mx-6 py-2 text-lg"
+            to="/contact"
+            getProps={getLinkProps}
+          >
             Log In
           </Link>
           <button className="bg-white border-2 shadow-lg tracking-wide lg:tracking-wider border-black text-black px-3 pr-4 py-2 rounded-full text-sm lg:text-lg transition-all duration-500 hover:shadow flex items-center whitespace-no-wrap leading-none">

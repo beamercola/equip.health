@@ -10,24 +10,54 @@ const Footer = () => (
           <Logo className="fill-sky" />
         </div>
         <div className="w-2/6 px-12 text-blue-200 text-xl">
-          <ul>
+          <ul className="flex flex-col h-full justify-between">
             <li>
-              <Link to="/">Home</Link>
+              <Link
+                className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                to="/"
+              >
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/how-it-works">How It Works</Link>
+              <Link
+                className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                to="/how-it-works"
+              >
+                How It Works
+              </Link>
             </li>
             <li>
-              <Link to="/team">Team</Link>
+              <Link
+                className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                to="/team"
+              >
+                Team
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link
+                className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                to="/contact"
+              >
+                Contact
+              </Link>
             </li>
             <li>
-              <Link to="/privacy">Privacy</Link>
+              <Link
+                className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                to="/privacy"
+              >
+                Privacy
+              </Link>
             </li>
             <li>
-              <Link to="/enterprise">Enterprise Partnerships</Link>
+              <Link
+                className="inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                to="/enterprise"
+              >
+                Enterprise Partnerships
+              </Link>
             </li>
           </ul>
         </div>

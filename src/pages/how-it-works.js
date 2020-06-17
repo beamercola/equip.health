@@ -2,11 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
+import { Input, Select, states } from "../components/forms"
 
 const HowItWorks = ({
   data: {
     takeshape: {
-      howItWorks: { callout, feature, philosophy, logos },
+      howItWorks: { callout, feature, philosophy, insurance, logos },
     },
   },
 }) => {
@@ -29,6 +30,7 @@ const HowItWorks = ({
           ))}
         </div>
       </div>
+
       <section className="bg-blue-800 text-blue-200 py-24">
         <div className="container">
           <div className="-mx-12 flex items-center">
@@ -42,6 +44,70 @@ const HowItWorks = ({
           </div>
         </div>
       </section>
+
+      <section className="my-12 lg:my-24 bg-blue-800 text-blue-200">
+        <div className="flex flex-col lg:flex-row items-stretch">
+          <div className="lg:w-3/5 p-8 lg:p-24">
+            <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
+            <div
+              className="text-xl lg:text-2xl"
+              dangerouslySetInnerHTML={{ __html: insurance.contentHtml }}
+            />
+            <button></button>
+          </div>
+          <div className="lg:w-2/5 bg-teal-600 text-white p-8 lg:py-12 lg:px-16">
+            <p>
+              Don’t see your plan listed? Sign up and we’ll notify you when it
+              is.
+            </p>
+            <form>
+              <div className="mt-5 -mx-2">
+                <label>I am a</label>
+                <Select>
+                  <option>Patient</option>
+                  <option>Loved One</option>
+                  <option>Referring Provider</option>
+                  <option>Other</option>
+                </Select>
+              </div>
+              <div className="my-5 -mx-2">
+                <label htmlFor="name">Name</label>
+                <Input type="text" name="name" />
+              </div>
+              <div className="my-5 -mx-2">
+                <label htmlFor="name">Email</label>
+                <Input type="email" name="email" />
+              </div>
+              <div className="my-5 -mx-2">
+                <label htmlFor="name">Phone</label>
+                <Input type="text" name="phone" />
+              </div>
+              <div className="my-5 -mx-2">
+                <label htmlFor="name">Age of patient</label>
+                <Select>
+                  <option>5 and under</option>
+                  <option>6-27</option>
+                  <option>28+</option>
+                </Select>
+              </div>
+              <div className="my-5 -mx-2">
+                <label htmlFor="name">State</label>
+                <Select>
+                  {states.map(state => (
+                    <option>{state.value}</option>
+                  ))}
+                </Select>
+              </div>
+              <div className="my-8 -mx-2">
+                <button className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <div className="container">
         <section className="my-24">
           <div className="flex flex-wrap -mx-8">
@@ -101,6 +167,10 @@ export const HowItWorksPageQuery = graphql`
           logo {
             path
           }
+        }
+        insurance {
+          contentHtml
+          title
         }
       }
     }
