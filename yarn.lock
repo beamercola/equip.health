@@ -11975,6 +11975,11 @@ react-clientside-effect@^1.2.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+react-cool-inview@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-1.1.1.tgz#398cad473364640ee949ca6308e6e80cbdf89fa2"
+  integrity sha512-Lrdeev/lr1fOjYfRd5Wf7LGhkgiKO2cp497pNqm0uQd65jiMLu/3omzA542iCK+6WfU+Kx6kGYN+a8nVNcER/g==
+
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"

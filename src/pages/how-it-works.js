@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import { NotifyForm } from "../components/forms"
+import useInView from "react-cool-inview"
 
 const HowItWorks = ({
   data: {
@@ -19,29 +20,9 @@ const HowItWorks = ({
         </h1>
 
         <div className="">
-          {highlights.highlights.map(({ title, contentHtml, image }, i) => {
-            const even = i % 2 === 0
-            return (
-              <div className="flex mb-24">
-                <div className={`w-1/2 content ${even && "order-2"}`}>
-                  <h4 className="text-4xl tracking-wider mb-4 leading-tight">
-                    {title}
-                  </h4>
-                  <div
-                    className="text-xl leading-snug"
-                    dangerouslySetInnerHTML={{ __html: contentHtml }}
-                  />
-                </div>
-                <div className="flex items-center justify-center w-1/2">
-                  <img
-                    className="w-96 h-96"
-                    src={image && getImageUrl(image.path)}
-                    alt=""
-                  />
-                </div>
-              </div>
-            )
-          })}
+          {highlights.highlights.map((highlight, i) => (
+            <Highlight highlight={highlight} index={i} />
+          ))}
         </div>
       </div>
 
@@ -121,6 +102,40 @@ const HowItWorks = ({
 }
 
 export default HowItWorks
+
+const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
+  const even = index % 2 === 0
+
+  const { ref, inView } = useInView()
+
+  const delay = [
+    "",
+    "delay-100",
+    "delay-200",
+    "delay-300",
+    "delay-400",
+    "delay-500",
+  ][index]
+
+  return (
+    <div className="flex mb-24" ref={ref}>
+      <div className={`w-1/2 content ${even && "order-2"}`}>
+        <h4 className="text-4xl tracking-wider mb-4 leading-tight">{title}</h4>
+        <div
+          className="text-xl leading-snug"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+      </div>
+      <div className="flex items-center justify-center w-1/2">
+        <img
+          className={`w-96 h-96`}
+          src={image && getImageUrl(image.path)}
+          alt=""
+        />
+      </div>
+    </div>
+  )
+}
 
 export const HowItWorksPageQuery = graphql`
   query HowItWorksPageQuery {
