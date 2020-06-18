@@ -5,11 +5,11 @@ import { Logo } from "./svg"
 const Footer = () => (
   <footer>
     <div className="bg-teal-800 py-12 container">
-      <div className="flex flex-col lg:flex-row -mx-12">
+      <div className="flex flex-col lg:flex-row lg:-mx-12">
         <div className="w-1/2 lg:w-2/6 px-12">
           <Logo className="fill-sky mb-12" />
         </div>
-        <div className="lg:w-3/6 px-12 text-blue-200 text-3xl lg:text-4xl leading-tight">
+        <div className="lg:w-3/6 lg:px-12 text-blue-200 text-3xl lg:text-4xl leading-tight">
           <ul>
             <li>
               <Link

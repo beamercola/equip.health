@@ -22,7 +22,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="w-2/4 hidden justify-center lg:flex flex-col tracking-wider text-lg -mx-8 lg:flex-row">
+        <div className="w-2/4 hidden justify-center lg:flex flex-col tracking-wider text-lg lg:flex-row">
           <NavItem to="/how-it-works">How It Works</NavItem>
           <NavItem to="/team">Team</NavItem>
           <NavItem to="/contact">Contact</NavItem>

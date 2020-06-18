@@ -3,7 +3,7 @@ import { getImageUrl } from "@takeshape/routing"
 
 const Highlight = ({ captionHtml, title, image }) => {
   return (
-    <div className="px-8 mb-12 lg:mb-0 lg:w-1/3 lg:text-center">
+    <div className="lg:px-8 mb-12 lg:mb-0 lg:w-1/3 lg:text-center">
       <div className="bg-blue-200 w-48 h-48 flex items-center justify-center rounded-full mx-auto mb-12 p-2">
         <img
           className="h-full w-full flex-shrink-0 lg:mx-auto"

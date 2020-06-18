@@ -18,24 +18,22 @@ const IndexPage = ({
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="overflow-x-hidden pb-24">
-        <div className="container">
-          <div className="flex flex-col items-center mt-12 -mx-4 lg:flex-row">
-            <div className="px-4 mb-8 lg:mb-0 lg:w-3/5">
-              <h1 className="text-5xl xl:text-6xl font-semibold leading-tight tracking-wider mb-8">
-                {hero.title}
-              </h1>
-              <button className="bg-teal-600 text-yellow-100 px-6 py-3 text-2xl rounded-lg tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                {hero.callToAction}
-              </button>
-            </div>
-            <div className="w-full px-4 lg:w-2/5">
-              <div className="-mx-4 lg:-ml-0 lg:-mr-32">
-                <img
-                  className="bg-gray-200 shadow-2xl w-full rounded"
-                  src={getImageUrl(hero.image.path)}
-                />
-              </div>
+      <div className="overflow-x-hidden pb-24 container">
+        <div className="flex flex-col items-center mt-12 -mx-4 lg:flex-row">
+          <div className="px-4 mb-8 lg:mb-0 lg:w-3/5">
+            <h1 className="text-5xl xl:text-6xl font-semibold leading-tight tracking-wider mb-8">
+              {hero.title}
+            </h1>
+            <button className="bg-teal-600 text-yellow-100 px-6 py-3 text-2xl rounded-lg tracking-wide transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              {hero.callToAction}
+            </button>
+          </div>
+          <div className="w-full px-4 lg:w-2/5">
+            <div className="-mx-4 lg:-ml-0 lg:-mr-32">
+              <img
+                className="bg-gray-200 shadow-2xl w-full rounded"
+                src={getImageUrl(hero.image.path)}
+              />
             </div>
           </div>
         </div>
@@ -45,7 +43,7 @@ const IndexPage = ({
         <h2 className="text-4xl lg:text-5xl tracking-wider leading-none mb-12 text-center">
           {highlights.title}
         </h2>
-        <div className="flex flex-col -mx-8 lg:mt-12 lg:flex-row">
+        <div className="flex flex-col lg:-mx-8 lg:mt-12 lg:flex-row">
           {highlights.highlights.map(highlight => (
             <Highlight {...highlight} />
           ))}
