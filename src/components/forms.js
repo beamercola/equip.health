@@ -4,7 +4,7 @@ export const Select = ({ children, onChange }) => {
   return (
     <div className="inline-block relative w-full">
       <select
-        className="block text-lg text-black appearance-none w-full bg-white px-5 py-3 pr-8 rounded-full shadow-lg focus:outline-none"
+        className="block text-lg text-black appearance-none w-full bg-white px-5 py-3 pr-8 rounded-full shadow focus:shadow-lg focus:outline-none grow"
         onChange={onChange}
       >
         {children}
@@ -26,7 +26,7 @@ export const Input = props => {
   return (
     <input
       {...props}
-      className={`${props.className} rounded-full bg-white px-5 py-3 placeholder-gray-600 text-black bg-white px-3 py-2 w-full outline-none`}
+      className={`${props.className} rounded-full bg-white px-5 py-3 placeholder-gray-600 text-black bg-white px-3 py-2 w-full outline-none grow`}
     />
   )
 }
@@ -51,45 +51,52 @@ export const NotifyForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mt-5 -mx-2">
-        <label>I am a</label>
-        <Select name="type" onChange={handleChange}>
-          {types.map(t => (
-            <option>{t}</option>
-          ))}
-        </Select>
+      <div className="flex flex-col -mx-4">
+        <div className="mt-5 px-4 w-full">
+          <label>I am a</label>
+          <Select name="type" onChange={handleChange}>
+            {types.map(t => (
+              <option>{t}</option>
+            ))}
+          </Select>
+        </div>
+        <div className="my-3 px-4 w-full">
+          <label htmlFor="name">Age of patient</label>
+          <Select name="age" onChange={handleChange}>
+            {ages.map(t => (
+              <option selected={t === params.age}>{t}</option>
+            ))}
+          </Select>
+        </div>
       </div>
-      <div className="my-5 -mx-2">
-        <label htmlFor="name">Name</label>
-        <Input type="text" name="name" onChange={handleChange} />
+      <div className="flex flex-col lg:flex-row -mx-4">
+        <div className="my-3 px-4 lg:w-1/2">
+          <label htmlFor="name">Name</label>
+          <Input type="text" name="name" onChange={handleChange} />
+        </div>
+        <div className="my-3 px-4 lg:w-1/2">
+          <label htmlFor="name">Email</label>
+          <Input type="email" name="email" onChange={handleChange} />
+        </div>
       </div>
-      <div className="my-5 -mx-2">
-        <label htmlFor="name">Email</label>
-        <Input type="email" name="email" onChange={handleChange} />
+      <div className="flex flex-col lg:flex-row -mx-4">
+        <div className="my-3 px-4 lg:w-1/2">
+          <label htmlFor="name">Phone</label>
+          <Input type="text" name="phone" onChange={handleChange} />
+        </div>
+        <div className="my-3 px-4 lg:w-1/2">
+          <label htmlFor="name">State</label>
+          <Select name="state" onChange={handleChange}>
+            {states.map(state => (
+              <option>{state.value}</option>
+            ))}
+          </Select>
+        </div>
       </div>
-      <div className="my-5 -mx-2">
-        <label htmlFor="name">Phone</label>
-        <Input type="text" name="phone" onChange={handleChange} />
-      </div>
-      <div className="my-5 -mx-2">
-        <label htmlFor="name">Age of patient</label>
-        <Select name="age" onChange={handleChange}>
-          {ages.map(t => (
-            <option selected={t === params.age}>{t}</option>
-          ))}
-        </Select>
-      </div>
-      <div className="my-5 -mx-2">
-        <label htmlFor="name">State</label>
-        <Select name="state" onChange={handleChange}>
-          {states.map(state => (
-            <option>{state.value}</option>
-          ))}
-        </Select>
-      </div>
-      <div className="my-8 -mx-2">
+
+      <div className="mt-6">
         <input
-          className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer"
+          className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
           type="submit"
           value="Submit"
         />

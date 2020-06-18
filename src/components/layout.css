@@ -33,7 +33,13 @@ h6 {
 }
 
 .container {
-  @apply px-16;
+  @apply px-6;
+}
+
+@screen lg {
+  .container {
+    @apply px-16;
+  }
 }
 
 article p {
@@ -50,4 +56,16 @@ form label {
 
 .content li {
   @apply mb-4;
+}
+
+.content p {
+  @apply mb-4;
+}
+
+.grow {
+  @apply transition-all duration-300 transform;
+}
+
+.grow:hover {
+  @apply scale-105;
 }

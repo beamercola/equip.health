@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import { NotifyForm } from "../components/forms"
 import useInView from "react-cool-inview"
+import Modal from "react-modal"
 
 const HowItWorks = ({
   data: {
@@ -12,10 +13,12 @@ const HowItWorks = ({
     },
   },
 }) => {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <Layout>
       <div className="container">
-        <h1 className="text-7xl pt-16 pb-24 tracking-wider text-blue-900 leading-none">
+        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-blue-900 leading-none">
           {highlights.title}
         </h1>
 
@@ -26,17 +29,17 @@ const HowItWorks = ({
         </div>
       </div>
 
-      <section className="bg-blue-200 text-blue-900 py-24">
-        <div className="px-12">
-          <div className="-mx-12 flex items-center">
-            <h3 className="text-5xl w-1/2 px-12">{callout.heading}</h3>
-            <Link
-              className="px-12 w-1/2 text-2xl underline"
-              to={callout.ctaPath}
-            >
-              {callout.callToAction}
-            </Link>
-          </div>
+      <section className="bg-blue-200 text-blue-900 py-16 container">
+        <div className="-mx-12 flex flex-col lg:flex-row items-center">
+          <h3 className="text-5xl lg:w-1/2 px-12 mb-12 lg:mb-0">
+            {callout.heading}
+          </h3>
+          <Link
+            className="px-12 lg:w-1/2 text-2xl underline"
+            to={callout.ctaPath}
+          >
+            {callout.callToAction}
+          </Link>
         </div>
       </section>
 
@@ -45,7 +48,7 @@ const HowItWorks = ({
           <div className="flex flex-col justify-center lg:w-1/2 p-8 lg:py-12 lg:px-16">
             <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
             <div
-              className="text-xl lg:text-2xl"
+              className="text-xl lg:text-2xl content"
               dangerouslySetInnerHTML={{ __html: insurance.contentHtml }}
             />
             <button></button>
@@ -60,7 +63,7 @@ const HowItWorks = ({
         </div>
       </section>
 
-      <section className="mx-32 border-b border-blue-900 text-blue-900 py-24 text-center lg:px-24">
+      <section className="mx-8 lg:mx-32 border-b border-blue-900 text-blue-900 py-24 text-center lg:px-24">
         <h2 className="text-5xl">Who we serve</h2>
         <p className="text-xl py-2">
           Equip aims to serve everyone. We are currently in-network with Optum
@@ -79,7 +82,7 @@ const HowItWorks = ({
           </h2>
           <div className="flex flex-wrap -mx-8">
             {philosophy.items.map(({ heading, contentHtml, image }) => (
-              <div className="w-1/3 mb-12 px-8 text-center">
+              <div className="lg:w-1/3 mb-12 px-8 text-center">
                 <img
                   className="w-48 h-48 mx-auto"
                   src={image && getImageUrl(image.path)}
@@ -118,19 +121,21 @@ const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
   ][index]
 
   return (
-    <div className="flex mb-24" ref={ref}>
-      <div className={`w-1/2 content ${even && "order-2"}`}>
-        <h4 className="text-4xl tracking-wider mb-4 leading-tight">{title}</h4>
-        <div
-          className="text-xl leading-snug"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
-      </div>
-      <div className="flex items-center justify-center w-1/2">
+    <div className="flex flex-col lg:flex-row mb-12 lg:mb-24" ref={ref}>
+      <div className="lg:w-1/2 flex items-center justify-center order-1">
         <img
-          className={`w-96 h-96`}
+          className={`w-64 h-64 mb-8 lg:w-96 lg:h-96`}
           src={image && getImageUrl(image.path)}
           alt=""
+        />
+      </div>
+      <div className={`lg:w-1/2 content ${even && "lg:order-2"}`}>
+        <h4 className="text-2xl lg:text-4xl tracking-wider mb-4 leading-tight">
+          {title}
+        </h4>
+        <div
+          className="text-lg lg:text-xl leading-snug"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>
     </div>

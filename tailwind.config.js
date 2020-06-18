@@ -28,7 +28,7 @@ module.exports = {
     },
   },
   variants: {
-    boxShadow: ["hover"],
+    boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
     scale: ["hover"],
   },

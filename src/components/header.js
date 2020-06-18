@@ -9,13 +9,17 @@ const Header = () => {
 
   return (
     <header
-      className={`my-4 py-2 sticky top-0 bg-yellow-100 border-b transition-all duration-300 ${
+      className={`my-4 py-2 sticky top-0 z-50 bg-yellow-100 border-b transition-all duration-300 ${
         sticky ? "border-blue-900" : "border-transparent"
       }`}
     >
       <nav className="container py-1 flex items-center justify-between">
         <Link className="w-1/2 lg:w-1/4" to="/">
-          <Wordmark className="h-8 max-w-none fill-navy" />
+          <Wordmark
+            className={`max-w-none fill-navy transition-all duration-100 ${
+              sticky ? "h-6" : "h-8"
+            }`}
+          />
         </Link>
 
         <div className="w-2/4 hidden justify-center lg:flex flex-col tracking-wider text-lg -mx-8 lg:flex-row">

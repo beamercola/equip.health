@@ -18,9 +18,9 @@ const TeamPage = ({
 }) => {
   return (
     <Layout>
-      <div className="px-16">
+      <div className="container">
         <div className="pt-16 pb-24">
-          <h1 className="text-7xl tracking-wider">{title}</h1>
+          <h1 className="text-7xl tracking-wider leading-none mb-6">{title}</h1>
           <div
             className="text-2xl"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
@@ -29,7 +29,10 @@ const TeamPage = ({
 
         <section className="flex flex-wrap -mx-4 lg:-mx-8">
           {members.map((member, index) => (
-            <div className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8" key={index}>
+            <div
+              className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8 transition-all transform duration-200 hover:scale-105"
+              key={index}
+            >
               <img
                 className="mb-4"
                 alt={member.name}
@@ -47,7 +50,7 @@ const TeamPage = ({
               <h3 className="text-xl mb-4">{group.title}</h3>
               <div className="flex flex-wrap -mx-2 lg:-mx-4">
                 {group.members.map((member, index) => (
-                  <div className="px-2 lg:px-4 w-1/4">
+                  <div className="px-2 lg:px-4 mb-4 w-1/4 transition-all transform duration-200 hover:scale-105">
                     <img
                       className="mb-2"
                       src={`https://source.unsplash.com/800x950?avatar&sig=${
