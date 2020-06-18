@@ -3,8 +3,8 @@ import React from "react"
 const Testimonials = ({ testimonials }) => {
   return (
     <div className="flex flex-col flex-wrap lg:-mx-8 lg:flex-row -my-8">
-      {testimonials.testimonials.map(testimonial => (
-        <Testimonial {...testimonial} />
+      {testimonials.testimonials.map((testimonial, i) => (
+        <Testimonial key={i} {...testimonial} />
       ))}
     </div>
   )

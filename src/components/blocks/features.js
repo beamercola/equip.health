@@ -20,8 +20,8 @@ const FeatureTable = ({ features }) => {
         </tr>
       </thead>
       <tbody>
-        {features.map(feature => (
-          <tr>
+        {features.map((feature, i) => (
+          <tr key={i}>
             <td className="p-4 border-b border-blue-900 text-right lg:w-72 font-bold">
               {feature.feature}
             </td>
