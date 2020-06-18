@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Press from "../components/blocks/press"
 import FeatureTable from "../components/blocks/features"
 import Testimonials from "../components/blocks/testimonials"
+import Highlight from "../components/blocks/highlight"
 
 const IndexPage = ({
   data: {
@@ -45,29 +46,9 @@ const IndexPage = ({
           {highlights.title}
         </h2>
         <div className="flex flex-col -mx-8 lg:mt-12 lg:flex-row">
-          {highlights.highlights.map(
-            ({ captionHtml, title, image: { path: image } }) => (
-              <div className="px-8 mb-12 lg:mb-0 lg:w-1/3 lg:text-center">
-                <div className="bg-blue-200 w-48 h-48 flex items-center justify-center rounded-full mx-auto mb-12 p-2">
-                  <img
-                    className="h-full w-full flex-shrink-0 lg:mx-auto"
-                    src={getImageUrl(image)}
-                    alt=""
-                  />
-                </div>
-
-                <div>
-                  <h4 className="text-xl lg:text-xl tracking-wider leading-snug mb-2">
-                    {title}
-                  </h4>
-                  <div
-                    className="font-light"
-                    dangerouslySetInnerHTML={{ __html: captionHtml }}
-                  />
-                </div>
-              </div>
-            )
-          )}
+          {highlights.highlights.map(highlight => (
+            <Highlight {...highlight} />
+          ))}
         </div>
         <div className="text-center lg:mt-12">
           <a

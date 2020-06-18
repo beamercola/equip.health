@@ -17,12 +17,12 @@ const HowItWorks = ({
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container pb-16">
         <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-blue-900 leading-none">
           {highlights.title}
         </h1>
 
-        <div className="">
+        <div className="lg:-my-24">
           {highlights.highlights.map((highlight, i) => (
             <Highlight highlight={highlight} index={i} />
           ))}
@@ -121,10 +121,10 @@ const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
   ][index]
 
   return (
-    <div className="flex flex-col lg:flex-row mb-12 lg:mb-24" ref={ref}>
-      <div className="lg:w-1/2 flex items-center justify-center order-1">
+    <div className="flex flex-col lg:flex-row mb-8 lg:my-24" ref={ref}>
+      <div className="lg:w-1/2 flex items-center justify-center lg:order-1">
         <img
-          className={`w-64 h-64 mb-8 lg:w-96 lg:h-96`}
+          className={`w-64 h-64 lg:w-96 lg:h-96 mb-4`}
           src={image && getImageUrl(image.path)}
           alt=""
         />
