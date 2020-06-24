@@ -17,7 +17,7 @@ const Header = () => {
       >
         <nav className="py-1">
           <div className="container flex flex-col lg:flex-row lg:items-center justify-between">
-            <div className="flex w-full justify-between items-center">
+            <div className="flex lg:w-1/4 w-full justify-between items-center">
               <Link className="lg:w-1/4" to="/">
                 <Wordmark
                   className={`max-w-none fill-navy transition-all duration-100 ${
@@ -36,7 +36,7 @@ const Header = () => {
 
             <div
               className={`lg:w-2/4 lg:justify-center flex flex-col tracking-wider text-lg py-8 lg:py-0 lg:flex-row transition-all ${
-                !open && "hidden"
+                !open && "hidden lg:flex"
               }`}
             >
               <NavItem to="/how-it-works">How It Works</NavItem>
@@ -46,7 +46,7 @@ const Header = () => {
 
             <div
               className={`flex lg:w-1/4 lg:justify-end items-center lg:mt-0 ${
-                !open && "hidden"
+                !open && "hidden lg:flex"
               }`}
             >
               <Link
