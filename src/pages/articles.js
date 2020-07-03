@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ArticleCard from "../components/article_card"
 
 const ArticlePage = ({
   data: {
@@ -15,22 +16,12 @@ const ArticlePage = ({
     <Layout>
       <SEO title="Articles" />
       <div className="container">
+        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-blue-900 leading-none">
+          Articles
+        </h1>
         <div className="flex flex-wrap -mx-8">
           {articles.map(article => (
-            <Link
-              className="w-full md:w-1/2 lg:w-1/3 px-8 mb-8 grow"
-              key={article._id}
-              to={`/articles/${article.slug}`}
-            >
-              <img
-                className="w-full h-48 lg:h-56 mb-2 bg-teal-800 object-cover"
-                src={article.photo && getImageUrl(article.photo.path)}
-              />
-              <div className="">
-                <h4 className="font-heading text-2xl">{article.title}</h4>
-                <div className="text-xs">{article.date}</div>
-              </div>
-            </Link>
+            <ArticleCard article={article} key={article._id} />
           ))}
         </div>
       </div>
@@ -54,6 +45,7 @@ export const ArticlePageQuery = graphql`
             path
           }
           category {
+            _id
             name
           }
         }

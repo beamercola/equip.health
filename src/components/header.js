@@ -41,7 +41,7 @@ const Header = () => {
             >
               <NavItem to="/how-it-works">How It Works</NavItem>
               <NavItem to="/team">Team</NavItem>
-              <NavItem to="/contact">Contact</NavItem>
+              <NavItem to="/articles">Blog</NavItem>
             </div>
 
             <div
