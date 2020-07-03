@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
+var { DateTime } = require("luxon")
 
 const ArticleCard = ({ article }) => (
   <Link
@@ -14,7 +15,9 @@ const ArticleCard = ({ article }) => (
     />
     <div className="">
       <h4 className="font-heading text-2xl">{article.title}</h4>
-      <div className="text-xs">{article.date}</div>
+      <div className="text-xs">
+        {DateTime.fromISO(article.date).toLocaleString(DateTime.DATETIME_MED)}
+      </div>
     </div>
   </Link>
 )

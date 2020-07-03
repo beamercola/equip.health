@@ -4,6 +4,7 @@ import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import { NotifyForm } from "../components/forms"
 import useInView from "react-cool-inview"
+import PageHeader from "../components/page_header"
 import Modal from "react-modal"
 
 const HowItWorks = ({
@@ -18,9 +19,7 @@ const HowItWorks = ({
   return (
     <Layout>
       <div className="container pb-16">
-        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-blue-900 leading-none">
-          {highlights.title}
-        </h1>
+        <PageHeader title={highlights.title} />
 
         <div className="lg:-my-24">
           {highlights.highlights.map((highlight, i) => (
@@ -121,7 +120,10 @@ const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
   ][index]
 
   return (
-    <div className="flex flex-col lg:flex-row mb-8 lg:my-24" ref={ref}>
+    <div
+      className="flex flex-col lg:flex-row mb-8 lg:my-24 items-center"
+      ref={ref}
+    >
       <div className="lg:w-1/2 flex items-center justify-center lg:order-1">
         <img
           className={`w-64 h-64 lg:w-96 lg:h-96 mb-4`}
@@ -130,11 +132,11 @@ const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
         />
       </div>
       <div className={`lg:w-1/2 content ${even && "lg:order-2"}`}>
-        <h4 className="text-2xl lg:text-4xl tracking-wider mb-4 leading-tight">
+        <h4 className="text-2xl lg:text-2xl tracking-wider mb-4 leading-tight">
           {title}
         </h4>
         <div
-          className="text-lg lg:text-xl leading-snug"
+          className="text-lg leading-snug"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>

@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PageHeader from "../components/page_header"
 
 // getImageUrl(member.photo.path, {
 //   w: 800,
@@ -19,13 +20,7 @@ const TeamPage = ({
   return (
     <Layout>
       <div className="container">
-        <div className="pt-16 pb-24">
-          <h1 className="text-7xl tracking-wider leading-none mb-6">{title}</h1>
-          <div
-            className="text-2xl"
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
-          />
-        </div>
+        <PageHeader title={title} subtitle={contentHtml} />
 
         <section className="flex flex-wrap -mx-4 lg:-mx-8">
           {members.map((member, index) => (

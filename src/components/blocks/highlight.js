@@ -13,9 +13,7 @@ const Highlight = ({ captionHtml, title, image }) => {
       </div>
 
       <div>
-        <h4 className="text-xl lg:text-xl tracking-wider leading-snug mb-2">
-          {title}
-        </h4>
+        <h4 className="text-lg tracking-wider leading-snug mb-2">{title}</h4>
         <div
           className="font-light"
           dangerouslySetInnerHTML={{ __html: captionHtml }}

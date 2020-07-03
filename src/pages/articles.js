@@ -4,6 +4,7 @@ import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleCard from "../components/article_card"
+import PageHeader from "../components/page_header"
 
 const ArticlePage = ({
   data: {
@@ -16,9 +17,7 @@ const ArticlePage = ({
     <Layout>
       <SEO title="Articles" />
       <div className="container">
-        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-blue-900 leading-none">
-          Articles
-        </h1>
+        <PageHeader title="Articles" />
         <div className="flex flex-wrap -mx-8">
           {articles.map(article => (
             <ArticleCard article={article} key={article._id} />
