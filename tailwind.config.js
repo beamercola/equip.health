@@ -30,6 +30,7 @@ module.exports = {
   variants: {
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
+    borderWidth: ["last"],
     scale: ["hover"],
   },
   plugins: [],

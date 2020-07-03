@@ -4,7 +4,7 @@ import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Press from "../components/blocks/press"
-import FeatureTable from "../components/blocks/features"
+import FeatureTable from "../components/blocks/feature_table"
 import Testimonials from "../components/blocks/testimonials"
 import Highlight from "../components/blocks/highlight"
 
@@ -107,7 +107,9 @@ export const IndexPageQuery = graphql`
         compare {
           features {
             feature
-            availability
+            general
+            family
+            equip
           }
         }
         highlights {
