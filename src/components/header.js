@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <>
       <header
-        className={`py-6 sticky top-0 z-50 bg-yellow-100 border-b transition-all duration-300 ${
-          sticky || open ? "border-blue-900" : "border-transparent"
+        className={`sticky top-0 z-50 bg-yellow-100 border-b transition-all duration-300 ${
+          sticky || open ? "border-blue-900 py-2" : "border-transparent py-6"
         }`}
       >
         <nav className="py-1">
