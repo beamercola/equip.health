@@ -35,7 +35,7 @@ const IndexPage = ({
               {hero.title}
             </h1>
             <p>{hero.subtitle}</p>
-            <button className="bg-teal-600 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow">
+            <button className="bg-teal-300 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow">
               {hero.callToAction}
             </button>
           </div>
@@ -50,11 +50,7 @@ const IndexPage = ({
         </div>
       </div>
 
-      <section className="container py-16">
-        <FeatureTable features={compare.features} />
-      </section>
-
-      <section className="bg-teal-700 text-yellow-100 py-12 container border-teal-800 border-t border-b">
+      <section className="bg-teal-300 text-cream-300 py-12 container border-teal-400 border-t border-b">
         <h2 className="text-4xl lg:text-5xl tracking-wider leading-none mb-12 text-center">
           {highlights.title}
         </h2>
@@ -65,12 +61,16 @@ const IndexPage = ({
         </div>
         <div className="text-center lg:mt-12">
           <a
-            className="text-2xl py-1 border-b border-yellow-100 grow inline-block"
+            className="text-2xl py-1 border-b border-cream-300 grow inline-block"
             href=""
           >
             {highlights.callToAction}
           </a>
         </div>
+      </section>
+
+      <section className="container py-16">
+        <FeatureTable features={compare.features} />
       </section>
 
       <section className="py-16 container">
@@ -79,13 +79,13 @@ const IndexPage = ({
 
       <Callout {...callout} />
 
-      {/* <section className="bg-blue-900 text-white py-8">
+      {/* <section className="bg-navy-300 text-white py-8">
         <Press press={press} />
       </section> */}
 
       <div className="container">
         <section className="my-24">
-          <h2 className="text-5xl text-center text-blue-900 mb-4">
+          <h2 className="text-5xl text-center text-navy-300 mb-4">
             {philosophy.title}
           </h2>
           <div className="flex flex-wrap -mx-8">
@@ -96,7 +96,7 @@ const IndexPage = ({
                   src={image && getImageUrl(image.path)}
                   alt=""
                 />
-                <h4 className="text-lg tracking-wider mb-2 text-blue-900">
+                <h4 className="text-lg tracking-wider mb-2 text-navy-300">
                   {heading}
                 </h4>
                 <div

@@ -19,7 +19,7 @@ const FeatureTable = ({ features }) => {
       <div>
         {features.map((feature, i) => (
           <div
-            className="flex border-b border-blue-900 last:border-b-0"
+            className="flex border-b border-navy-300 last:border-b-0"
             key={i}
           >
             <div className="p-4 text-righ font-bold w-2/5 flex-shrink-0">

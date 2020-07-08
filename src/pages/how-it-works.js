@@ -31,7 +31,7 @@ const HowItWorks = ({
 
       <Callout {...callout} />
 
-      <section className="bg-blue-800 text-blue-200">
+      <section className="bg-navy-300 text-sky-300">
         <div className="flex flex-col lg:flex-row items-stretch">
           <div className="flex flex-col justify-center lg:w-1/2 p-8 lg:py-12 lg:px-16">
             <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
@@ -41,8 +41,8 @@ const HowItWorks = ({
             />
             <button></button>
           </div>
-          <div className="lg:w-1/2 bg-teal-600 text-white p-8 lg:py-12 lg:px-16">
-            <p className="bg-teal-700 px-3 py-2 rounded-lg text-teal-200 text-sm">
+          <div className="lg:w-1/2 bg-teal-300 text-white p-8 lg:py-12 lg:px-16">
+            <p className="bg-teal-400 px-3 py-2 rounded-lg text-teal-200 text-sm">
               Don’t see your plan listed? Sign up and we’ll notify you when it
               is.
             </p>
@@ -51,7 +51,7 @@ const HowItWorks = ({
         </div>
       </section>
 
-      <section className="mx-8 lg:mx-32 border-b border-blue-900 text-blue-900 py-24 text-center lg:px-24">
+      <section className="mx-8 lg:mx-32 text-navy-300 py-24 text-center lg:px-24">
         <h2 className="text-5xl">Who we serve</h2>
         <p className="text-xl py-2">
           Equip aims to serve everyone. We are currently in-network with Optum

@@ -13,7 +13,7 @@ const ArticleCategoryTemplate = ({ pageContext: category }) => {
     <Layout>
       <SEO title={`${category.name} Category`} />
       <div className="container">
-        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-blue-900 leading-none">
+        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-navy-300 leading-none">
           {category.name}
         </h1>
         <div className="flex flex-wrap -mx-8">

@@ -96,7 +96,7 @@ export const NotifyForm = () => {
 
       <div className="mt-6">
         <input
-          className="bg-blue-800 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
+          className="bg-navy-300 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
           type="submit"
           value="Submit"
         />

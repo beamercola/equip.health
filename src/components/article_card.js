@@ -10,7 +10,7 @@ const ArticleCard = ({ article }) => (
     to={`/articles/${article.slug}`}
   >
     <img
-      className="w-full h-64 lg:h-40 xl:h-56 mb-2 bg-teal-800 object-cover"
+      className="w-full h-64 lg:h-40 xl:h-56 mb-2 bg-navy-300 object-cover"
       src={article.photo && getImageUrl(article.photo.path)}
     />
     <div className="">

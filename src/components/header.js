@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 bg-yellow-100 border-b transition-all duration-300 ${
-          sticky || open ? "border-blue-900 py-2" : "border-transparent py-6"
+        className={`sticky top-0 z-50 bg-cream-300 border-b transition-all duration-300 ${
+          sticky || open ? "border-navy-300 py-2" : "border-transparent py-6"
         }`}
       >
         <nav className="py-1">
@@ -20,14 +20,14 @@ const Header = () => {
             <div className="flex lg:w-1/4 w-full justify-between items-center">
               <Link className="lg:w-1/4" to="/">
                 <Wordmark
-                  className={`max-w-none fill-navy transition-all duration-100 ${
+                  className={`max-w-none transition-all duration-100 ${
                     sticky ? "h-6" : "h-8"
                   }`}
                 />
               </Link>
               <button
                 type="button"
-                className="inline-flex lg:hidden items-center justify-center p-2 rounded-md text-blue-900 focus:outline-none focus:bg-yellow-600 focus:text-yellow-100 transition duration-150 ease-in-out"
+                className="inline-flex lg:hidden items-center justify-center p-2 rounded-md text-navy-900 focus:outline-none focus:bg-gold-300 focus:text-gold-300 transition duration-150 ease-in-out"
                 onClick={() => setOpen(!open)}
               >
                 <Hamburger />
@@ -73,16 +73,16 @@ const Header = () => {
 const NavItem = ({ children, to }) => {
   const getLinkProps = ({ isPartiallyCurrent }) => {
     const c =
-      "transition-all duration-300 lg:mx-4 xl:mx-8 py-1 border-b-2 hover:border-blue-900 text-blue-900"
+      "transition-all duration-300 lg:mx-4 xl:mx-8 py-1 border-b-2 hover:border-navy-300 text-navy-300"
     if (isPartiallyCurrent) {
-      return { className: `${c} border-blue-900` }
+      return { className: `${c} border-navy-300` }
     } else {
       return { className: `${c} border-transparent` }
     }
   }
 
   return (
-    <Link activeClassName="border-blue-900" to={to} getProps={getLinkProps}>
+    <Link activeClassName="border-navy-300" to={to} getProps={getLinkProps}>
       {children}
     </Link>
   )
@@ -92,7 +92,7 @@ const SignUpButton = ({ className }) => {
   const [hover, setHover] = useState(false)
   return (
     <button
-      className={`bg-white hover:bg-blue-900 border shadow-l tracking-wide lg:tracking-wider border-blue-900 text-blue-900 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base hover:shadow-lg flex items-center whitespace-no-wrap leading-none grow ${className}`}
+      className={`bg-white hover:bg-navy-300 border shadow-l tracking-wide lg:tracking-wider border-navy-300 text-navy-300 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base hover:shadow-lg flex items-center whitespace-no-wrap leading-none grow ${className}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >

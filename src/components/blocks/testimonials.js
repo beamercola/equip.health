@@ -20,7 +20,7 @@ const Testimonial = ({ quoteHtml, name, title }) => {
         />
         <div className="flex items-center">
           <img
-            className="w-10 h-10 mr-3 flex-shrink-0 bg-blue-800 rounded-full"
+            className="w-10 h-10 mr-3 flex-shrink-0 bg-navy-300 rounded-full"
             src=""
             alt=""
           />

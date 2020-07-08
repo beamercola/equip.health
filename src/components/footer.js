@@ -4,16 +4,16 @@ import { Logo } from "./svg"
 
 const Footer = () => (
   <footer>
-    <div className="bg-teal-800 py-12 container">
+    <div className="bg-teal-300 py-12 container">
       <div className="flex flex-col lg:flex-row lg:-mx-12">
         <div className="w-1/2 lg:w-2/6 container">
-          <Logo className="fill-sky mb-12" />
+          <Logo className="text-sky-200 mb-12" />
         </div>
-        <div className="lg:w-3/6 lg:px-12 text-blue-200 text-3xl lg:text-4xl leading-tight">
+        <div className="lg:w-3/6 lg:px-12 text-sky-200 text-3xl lg:text-4xl leading-tight">
           <ul>
             <li>
               <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/"
               >
                 Home
@@ -21,7 +21,7 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/how-it-works"
               >
                 How It Works
@@ -29,7 +29,7 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/team"
               >
                 Team
@@ -37,7 +37,7 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/contact"
               >
                 Contact
@@ -45,7 +45,7 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/privacy"
               >
                 Privacy
@@ -53,7 +53,7 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-blue-200"
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/enterprise"
               >
                 Enterprise Partnerships

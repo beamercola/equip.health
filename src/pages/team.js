@@ -23,40 +23,31 @@ const TeamPage = ({
         <PageHeader title={title} subtitle={contentHtml} />
 
         <section className="flex flex-wrap -mx-4 lg:-mx-8">
-          {members.map((member, index) => (
-            <div
-              className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8 transition-all transform duration-200 hover:scale-105"
-              key={index}
-            >
-              <img
-                className="mb-4"
-                alt={member.name}
-                src={`https://source.unsplash.com/800x950?avatar&sig=${index}`}
-              />
-              <h4 className="text-2xl leading-none">{member.name}</h4>
-              <p className="opacity-25">{member.title}</p>
-            </div>
+          {members.map(member => (
+            <MemberCard
+              className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8"
+              key={`team-${member._id}`}
+              size="large"
+              {...member}
+            />
           ))}
         </section>
 
         <section className="my-12 lg:my-24 flex flex-wrap -mx-8">
           {advisors.map((group, i) => (
-            <div className="w-full lg:w-1/2 px-8 mb-4 lg:mb-12">
+            <div
+              className="w-full lg:w-1/2 px-8 mb-4 lg:mb-12"
+              key={`advisor-group-${group.title}`}
+            >
               <h3 className="text-xl mb-4">{group.title}</h3>
               <div className="flex flex-wrap -mx-2 lg:-mx-4">
-                {group.members.map((member, index) => (
-                  <div className="px-2 lg:px-4 mb-4 w-1/4 transition-all transform duration-200 hover:scale-105">
-                    <img
-                      className="mb-2"
-                      src={`https://source.unsplash.com/800x950?avatar&sig=${
-                        (index + 1) * (i + 1)
-                      }`}
-                      alt={member.name}
-                    />
-                    <h4 className="text-xs lg:text-sm font-normal leading-tight">
-                      {member.name}
-                    </h4>
-                  </div>
+                {group.members.map(member => (
+                  <MemberCard
+                    className="px-2 lg:px-4 mb-4 w-1/4"
+                    key={`advisor-${member._id}`}
+                    size="small"
+                    {...member}
+                  />
                 ))}
               </div>
             </div>
@@ -64,7 +55,7 @@ const TeamPage = ({
         </section>
       </div>
 
-      <section className="my-12 lg:my-24 bg-blue-800 text-blue-200">
+      <section className="my-12 lg:my-24 bg-navy-300 text-sky-300">
         <div className="flex flex-col lg:flex-row items-stretch">
           <div className="lg:w-3/5 p-8 lg:p-24">
             <h2 className="text-5xl mb-8 leading-tight">{join.title}</h2>
@@ -118,6 +109,34 @@ const TeamPage = ({
 
 export default TeamPage
 
+const MemberCard = ({ className, name, title, size, _id }) => {
+  let imgClassName, titleClassName
+  switch (size) {
+    case "small":
+      imgClassName = "mb-2"
+      titleClassName = "text-xs lg:text-sm font-normal leading-tight"
+      break
+    case "large":
+      imgClassName = "mb-4"
+      titleClassName = "text-2xl leading-none"
+      break
+  }
+
+  return (
+    <div className={`grow ${className}`}>
+      <img
+        className={imgClassName}
+        alt={name}
+        src={`https://source.unsplash.com/800x950?avatar&sig=${_id}`}
+      />
+      <h4 className={titleClassName}>{name}</h4>
+      {size === "large" && (
+        <p className="text-navy-200 text-sm mb-1">{title}</p>
+      )}
+    </div>
+  )
+}
+
 export const TeamPageQuery = graphql`
   query TeamPageQuery {
     takeshape {
@@ -125,6 +144,7 @@ export const TeamPageQuery = graphql`
         advisors {
           title
           members {
+            _id
             title
             name
             photo {
@@ -133,6 +153,7 @@ export const TeamPageQuery = graphql`
           }
         }
         members {
+          _id
           title
           name
           photo {
