@@ -92,7 +92,7 @@ const SignUpButton = ({ className }) => {
   const [hover, setHover] = useState(false)
   return (
     <button
-      className={`bg-white hover:bg-blue-900 border-2 shadow-l tracking-wide lg:tracking-wider border-blue-900 text-blue-900 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base transition-all duration-300 hover:shadow-lg flex items-center whitespace-no-wrap leading-none transform hover:scale-105 ${className}`}
+      className={`bg-white hover:bg-blue-900 border shadow-l tracking-wide lg:tracking-wider border-blue-900 text-blue-900 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base hover:shadow-lg flex items-center whitespace-no-wrap leading-none grow ${className}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >

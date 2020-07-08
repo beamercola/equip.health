@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import { NotifyForm } from "../components/forms"
 import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
+import Callout from "../components/blocks/callout"
 import Modal from "react-modal"
 
 const HowItWorks = ({
@@ -28,19 +29,7 @@ const HowItWorks = ({
         </div>
       </div>
 
-      <section className="bg-blue-200 text-blue-900 py-16 container">
-        <div className="-mx-12 flex flex-col lg:flex-row items-center">
-          <h3 className="text-5xl lg:w-1/2 px-12 mb-12 lg:mb-0">
-            {callout.heading}
-          </h3>
-          <Link
-            className="px-12 lg:w-1/2 text-2xl underline"
-            to={callout.ctaPath}
-          >
-            {callout.callToAction}
-          </Link>
-        </div>
-      </section>
+      <Callout {...callout} />
 
       <section className="bg-blue-800 text-blue-200">
         <div className="flex flex-col lg:flex-row items-stretch">
@@ -53,7 +42,7 @@ const HowItWorks = ({
             <button></button>
           </div>
           <div className="lg:w-1/2 bg-teal-600 text-white p-8 lg:py-12 lg:px-16">
-            <p>
+            <p className="bg-teal-700 px-3 py-2 rounded-lg text-teal-200 text-sm">
               Don’t see your plan listed? Sign up and we’ll notify you when it
               is.
             </p>
@@ -73,32 +62,6 @@ const HowItWorks = ({
           uninsured—let us know. We hope to help you in the near future.
         </p>
       </section>
-
-      <div className="container">
-        <section className="my-24">
-          <h2 className="text-5xl text-center text-blue-900">
-            {philosophy.title}
-          </h2>
-          <div className="flex flex-wrap -mx-8">
-            {philosophy.items.map(({ heading, contentHtml, image }) => (
-              <div className="lg:w-1/3 mb-12 px-8 text-center">
-                <img
-                  className="w-48 h-48 mx-auto"
-                  src={image && getImageUrl(image.path)}
-                  alt=""
-                />
-                <h4 className="text-lg tracking-wider mb-2 text-blue-900">
-                  {heading}
-                </h4>
-                <div
-                  className="text-sm text-gray-600"
-                  dangerouslySetInnerHTML={{ __html: contentHtml }}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
     </Layout>
   )
 }
@@ -149,7 +112,7 @@ export const HowItWorksPageQuery = graphql`
     takeshape {
       howItWorks {
         callout {
-          heading
+          title
           callToAction
           ctaPath
         }
@@ -157,16 +120,6 @@ export const HowItWorksPageQuery = graphql`
           callToAction
           highlights {
             title
-            contentHtml
-            image {
-              path
-            }
-          }
-          title
-        }
-        philosophy {
-          items {
-            heading
             contentHtml
             image {
               path

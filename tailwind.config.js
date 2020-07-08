@@ -5,6 +5,11 @@ module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
     extend: {
+      boxShadow: {
+        "teal-xl":
+          "0 20px 25px -5px rgba(64, 94, 98, 1), 0 10px 10px -5px rgba(64, 94, 98, 1)",
+        "teal-2xl": "0 25px 50px -12px rgba(64, 94, 98, 1)",
+      },
       fontSize: {
         "7xl": "5rem",
       },

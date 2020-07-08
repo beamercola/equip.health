@@ -22,7 +22,7 @@ const FeatureTable = ({ features }) => {
             className="flex border-b border-blue-900 last:border-b-0"
             key={i}
           >
-            <div className="p-4 text-right font-bold w-2/5 flex-shrink-0">
+            <div className="p-4 text-righ font-bold w-2/5 flex-shrink-0">
               {feature.feature}
             </div>
             <div className="p-4 text-center w-1/5 flex-shrink-0">
