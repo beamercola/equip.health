@@ -3,8 +3,8 @@ import { Check, Times } from "../svg"
 
 const FeatureTable = ({ features }) => {
   return (
-    <div className="text-xs lg:text-base">
-      <div className="flex items-center">
+    <div className="text-xs lg:text-base border border-navy-300 rounded-xl">
+      <div className="flex items-center border-b border-navy-300">
         <div className="w-2/5 flex-shrink-0"></div>
         <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">
           General Treatment
@@ -16,7 +16,7 @@ const FeatureTable = ({ features }) => {
           Equip Treatment
         </div>
       </div>
-      <div>
+      <div className="">
         {features.map((feature, i) => (
           <div
             className="flex border-b border-navy-300 last:border-b-0"

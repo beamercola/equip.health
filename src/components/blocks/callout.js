@@ -7,7 +7,7 @@ const Callout = ({ title, subtitleHtml, callToAction, ctaPath }) => {
       <div className="-container flex flex-col lg:flex-row items-center">
         <div className="lg:w-3/5 container mb-12 lg:mb-0">
           <h3 className="text-5xl leading-tight relative">
-            <span className="z-50 relative">{title}</span>
+            <span className="z-30 relative">{title}</span>
             <span
               className="w-24 h-24 absolute bg-gold-200 rounded-full"
               style={{ top: "-.8em", left: "-0.75em", zIndex: "0" }}

@@ -39,7 +39,7 @@ const Header = () => {
                 !open && "hidden lg:flex"
               }`}
             >
-              <NavItem to="/how-it-works">How It Works</NavItem>
+              <NavItem to="/why-equip">Why Equip</NavItem>
               <NavItem to="/team">Team</NavItem>
               <NavItem to="/articles">Blog</NavItem>
             </div>

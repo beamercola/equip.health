@@ -10,10 +10,10 @@ import FAQs from "../components/blocks/faqs"
 import SEO from "../components/seo"
 import Modal from "react-modal"
 
-const HowItWorks = ({
+const WhyEquip = ({
   data: {
     takeshape: {
-      howItWorks: { callout, highlights, philosophy, insurance, logos, faqs },
+      whyEquip: { callout, highlights, philosophy, insurance, logos, faqs },
     },
   },
 }) => {
@@ -82,9 +82,12 @@ const HowItWorks = ({
   )
 }
 
-export default HowItWorks
+export default WhyEquip
 
-const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
+const Highlight = ({
+  highlight: { title, whatHtml, whyHtml, image },
+  index,
+}) => {
   const even = index % 2 === 0
 
   const { ref, inView } = useInView()
@@ -100,44 +103,54 @@ const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
 
   return (
     <div className="bg-white rounded-xl mb-24 shadow-2xl overflow-hidden border border-navy-300">
-      <div className="flex items-center bg-teal-100">
+      <div className="flex items-center bg-blue-300">
         <h3
-          className={`text-2xl lg:text-5xl leading-tight lg:w-2/3 px-6 lg:px-12 py-6 ${
+          className={`text-2xl lg:text-5xl leading-tight lg:flex-grow px-6 lg:px-16 py-6 ${
             !even && "order-1"
           }`}
         >
           {title}
         </h3>
-        <div className="w-1/3 px-12 py-8 bg-navy-300 items-center justify-center hidden lg:flex">
-          <img
-            className="w-48 h-48"
-            src={image && getImageUrl(image.path)}
-            alt={title}
-          />
+        <div className="flex-shrink py-12 px-16 bg-navy-300 items-center justify-center hidden lg:flex">
+          <div className="bg-cream-200 w-48 h-48 rounded-full mx-auto p-12">
+            {/* <img
+              className="w-full h-full"
+              src={image && getImageUrl(image.path)}
+              alt={title}
+            /> */}
+          </div>
         </div>
       </div>
 
-      <div className="lg:flex border-t border-navy-300">
-        {[1, 2].map(i => (
-          <div className="lg:w-1/2 p-6 lg:p-12 border-b lg:border-b-0 lg:border-r border-navy-300 bg-white last:border-0">
-            <h4 className="text-2xl tracking-wider mb-6 leading-tight">
-              {title}
-            </h4>
-            <article
-              className="content leading-snug"
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
-            />
-          </div>
-        ))}
+      <div className="lg:flex border-t border-navy-300 bg-blue-100">
+        <div className="lg:w-1/2 p-6 lg:p-12 border-b lg:border-b-0 lg:border-r border-navy-300 bg-white last:border-0">
+          <h4 className="text-2xl tracking-wider mb-6 leading-tight">
+            What it looks like
+          </h4>
+          <article
+            className="content leading-snug"
+            dangerouslySetInnerHTML={{ __html: whatHtml }}
+          />
+        </div>
+
+        <div className="lg:w-1/2 p-6 lg:p-12 border-b lg:border-b-0 lg:border-r border-navy-300 bg-white last:border-0">
+          <h4 className="text-2xl tracking-wider mb-6 leading-tight">
+            Why it matters
+          </h4>
+          <article
+            className="content leading-snug"
+            dangerouslySetInnerHTML={{ __html: whyHtml }}
+          />
+        </div>
       </div>
     </div>
   )
 }
 
-export const HowItWorksPageQuery = graphql`
-  query HowItWorksPageQuery {
+export const WhyEquipPageQuery = graphql`
+  query WhyEquipPageQuery {
     takeshape {
-      howItWorks {
+      whyEquip {
         callout {
           title
           callToAction
@@ -147,7 +160,8 @@ export const HowItWorksPageQuery = graphql`
           callToAction
           highlights {
             title
-            contentHtml
+            whatHtml
+            whyHtml
             image {
               path
             }
