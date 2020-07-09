@@ -96,7 +96,7 @@ const TeamPage = ({
 
 export default TeamPage
 
-const MemberCard = ({ className, name, title, size, _id }) => {
+const MemberCard = ({ className, name, title, size, photo, _id }) => {
   let imgClassName, titleClassName
   switch (size) {
     case "small":
@@ -114,7 +114,11 @@ const MemberCard = ({ className, name, title, size, _id }) => {
       <img
         className={imgClassName}
         alt={name}
-        src={`https://source.unsplash.com/800x950?avatar&sig=${_id}`}
+        src={
+          photo
+            ? getImageUrl(photo.path, { w: 800, h: 1100, fit: "crop" })
+            : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
+        }
       />
       <h4 className={titleClassName}>{name}</h4>
       {size === "large" && (
