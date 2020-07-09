@@ -4,7 +4,7 @@ import { Logo } from "./svg"
 
 const Footer = () => (
   <footer>
-    <div className="bg-teal-300 py-12 container">
+    <div className="bg-teal-400 py-12 container">
       <div className="flex flex-col lg:flex-row lg:-mx-12">
         <div className="w-1/2 lg:w-2/6 container">
           <Logo className="text-sky-200 mb-12" />

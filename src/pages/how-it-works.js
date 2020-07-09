@@ -6,12 +6,13 @@ import { NotifyForm } from "../components/forms"
 import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
+import FAQs from "../components/blocks/faqs"
 import Modal from "react-modal"
 
 const HowItWorks = ({
   data: {
     takeshape: {
-      howItWorks: { callout, highlights, philosophy, insurance, logos },
+      howItWorks: { callout, highlights, philosophy, insurance, logos, faqs },
     },
   },
 }) => {
@@ -61,6 +62,11 @@ const HowItWorks = ({
           If you live in another state, have another insurance provider, or are
           uninsured—let us know. We hope to help you in the near future.
         </p>
+      </section>
+
+      <section className="py-24 container lg:mx-32">
+        <h2 className="text-5xl mb-8">{faqs.title}</h2>
+        <FAQs questions={faqs.questions} />
       </section>
     </Layout>
   )
@@ -135,6 +141,14 @@ export const HowItWorksPageQuery = graphql`
         insurance {
           contentHtml
           title
+        }
+        faqs {
+          title
+          questions {
+            _id
+            question
+            answerHtml
+          }
         }
       }
     }

@@ -4,6 +4,7 @@ import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/page_header"
+import { RecruitmentForm } from "../components/forms"
 
 // getImageUrl(member.photo.path, {
 //   w: 800,
@@ -66,21 +67,7 @@ const TeamPage = ({
             <button>{join.callToAction}</button>
           </div>
           <div className="lg:w-2/5 bg-teal-500 p-8 lg:py-24 lg:px-16">
-            <form>
-              <h3 className="text-white text-4xl">Speak to us</h3>
-              <div className="my-8 mt-4">
-                <label>Label</label>
-                <input className="rounded-lg bg-white px-4 py-3" type="text" />
-              </div>
-              <div className="my-8">
-                <label>Label</label>
-                <input className="rounded-lg bg-white px-4 py-3" type="text" />
-              </div>
-              <div className="my-8">
-                <label>Label</label>
-                <input className="rounded-lg bg-white px-4 py-3" type="text" />
-              </div>
-            </form>
+            <RecruitmentForm />
           </div>
         </div>
       </section>

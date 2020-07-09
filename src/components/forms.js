@@ -61,7 +61,7 @@ export const NotifyForm = () => {
           </Select>
         </div>
         <div className="my-3 px-4 w-full">
-          <label htmlFor="name">Age of patient</label>
+          <label htmlFor="age">Age of patient</label>
           <Select name="age" onChange={handleChange}>
             {ages.map(t => (
               <option selected={t === params.age}>{t}</option>
@@ -75,17 +75,17 @@ export const NotifyForm = () => {
           <Input type="text" name="name" onChange={handleChange} />
         </div>
         <div className="my-3 px-4 lg:w-1/2">
-          <label htmlFor="name">Email</label>
+          <label htmlFor="email">Email</label>
           <Input type="email" name="email" onChange={handleChange} />
         </div>
       </div>
       <div className="flex flex-col lg:flex-row -mx-4">
         <div className="my-3 px-4 lg:w-1/2">
-          <label htmlFor="name">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <Input type="text" name="phone" onChange={handleChange} />
         </div>
         <div className="my-3 px-4 lg:w-1/2">
-          <label htmlFor="name">State</label>
+          <label htmlFor="state">State</label>
           <Select name="state" onChange={handleChange}>
             {states.map(state => (
               <option>{state.value}</option>
@@ -97,6 +97,78 @@ export const NotifyForm = () => {
       <div className="mt-6">
         <input
           className="bg-navy-300 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
+          type="submit"
+          value="Submit"
+        />
+      </div>
+    </form>
+  )
+}
+
+export const RecruitmentForm = () => {
+  const types = ["Patient", "Loved One", "Referring Provider", "Other"]
+  const positions = [
+    "Therapist",
+    "Dietician",
+    "Peer Mentor",
+    "Family Mentor",
+    "MD",
+    "Other",
+  ]
+  const [params, setParams] = useState({
+    name: "",
+    position: positions[0],
+    state: states[0].value,
+    license: "",
+    message: "",
+  })
+
+  const handleChange = e => {
+    setParams({ ...params, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log(params)
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="my-6 w-full">
+        <label htmlFor="name">Name</label>
+        <Input type="text" name="phone" onChange={handleChange} />
+      </div>
+      <div className="my-6 w-full">
+        <label htmlFor="state">State</label>
+        <Select name="state" onChange={handleChange}>
+          {states.map(state => (
+            <option key={state.value}>{state.value}</option>
+          ))}
+        </Select>
+      </div>
+      <div className="my-6 w-full">
+        <label htmlFor="position">Desired Position</label>
+        <Select name="position" onChange={handleChange}>
+          {positions.map(position => (
+            <option key={position}>{position}</option>
+          ))}
+        </Select>
+      </div>
+      <div className="my-6 w-full">
+        <label htmlFor="license">License</label>
+        <Input type="text" name="license" onChange={handleChange} />
+      </div>
+      <div className="my-6 w-full">
+        <label htmlFor="message">Message</label>
+        <textarea
+          className="w-full p-4 rounded-lg"
+          value={params.message}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mt-6">
+        <input
+          className="bg-teal-300 text-white text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
           type="submit"
           value="Submit"
         />
