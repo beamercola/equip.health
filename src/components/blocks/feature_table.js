@@ -3,7 +3,7 @@ import { Check, Times } from "../svg"
 
 const FeatureTable = ({ features }) => {
   return (
-    <div className="mx-auto text-xs lg:text-base">
+    <div className="text-xs lg:text-base">
       <div className="flex items-center">
         <div className="w-2/5 flex-shrink-0"></div>
         <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">

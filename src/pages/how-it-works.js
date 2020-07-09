@@ -7,6 +7,7 @@ import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
 import FAQs from "../components/blocks/faqs"
+import SEO from "../components/seo"
 import Modal from "react-modal"
 
 const HowItWorks = ({
@@ -20,10 +21,11 @@ const HowItWorks = ({
 
   return (
     <Layout>
+      <SEO title={highlights.title} />
       <div className="container pb-16">
         <PageHeader title={highlights.title} />
 
-        <div className="lg:-my-24">
+        <div>
           {highlights.highlights.map((highlight, i) => (
             <Highlight highlight={highlight} index={i} />
           ))}
@@ -32,9 +34,9 @@ const HowItWorks = ({
 
       <Callout {...callout} />
 
-      <section className="bg-navy-300 text-sky-300">
+      <section className="bg-navy-300 text-sky-300 border-b border-navy-400">
         <div className="flex flex-col lg:flex-row items-stretch">
-          <div className="flex flex-col justify-center lg:w-1/2 p-8 lg:py-12 lg:px-16">
+          <div className="flex flex-col justify-center border-r border-navy-400 lg:w-1/2 p-8 lg:py-12 lg:px-16">
             <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
             <div
               className="text-xl lg:text-2xl content"
@@ -52,15 +54,23 @@ const HowItWorks = ({
         </div>
       </section>
 
-      <section className="mx-8 lg:mx-32 text-navy-300 py-24 text-center lg:px-24">
-        <h2 className="text-5xl">Who we serve</h2>
-        <p className="text-xl py-2">
-          Equip aims to serve everyone. We are currently in-network with Optum
-          in California, Texas, and New York.
+      <section className="text-navy-300 py-24 text-center lg:px-48 border-b border-navy-300">
+        <h2 className="text-5xl">Trusted by leading institutions</h2>
+        <p className="text-2xl py-12">
+          “Equip has revolutionized eating disorder care by creating a virtual,
+          evidence-based treatment model that allows patients greater access to
+          high quality, affordable care. Focusing on data-driven outcomes and
+          working closely with health insurers to provide this high quality care
+          for their members has set them far apart from the traditional
+          treatment landscape - which is often opaque, ineffective and
+          expensive. With treatment informed not only by research but also
+          people who've been there, Equip is redefining success with eating
+          disorders for the whole family.”
         </p>
-        <p className="text-xl py-2">
-          If you live in another state, have another insurance provider, or are
-          uninsured—let us know. We hope to help you in the near future.
+        <p>
+          Martha Temple Former
+          <br />
+          CEO of Optum Behavioral Health
         </p>
       </section>
 
@@ -89,25 +99,36 @@ const Highlight = ({ highlight: { title, contentHtml, image }, index }) => {
   ][index]
 
   return (
-    <div
-      className="flex flex-col lg:flex-row mb-8 lg:my-24 items-center"
-      ref={ref}
-    >
-      <div className="lg:w-1/2 flex items-center justify-center lg:order-1">
-        <img
-          className={`w-64 h-64 lg:w-96 lg:h-96 mb-4`}
-          src={image && getImageUrl(image.path)}
-          alt=""
-        />
-      </div>
-      <div className={`lg:w-1/2 content ${even && "lg:order-2"}`}>
-        <h4 className="text-2xl lg:text-2xl tracking-wider mb-4 leading-tight">
+    <div className="bg-white rounded-xl mb-24 shadow-2xl overflow-hidden border border-navy-300">
+      <div className="flex items-center bg-teal-100">
+        <h3
+          className={`text-2xl lg:text-5xl leading-tight lg:w-2/3 px-6 lg:px-12 py-6 ${
+            !even && "order-1"
+          }`}
+        >
           {title}
-        </h4>
-        <div
-          className="text-lg leading-snug"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
+        </h3>
+        <div className="w-1/3 px-12 py-8 bg-navy-300 items-center justify-center hidden lg:flex">
+          <img
+            className="w-48 h-48"
+            src={image && getImageUrl(image.path)}
+            alt={title}
+          />
+        </div>
+      </div>
+
+      <div className="lg:flex border-t border-navy-300">
+        {[1, 2].map(i => (
+          <div className="lg:w-1/2 p-6 lg:p-12 border-b lg:border-b-0 lg:border-r border-navy-300 bg-white last:border-0">
+            <h4 className="text-2xl tracking-wider mb-6 leading-tight">
+              {title}
+            </h4>
+            <article
+              className="content leading-snug"
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )

@@ -7,6 +7,9 @@ module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
     extend: {
+      borderRadius: {
+        xl: "1rem",
+      },
       boxShadow: {
         "teal-xl":
           "0 20px 25px -5px rgba(64, 94, 98, 1), 0 10px 10px -5px rgba(64, 94, 98, 1)",
@@ -69,7 +72,7 @@ module.exports = {
   variants: {
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
-    borderWidth: ["last"],
+    borderWidth: ["last", "responsive"],
     scale: ["hover"],
   },
   plugins: [],

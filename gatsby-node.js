@@ -35,6 +35,30 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  const pages = await graphql(`
+    query loadPages {
+      takeshape {
+        getPageList {
+          items {
+            _id
+            contentHtml
+            title
+            slug
+          }
+        }
+      }
+    }
+  `)
+  pages.data.takeshape.getPageList.items.forEach(page => {
+    createPage({
+      path: `/${page.slug}`,
+      component: path.resolve(`src/templates/page.js`),
+      context: {
+        ...page,
+      },
+    })
+  })
+
   const articleCategories = await graphql(`
     query loadArticleCategoriesQuery {
       takeshape {

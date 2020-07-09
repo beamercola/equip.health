@@ -51,14 +51,6 @@ const Footer = () => (
                 Privacy
               </Link>
             </li>
-            <li>
-              <Link
-                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
-                to="/enterprise"
-              >
-                Enterprise Partnerships
-              </Link>
-            </li>
           </ul>
         </div>
         <div className="w-2/5"></div>

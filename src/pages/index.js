@@ -69,7 +69,7 @@ const IndexPage = ({
         </div>
       </section>
 
-      <section className="container py-16">
+      <section className="container py-16 lg:mx-24">
         <FeatureTable features={compare.features} />
       </section>
 

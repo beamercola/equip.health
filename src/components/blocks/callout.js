@@ -11,7 +11,7 @@ const Callout = ({ title, subtitleHtml, callToAction, ctaPath }) => {
             <span
               className="w-24 h-24 absolute bg-gold-200 rounded-full"
               style={{ top: "-.8em", left: "-0.75em", zIndex: "0" }}
-            ></span>
+            />
           </h3>
           {subtitleHtml && (
             <div
