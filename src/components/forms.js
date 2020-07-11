@@ -46,6 +46,7 @@ export const NotifyForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    e.target.submit()
     console.log(params)
   }
 
@@ -53,25 +54,30 @@ export const NotifyForm = () => {
     <form
       name="notify"
       method="post"
-      dataNetlify="true"
-      dataNetlifyHoneypot="bot-field"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="notify" />
       <div className="flex flex-col -mx-4">
         <div className="mt-5 px-4 w-full">
           <label>I am a</label>
-          <Select name="type" onChange={handleChange}>
+          <Select
+            defaultValue={params.type}
+            name="type"
+            onChange={handleChange}
+          >
             {types.map(t => (
-              <option>{t}</option>
+              <option key={t}>{t}</option>
             ))}
           </Select>
         </div>
         <div className="my-3 px-4 w-full">
           <label htmlFor="age">Age of patient</label>
-          <Select name="age" onChange={handleChange}>
+          <Select defaultValue={params.age} name="age" onChange={handleChange}>
             {ages.map(t => (
-              <option selected={t === params.age}>{t}</option>
+              <option key={t}>{t}</option>
             ))}
           </Select>
         </div>
@@ -93,9 +99,13 @@ export const NotifyForm = () => {
         </div>
         <div className="my-3 px-4 lg:w-1/2">
           <label htmlFor="state">State</label>
-          <Select name="state" onChange={handleChange}>
+          <Select
+            defaultValue={params.state}
+            name="state"
+            onChange={handleChange}
+          >
             {states.map(state => (
-              <option>{state.value}</option>
+              <option key={state.value}>{state.value}</option>
             ))}
           </Select>
         </div>
