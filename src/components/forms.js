@@ -50,7 +50,14 @@ export const NotifyForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      name="notify"
+      method="post"
+      dataNetlify="true"
+      dataNetlifyHoneypot="bot-field"
+    >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="notify" />
       <div className="flex flex-col -mx-4">
         <div className="mt-5 px-4 w-full">
           <label>I am a</label>
@@ -72,11 +79,11 @@ export const NotifyForm = () => {
       <div className="flex flex-col lg:flex-row -mx-4">
         <div className="my-3 px-4 lg:w-1/2">
           <label htmlFor="name">Name</label>
-          <Input type="text" name="name" onChange={handleChange} />
+          <Input type="text" name="name" onChange={handleChange} required />
         </div>
         <div className="my-3 px-4 lg:w-1/2">
           <label htmlFor="email">Email</label>
-          <Input type="email" name="email" onChange={handleChange} />
+          <Input type="email" name="email" onChange={handleChange} required />
         </div>
       </div>
       <div className="flex flex-col lg:flex-row -mx-4">
