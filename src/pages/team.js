@@ -44,9 +44,12 @@ const TeamPage = ({
               <div className="flex flex-wrap -mx-2 lg:-mx-4">
                 {group.members.map(member => (
                   <MemberCard
-                    className="px-2 lg:px-4 mb-4 w-1/4"
+                    className="px-2 lg:px-4 mb-8 w-1/4"
                     key={`advisor-${member._id}`}
                     size="small"
+                    imageOptions={{
+                      duotone: "0A375C,F4EDE4",
+                    }}
                     {...member}
                   />
                 ))}
@@ -96,7 +99,15 @@ const TeamPage = ({
 
 export default TeamPage
 
-const MemberCard = ({ className, name, title, size, photo, _id }) => {
+const MemberCard = ({
+  className,
+  name,
+  title,
+  size,
+  photo,
+  _id,
+  imageOptions,
+}) => {
   let imgClassName, titleClassName
   switch (size) {
     case "small":
@@ -116,14 +127,23 @@ const MemberCard = ({ className, name, title, size, photo, _id }) => {
         alt={name}
         src={
           photo
-            ? getImageUrl(photo.path, { w: 800, h: 1100, fit: "crop" })
+            ? getImageUrl(photo.path, {
+                ...imageOptions,
+                w: 800,
+                h: 1100,
+                fit: "crop",
+              })
             : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
         }
       />
       <h4 className={titleClassName}>{name}</h4>
-      {size === "large" && (
-        <p className="text-navy-200 text-sm mb-1">{title}</p>
-      )}
+      <p
+        className={`text-navy-200 mb-1 ${
+          size === "small" ? "text-xs" : "text-sm"
+        }`}
+      >
+        {title}
+      </p>
     </div>
   )
 }

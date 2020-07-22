@@ -49,12 +49,12 @@ const Header = () => {
                 !open && "hidden lg:flex"
               }`}
             >
-              <Link
+              <a
                 className="py-2 text-sm whitespace-no-wrap order-2 lg:order-1"
-                to="https://app.equipbehavioralhealth.com/login"
+                href="https://app.equipbehavioralhealth.com/login"
               >
                 Log In
-              </Link>
+              </a>
               <SignUpButton className="lg:ml-4 mr-4 lg:mr-0 order-1" />
             </div>
           </div>
