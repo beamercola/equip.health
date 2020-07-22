@@ -122,7 +122,7 @@ export const NotifyForm = () => {
   )
 }
 
-export const RecruitmentForm = () => {
+export const RecruitmentForm = ({ callToAction }) => {
   const types = ["Patient", "Loved One", "Referring Provider", "Other"]
   const positions = [
     "Therapist",
@@ -187,7 +187,7 @@ export const RecruitmentForm = () => {
         <input
           className="bg-teal-300 text-white text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
           type="submit"
-          value="Submit"
+          value={callToAction}
         />
       </div>
     </form>

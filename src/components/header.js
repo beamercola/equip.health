@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 bg-cream-200 border-b transition-all duration-300 ${
+        className={`sticky top-0 z-50 bg-cream-300 border-b transition-all duration-300 ${
           sticky || open ? "border-navy-300 py-2" : "border-transparent py-6"
         }`}
       >
@@ -51,7 +51,7 @@ const Header = () => {
             >
               <Link
                 className="py-2 text-sm whitespace-no-wrap order-2 lg:order-1"
-                to="/login"
+                to="https://app.equipbehavioralhealth.com/login"
               >
                 Log In
               </Link>

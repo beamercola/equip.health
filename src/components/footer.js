@@ -22,9 +22,9 @@ const Footer = () => (
             <li>
               <Link
                 className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
-                to="/how-it-works"
+                to="/why-equip"
               >
-                How It Works
+                Why Equip
               </Link>
             </li>
             <li>

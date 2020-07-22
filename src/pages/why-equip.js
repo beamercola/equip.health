@@ -46,8 +46,7 @@ const WhyEquip = ({
           </div>
           <div className="lg:w-1/2 bg-teal-300 text-white p-8 lg:py-12 lg:px-16">
             <p className="bg-teal-400 px-3 py-2 rounded-lg text-teal-200 text-sm">
-              Don’t see your plan listed? Sign up and we’ll notify you when it
-              is.
+              {insurance.formIntro}
             </p>
             <NotifyForm />
           </div>
@@ -176,6 +175,7 @@ export const WhyEquipPageQuery = graphql`
         insurance {
           contentHtml
           title
+          formIntro
         }
         faqs {
           title

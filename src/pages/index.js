@@ -42,7 +42,7 @@ const IndexPage = ({
           <div className="w-full px-8 lg:w-2/5">
             <div className="-mx-4 lg:-ml-0 lg:-mr-32">
               <img
-                className="bg-gray-200 shadow-2xl w-full rounded"
+                className="bg-gray-200 w-full rounded"
                 src={getImageUrl(hero.image.path)}
               />
             </div>
@@ -124,6 +124,9 @@ export const IndexPageQuery = graphql`
             name
             quoteHtml
             title
+            photo {
+              path
+            }
           }
         }
         press {

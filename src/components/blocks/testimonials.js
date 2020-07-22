@@ -1,4 +1,5 @@
 import React from "react"
+import { getImageUrl } from "@takeshape/routing"
 
 const Testimonials = ({ testimonials }) => {
   return (
@@ -10,7 +11,7 @@ const Testimonials = ({ testimonials }) => {
   )
 }
 
-const Testimonial = ({ quoteHtml, name, title }) => {
+const Testimonial = ({ quoteHtml, name, title, photo }) => {
   return (
     <div className="lg:px-8 py-8 lg:w-1/3">
       <div className="">
@@ -21,7 +22,7 @@ const Testimonial = ({ quoteHtml, name, title }) => {
         <div className="flex items-center">
           <img
             className="w-10 h-10 mr-3 flex-shrink-0 bg-navy-300 rounded-full"
-            src=""
+            src={getImageUrl(photo.path)}
             alt=""
           />
           <div className="">

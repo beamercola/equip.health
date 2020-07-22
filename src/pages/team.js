@@ -67,17 +67,17 @@ const TeamPage = ({
             <button>{join.callToAction}</button>
           </div>
           <div className="lg:w-2/5 bg-teal-500 p-8 lg:py-24 lg:px-16">
-            <RecruitmentForm />
+            <RecruitmentForm callToAction={join.callToAction} />
           </div>
         </div>
       </section>
 
-      <div className="container">
+      <div className="container" id="our-story">
         <section className="my-12 lg:my-24">
           <h2 className="text-5xl lg:text-7xl mb-12 lg:mb-24">{story.title}</h2>
           <div className="flex flex-col lg:flex-row lg:-mx-8">
             <div className="mb-12 lg:w-2/5 lg:px-8">
-              <img src="https://source.unsplash.com/900x600?two+women" />
+              <img src={story.photo && getImageUrl(story.photo.path)} />
               <div
                 className=""
                 dangerouslySetInnerHTML={{ __html: story.captionHtml }}
@@ -153,6 +153,7 @@ export const TeamPageQuery = graphql`
         }
         contentHtml
         join {
+          callToAction
           contentHtml
           title
         }
