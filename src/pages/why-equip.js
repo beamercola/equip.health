@@ -8,12 +8,13 @@ import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
 import FAQs from "../components/blocks/faqs"
 import SEO from "../components/seo"
+import IndustryQuotes from "../components/blocks/industry_quotes"
 import Modal from "react-modal"
 
 const WhyEquip = ({
   data: {
     takeshape: {
-      whyEquip: { callout, highlights, philosophy, insurance, logos, faqs },
+      whyEquip: { callout, highlights, insurance, industryQuotes, faqs },
     },
   },
 }) => {
@@ -57,25 +58,7 @@ const WhyEquip = ({
         </div>
       </section>
 
-      <section className="text-navy-300 py-24 text-center lg:px-48 border-b border-navy-300">
-        <h2 className="text-5xl">Trusted by leading institutions</h2>
-        <p className="text-2xl py-12">
-          “Equip has revolutionized eating disorder care by creating a virtual,
-          evidence-based treatment model that allows patients greater access to
-          high quality, affordable care. Focusing on data-driven outcomes and
-          working closely with health insurers to provide this high quality care
-          for their members has set them far apart from the traditional
-          treatment landscape - which is often opaque, ineffective and
-          expensive. With treatment informed not only by research but also
-          people who've been there, Equip is redefining success with eating
-          disorders for the whole family.”
-        </p>
-        <p>
-          Martha Temple Former
-          <br />
-          CEO of Optum Behavioral Health
-        </p>
-      </section>
+      <IndustryQuotes data={industryQuotes} />
 
       <section className="py-24 container lg:mx-32">
         <h2 className="text-5xl mb-8">{faqs.title}</h2>
@@ -159,9 +142,12 @@ export const WhyEquipPageQuery = graphql`
           }
           title
         }
-        logos {
-          logo {
-            path
+        industryQuotes {
+          title
+          quotes {
+            quoteHtml
+            name
+            title
           }
         }
         insurance {

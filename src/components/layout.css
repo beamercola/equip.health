@@ -76,3 +76,7 @@ form label {
 .grow:hover {
   @apply scale-105;
 }
+
+.BrainhubCarousel .BrainhubCarousel__arrows {
+  @apply bg-teal-300 rounded-full;
+}

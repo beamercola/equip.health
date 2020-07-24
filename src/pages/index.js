@@ -60,7 +60,7 @@ const IndexPage = ({
         </h2>
         <div className="flex flex-col lg:-mx-8 lg:mt-12 lg:flex-row">
           {highlights.highlights.map(highlight => (
-            <Highlight {...highlight} />
+            <Highlight {...highlight} key={highlight._id} />
           ))}
         </div>
         <div className="text-center lg:mt-12">
@@ -162,6 +162,7 @@ export const IndexPageQuery = graphql`
         highlights {
           title
           highlights {
+            _id
             captionHtml
             image {
               path
