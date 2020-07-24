@@ -26,8 +26,12 @@ const WhyEquip = ({
         <PageHeader title={highlights.title} />
 
         <div>
-          {highlights.highlights.map((highlight, i) => (
-            <Highlight highlight={highlight} index={i} />
+          {highlights.highlights.map((highlight, index) => (
+            <Highlight
+              highlight={highlight}
+              key={highlight._id}
+              index={index}
+            />
           ))}
         </div>
       </div>
@@ -89,17 +93,6 @@ const Highlight = ({
 }) => {
   const even = index % 2 === 0
 
-  const { ref, inView } = useInView()
-
-  const delay = [
-    "",
-    "delay-100",
-    "delay-200",
-    "delay-300",
-    "delay-400",
-    "delay-500",
-  ][index]
-
   return (
     <div className="bg-white rounded-xl mb-24 shadow-2xl overflow-hidden border border-navy-300">
       <div className="flex items-center bg-blue-300">
@@ -110,14 +103,12 @@ const Highlight = ({
         >
           {title}
         </h3>
-        <div className="flex-shrink py-12 px-16 bg-navy-300 items-center justify-center hidden lg:flex">
-          <div className="bg-cream-200 w-48 h-48 rounded-full mx-auto p-12">
-            {/* <img
-              className="w-full h-full"
-              src={image && getImageUrl(image.path)}
-              alt={title}
-            /> */}
-          </div>
+        <div className="flex-shrink p-4 bg-navy-300 items-center justify-center hidden lg:flex">
+          <img
+            className="w-48 h-48"
+            src={image && getImageUrl(image.path)}
+            alt={title}
+          />
         </div>
       </div>
 
@@ -158,6 +149,7 @@ export const WhyEquipPageQuery = graphql`
         highlights {
           callToAction
           highlights {
+            _id
             title
             whatHtml
             whyHtml
