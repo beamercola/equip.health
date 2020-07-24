@@ -80,3 +80,7 @@ form label {
 .BrainhubCarousel .BrainhubCarousel__arrows {
   @apply bg-teal-300 rounded-full;
 }
+
+.BrainhubCarousel .BrainhubCarousel__arrows:hover:enabled {
+  @apply bg-teal-400;
+}

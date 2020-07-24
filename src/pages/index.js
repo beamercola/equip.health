@@ -44,10 +44,12 @@ const IndexPage = ({
             <div className="-mx-4">
               <ReactPlayer
                 className="w-full"
+                width="100%"
                 url={getAssetUrl(hero.image.path)}
                 muted={true}
                 controls={false}
                 playing={true}
+                loop={true}
               />
             </div>
           </div>
