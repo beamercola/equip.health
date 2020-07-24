@@ -52,7 +52,7 @@ export const NotifyForm = () => {
 
   return (
     <form
-      name="notify"
+      name="Notify Me"
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
@@ -150,7 +150,15 @@ export const RecruitmentForm = ({ callToAction }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      name="Recruit"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+    >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="notify" />
       <div className="my-6 w-full">
         <label htmlFor="name">Name</label>
         <Input type="text" name="phone" onChange={handleChange} />
