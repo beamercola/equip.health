@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { getImageUrl } from "@takeshape/routing"
+import { getAssetUrl, getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Press from "../components/blocks/press"
@@ -8,6 +8,7 @@ import FeatureTable from "../components/blocks/feature_table"
 import Testimonials from "../components/blocks/testimonials"
 import Highlight from "../components/blocks/highlight"
 import Callout from "../components/blocks/callout"
+import ReactPlayer from "react-player"
 
 const IndexPage = ({
   data: {
@@ -40,10 +41,13 @@ const IndexPage = ({
             </button>
           </div>
           <div className="w-full px-8 lg:w-2/5">
-            <div className="-mx-4 lg:-ml-0 lg:-mr-32">
-              <img
-                className="bg-gray-200 w-full rounded"
-                src={getImageUrl(hero.image.path)}
+            <div className="-mx-4">
+              <ReactPlayer
+                className="w-full"
+                url={getAssetUrl(hero.image.path)}
+                muted={true}
+                controls={false}
+                playing={true}
               />
             </div>
           </div>
