@@ -75,13 +75,9 @@ const IndexPage = ({
         </div>
       </section>
 
-      <section className="container py-16 lg:mx-24">
-        <FeatureTable features={compare.features} />
-      </section>
+      <FeatureTable features={compare.features} />
 
-      <section className="py-16 container">
-        <Testimonials testimonials={testimonials} />
-      </section>
+      <Testimonials testimonials={testimonials} />
 
       <Callout {...callout} />
 
