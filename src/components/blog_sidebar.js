@@ -35,7 +35,13 @@ const BlogSidebar = () => {
     <>
       <section className="mb-12">
         <h3>About Us</h3>
-        <p>Lorem Ipsum</p>
+        <p>
+          Equip is a virtual eating disorder treatment program helping families
+          recover from eating disorders at home. Equip’s holistic, data-driven,
+          gold-standard care program is delivered by a team of five care
+          professionals, giving families confidence they’re providing the best
+          opportunity for progress and lasting recovery.
+        </p>
       </section>
       <section className="mb-12">
         <h3>Categories</h3>
