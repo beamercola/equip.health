@@ -26,12 +26,12 @@ export const Input = props => {
   return (
     <input
       {...props}
-      className={`${props.className} rounded-full bg-white px-5 py-3 placeholder-gray-600 text-black bg-white px-3 py-2 w-full outline-none grow`}
+      className={`${props.className} rounded-full bg-white px-5 py-3 placeholder-gray-600 text-black bg-white px-3 py-2 w-full outline-none grow shadow`}
     />
   )
 }
 
-export const NotifyForm = () => {
+export const GetCareForm = () => {
   const types = ["Patient", "Loved One", "Referring Provider", "Other"]
   const ages = ["5 and under", "6-27", "28+"]
   const [params, setParams] = useState({
@@ -47,12 +47,11 @@ export const NotifyForm = () => {
   const handleSubmit = e => {
     e.preventDefault()
     e.target.submit()
-    console.log(params)
   }
 
   return (
     <form
-      name="Notify Me"
+      name="Sign Up"
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
@@ -61,7 +60,7 @@ export const NotifyForm = () => {
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="notify" />
       <div className="flex flex-col -mx-4">
-        <div className="mt-5 px-4 w-full">
+        <div className="mb-3 px-4 w-full">
           <label>I am a</label>
           <Select
             defaultValue={params.type}
@@ -113,9 +112,9 @@ export const NotifyForm = () => {
 
       <div className="mt-6">
         <input
-          className="bg-navy-300 border border-navy-400 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
+          className="bg-navy-300 border border-navy-400 text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow text-white"
           type="submit"
-          value="Submit"
+          value="Get Started"
         />
       </div>
     </form>

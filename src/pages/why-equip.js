@@ -2,14 +2,13 @@ import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
-import { NotifyForm } from "../components/forms"
+import { GetCareForm } from "../components/forms"
 import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
 import FAQs from "../components/blocks/faqs"
 import SEO from "../components/seo"
 import IndustryQuotes from "../components/blocks/industry_quotes"
-import Modal from "react-modal"
 
 const WhyEquip = ({
   data: {
@@ -18,8 +17,6 @@ const WhyEquip = ({
     },
   },
 }) => {
-  const [modalOpen, setModalOpen] = useState(false)
-
   return (
     <Layout>
       <SEO title={highlights.title} />
@@ -49,11 +46,11 @@ const WhyEquip = ({
             />
             <button></button>
           </div>
-          <div className="lg:w-1/2 bg-teal-300 text-white p-8 lg:py-12 lg:px-16">
-            <p className="bg-teal-400 px-3 py-2 rounded-lg text-teal-200 text-sm">
+          <div className="lg:w-1/2 bg-teal-300 text-teal-100 p-8 lg:py-12 lg:px-16">
+            <p className="bg-teal-400 px-3 py-2 rounded-lg text-teal-200 text-sm mb-8">
               {insurance.formIntro}
             </p>
-            <NotifyForm />
+            <GetCareForm />
           </div>
         </div>
       </section>

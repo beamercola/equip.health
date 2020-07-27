@@ -54,7 +54,7 @@ article p {
 }
 
 form label {
-  @apply block mb-1 text-xs text-cream-300 uppercase px-3;
+  @apply block mb-1 text-xs uppercase px-3;
 }
 
 .content ul {
