@@ -36,9 +36,12 @@ const IndexPage = ({
               {hero.title}
             </h1>
             <p>{hero.subtitle}</p>
-            <button className="bg-teal-300 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow">
+            <Link
+              to={hero.ctaPath}
+              className="bg-teal-300 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow"
+            >
               {hero.callToAction}
-            </button>
+            </Link>
           </div>
           <div className="w-full px-8 lg:w-2/5">
             <div className="-mx-4">

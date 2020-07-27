@@ -36,7 +36,10 @@ const WhyEquip = ({
 
       <Callout {...callout} />
 
-      <section className="bg-navy-300 text-sky-300 border-b border-navy-400">
+      <section
+        className="bg-navy-300 text-sky-300 border-b border-navy-400"
+        id="insurance"
+      >
         <div className="flex flex-col lg:flex-row items-stretch">
           <div className="flex flex-col justify-center border-r border-navy-400 lg:w-1/2 p-8 lg:py-12 lg:px-16">
             <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>

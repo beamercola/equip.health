@@ -32,12 +32,14 @@ export const Input = props => {
 }
 
 export const GetCareForm = () => {
-  const types = ["Patient", "Loved One", "Referring Provider", "Other"]
+  const relationships = ["Patient", "Loved One", "Referring Provider", "Other"]
   const ages = ["5 and under", "6-27", "28+"]
   const [params, setParams] = useState({
-    type: types[0],
+    relationship: relationships[0],
     age: ages[0],
     state: states[0].value,
+    insurance: insuranceProviders[0],
+    message: "",
   })
 
   const handleChange = e => {
@@ -59,55 +61,79 @@ export const GetCareForm = () => {
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="notify" />
-      <div className="flex flex-col -mx-4">
-        <div className="mb-3 px-4 w-full">
-          <label>I am a</label>
-          <Select
-            defaultValue={params.type}
-            name="type"
-            onChange={handleChange}
-          >
-            {types.map(t => (
-              <option key={t}>{t}</option>
-            ))}
-          </Select>
-        </div>
-        <div className="my-3 px-4 w-full">
-          <label htmlFor="age">Age of patient</label>
-          <Select defaultValue={params.age} name="age" onChange={handleChange}>
-            {ages.map(t => (
-              <option key={t}>{t}</option>
-            ))}
-          </Select>
-        </div>
+
+      <div className="my-6">
+        <label htmlFor="name">Name</label>
+        <Input type="text" name="name" onChange={handleChange} required />
       </div>
-      <div className="flex flex-col lg:flex-row -mx-4">
-        <div className="my-3 px-4 lg:w-1/2">
-          <label htmlFor="name">Name</label>
-          <Input type="text" name="name" onChange={handleChange} required />
-        </div>
-        <div className="my-3 px-4 lg:w-1/2">
+
+      <div className="my-6">
+        <label>Your relationship to patient</label>
+        <Select
+          defaultValue={params.type}
+          name="relationship"
+          onChange={handleChange}
+        >
+          {relationships.map(t => (
+            <option key={t}>{t}</option>
+          ))}
+        </Select>
+      </div>
+
+      <div className="my-6">
+        <label htmlFor="age">Patient Age</label>
+        <Select defaultValue={params.age} name="age" onChange={handleChange}>
+          {ages.map(t => (
+            <option key={t}>{t}</option>
+          ))}
+        </Select>
+      </div>
+
+      <div className="flex flex-col lg:flex-row -mx-4 my-6">
+        <div className="px-4 lg:w-1/2">
           <label htmlFor="email">Email</label>
           <Input type="email" name="email" onChange={handleChange} required />
         </div>
-      </div>
-      <div className="flex flex-col lg:flex-row -mx-4">
-        <div className="my-3 px-4 lg:w-1/2">
+        <div className="px-4 lg:w-1/2">
           <label htmlFor="phone">Phone</label>
           <Input type="text" name="phone" onChange={handleChange} />
         </div>
-        <div className="my-3 px-4 lg:w-1/2">
-          <label htmlFor="state">State</label>
-          <Select
-            defaultValue={params.state}
-            name="state"
-            onChange={handleChange}
-          >
-            {states.map(state => (
-              <option key={state.value}>{state.value}</option>
-            ))}
-          </Select>
-        </div>
+      </div>
+
+      <div className="my-6">
+        <label htmlFor="state">Insurance</label>
+        <Select
+          defaultValue={params.provider}
+          name="insurance"
+          onChange={handleChange}
+        >
+          {insuranceProviders.map(provider => (
+            <option key={provider}>{provider}</option>
+          ))}
+        </Select>
+      </div>
+
+      <div className="my-6">
+        <label htmlFor="state">Location</label>
+        <Select
+          defaultValue={params.state}
+          name="state"
+          onChange={handleChange}
+        >
+          {states.map(state => (
+            <option key={state.value}>{state.value}</option>
+          ))}
+        </Select>
+      </div>
+
+      <div className="my-6">
+        <label htmlFor="message">Message</label>
+        <textarea
+          className="w-full p-4 rounded-lg shadow"
+          value={params.message}
+          onChange={handleChange}
+          name="message"
+        />
       </div>
 
       <div className="mt-6">
@@ -188,6 +214,7 @@ export const RecruitmentForm = ({ callToAction }) => {
           className="w-full p-4 rounded-lg"
           value={params.message}
           onChange={handleChange}
+          name="message"
         />
       </div>
       <div className="mt-6">
@@ -200,6 +227,36 @@ export const RecruitmentForm = ({ callToAction }) => {
     </form>
   )
 }
+
+export const insuranceProviders = [
+  "UnitedHealth",
+  "Kaiser Foundation",
+  "Anthem Inc.",
+  "Humana",
+  "Aetna",
+  "Health Care Service Corporation (HCSC)",
+  "Centene Corp",
+  "Cigna Health",
+  "Wellcare",
+  "Molina Healthcare Inc.",
+  "Guidewell Mut Holding",
+  "California Physicians Service",
+  "Independence Health Group Inc.",
+  "Blue Cross of California",
+  "Highmark Group",
+  "Blue Cross Blue Shield of Michigan",
+  "Blue Cross Blue Shield of New Jersey",
+  "Caresource",
+  "Blue Cross Blue Shield of North Carolina",
+  "Carefirst Inc.",
+  "Health Net of California, Inc.",
+  "UPMC Health System",
+  "Blue Cross Blue Shield of Massachusetts",
+  "Blue Cross Blue Shield of Tennessee",
+  "Metropolitan",
+  "Other (free response)",
+  "I don’t know",
+]
 
 export const states = [
   {
