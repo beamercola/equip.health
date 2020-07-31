@@ -23,16 +23,18 @@ const IndexPage = ({
       <div className="hero overflow-x-hidden pb-16 container">
         <div className="flex flex-col items-center mt-12 -mx-8 md:flex-row">
           <div className="px-8 mb-8 md:mb-0 md:w-7/12">
-            <h1 className="text-5xl xl:text-5xl font-semibold leading-tight tracking-wider mb-8">
+            <h1 className="text-5xl xl:text-5xl font-semibold leading-tight tracking-wider mb-2">
               {hero.title}
             </h1>
-            <p>{hero.subtitle}</p>
-            <Link
-              to={hero.ctaPath}
-              className="bg-teal-300 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow"
-            >
-              {hero.callToAction}
-            </Link>
+            <div dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }} />
+            <div className="pt-8">
+              <Link
+                to={hero.ctaPath}
+                className="bg-teal-300 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow inline-block"
+              >
+                {hero.callToAction}
+              </Link>
+            </div>
           </div>
           <div className="w-full px-8 pt-24 md:pt-0 md:w-5/12">
             <ReactPlayer

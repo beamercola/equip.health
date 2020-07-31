@@ -6,7 +6,7 @@ import Select from "./Select"
 const Recruit = ({ callToAction }) => {
   const positions = [
     "Therapist",
-    "Dietician",
+    "Dietitian",
     "Peer Mentor",
     "Family Mentor",
     "MD",
@@ -14,6 +14,7 @@ const Recruit = ({ callToAction }) => {
   ]
   const [params, setParams] = useState({
     name: "",
+    email: "",
     position: positions[0],
     state: states[0].value,
     license: "",
@@ -44,6 +45,10 @@ const Recruit = ({ callToAction }) => {
         <Input type="text" name="name" required onChange={handleChange} />
       </div>
       <div className="my-6 w-full">
+        <label htmlFor="name">Email</label>
+        <Input type="text" name="email" required onChange={handleChange} />
+      </div>
+      <div className="my-6 w-full">
         <label htmlFor="state">State</label>
         <Select name="state" required onChange={handleChange}>
           {states.map(state => (
@@ -60,13 +65,13 @@ const Recruit = ({ callToAction }) => {
         </Select>
       </div>
       <div className="my-6 w-full">
-        <label htmlFor="license">License</label>
-        <Input type="text" name="license" required onChange={handleChange} />
+        <label htmlFor="license">License (if applicable)</label>
+        <Input type="text" name="license" onChange={handleChange} />
       </div>
       <div className="my-6 w-full">
         <label htmlFor="message">Optional Message</label>
         <textarea
-          className="w-full p-4 rounded-lg"
+          className="w-full p-4 rounded-lg text-navy-300"
           value={params.message}
           onChange={handleChange}
           name="message"

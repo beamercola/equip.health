@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { states, insuranceProviders } from "../forms"
 import Input from "./Input"
 import Select from "./Select"
+var _ = require("lodash")
 
 const SignUp = () => {
   const relationships = ["Patient", "Loved One", "Referring Provider", "Other"]
-  const ages = ["5 and under", "6-27", "28+"]
+  const ages = _.flatten([_.range(39), "40+"])
   const [params, setParams] = useState({
     relationship: relationships[0],
     age: ages[0],
@@ -103,7 +104,7 @@ const SignUp = () => {
       <div className="my-6">
         <label htmlFor="message">Message</label>
         <textarea
-          className="w-full p-4 rounded-lg shadow"
+          className="w-full p-4 rounded-lg shadow text-navy-300"
           value={params.message}
           onChange={handleChange}
           name="message"
