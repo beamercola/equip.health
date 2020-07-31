@@ -34,7 +34,7 @@ const BlogSidebar = () => {
   return (
     <>
       <section className="mb-12">
-        <h3>About Us</h3>
+        <h3 className="mb-2">About Us</h3>
         <p>
           Equip is a virtual eating disorder treatment program helping families
           recover from eating disorders at home. Equip’s holistic, data-driven,
@@ -44,11 +44,11 @@ const BlogSidebar = () => {
         </p>
       </section>
       <section className="mb-12">
-        <h3>Categories</h3>
+        <h3 className="mb-2">Categories</h3>
         <Categories categories={categories} />
       </section>
       <section className="mb-12">
-        <h3>Recent Articles</h3>
+        <h3 className="mb-2">Recent Articles</h3>
         <RecentArticles articles={recentArticles} />
       </section>
     </>
@@ -59,7 +59,12 @@ const Categories = ({ categories }) => (
   <ul>
     {categories.map(category => (
       <li key={category._id}>
-        <Link to={`/articles/category/${category.slug}`}>{category.name}</Link>
+        <Link
+          className="underline leading-loose"
+          to={`/articles/category/${category.slug}`}
+        >
+          {category.name}
+        </Link>
       </li>
     ))}
   </ul>
@@ -69,7 +74,12 @@ const RecentArticles = ({ articles }) => (
   <ul>
     {articles.map(article => (
       <li key={article._id}>
-        <Link to={`/articles/${article.slug}`}>{article.title}</Link>
+        <Link
+          className="underline leading-loose"
+          to={`/articles/${article.slug}`}
+        >
+          {article.title}
+        </Link>
       </li>
     ))}
   </ul>

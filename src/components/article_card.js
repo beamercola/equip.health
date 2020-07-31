@@ -5,19 +5,21 @@ var { DateTime } = require("luxon")
 
 const ArticleCard = ({ article }) => (
   <Link
-    className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 grow"
+    className="w-full md:w-1/2 px-4 mb-8 grow"
     key={article._id}
     to={`/articles/${article.slug}`}
   >
     <img
-      className="w-full h-64 lg:h-40 xl:h-56 mb-2 bg-navy-300 object-cover"
+      className="w-full h-64 mb-2 bg-navy-300 object-cover"
       src={article.photo && getImageUrl(article.photo.path)}
+      alt={article.title}
     />
     <div className="">
       <h4 className="font-heading text-lg">{article.title}</h4>
-      <div className="text-xs">
+      <div className="text-xs hidden">
         {DateTime.fromISO(article.date).toLocaleString(DateTime.DATETIME_MED)}
       </div>
+      {article.author && <div className="text-xs">{article.author.name}</div>}
     </div>
   </Link>
 )

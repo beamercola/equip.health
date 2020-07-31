@@ -20,6 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
               _id
               name
             }
+            author {
+              name
+            }
           }
         }
       }

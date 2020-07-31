@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 import { getAssetUrl, getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Press from "../components/blocks/press"
 import FeatureTable from "../components/blocks/feature_table"
 import Testimonials from "../components/blocks/testimonials"
 import Highlight from "../components/blocks/highlight"
@@ -13,15 +12,7 @@ import ReactPlayer from "react-player"
 const IndexPage = ({
   data: {
     takeshape: {
-      home: {
-        press,
-        hero,
-        highlights,
-        testimonials,
-        compare,
-        callout,
-        philosophy,
-      },
+      home: { hero, highlights, testimonials, compare, callout, philosophy },
     },
   },
 }) => {
@@ -29,9 +20,9 @@ const IndexPage = ({
     <Layout>
       <SEO title="Home" />
 
-      <div className="overflow-x-hidden pb-16 container">
-        <div className="flex flex-col items-center mt-12 -mx-8 lg:flex-row">
-          <div className="px-8 mb-8 lg:mb-0 lg:w-3/5">
+      <div className="hero overflow-x-hidden pb-16 container">
+        <div className="flex flex-col items-center mt-12 -mx-8 md:flex-row">
+          <div className="px-8 mb-8 md:mb-0 md:w-7/12">
             <h1 className="text-5xl xl:text-5xl font-semibold leading-tight tracking-wider mb-8">
               {hero.title}
             </h1>
@@ -43,18 +34,17 @@ const IndexPage = ({
               {hero.callToAction}
             </Link>
           </div>
-          <div className="w-full px-8 lg:w-2/5">
-            <div className="-mx-4">
-              <ReactPlayer
-                className="w-full"
-                width="100%"
-                url={getAssetUrl(hero.image.path)}
-                muted={true}
-                controls={false}
-                playing={true}
-                loop={true}
-              />
-            </div>
+          <div className="w-full px-8 pt-24 md:pt-0 md:w-5/12">
+            <ReactPlayer
+              className="w-full"
+              width="100%"
+              height="100%"
+              url={getAssetUrl(hero.image.path)}
+              muted={true}
+              controls={false}
+              playing={true}
+              loop={true}
+            />
           </div>
         </div>
       </div>
@@ -78,15 +68,16 @@ const IndexPage = ({
         </div>
       </section>
 
-      <FeatureTable features={compare.features} />
+      <section className="container py-24 lg:mx-24 text-xs lg:text-base">
+        <h2 className="text-4xl lg:text-5xl tracking-wider leading-none mb-12 text-center">
+          {compare.title}
+        </h2>
+        <FeatureTable features={compare.features} />
+      </section>
 
       <Testimonials testimonials={testimonials} />
 
       <Callout {...callout} />
-
-      {/* <section className="bg-navy-300 text-white py-8">
-        <Press press={press} />
-      </section> */}
 
       <div className="container">
         <section className="my-24">
@@ -153,6 +144,7 @@ export const IndexPageQuery = graphql`
           ctaPath
         }
         compare {
+          title
           features {
             feature
             general

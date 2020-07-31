@@ -77,6 +77,10 @@ form label {
   @apply scale-105;
 }
 
+.hero video {
+  @apply border border-navy-300 rounded-lg shadow-xl;
+}
+
 .BrainhubCarousel .BrainhubCarousel__arrows {
   @apply bg-teal-300 rounded-full;
 }

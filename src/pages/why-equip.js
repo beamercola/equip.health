@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
-import { GetCareForm } from "../components/forms"
+import SignUp from "../components/forms/SignUp"
 import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
@@ -53,7 +53,7 @@ const WhyEquip = ({
             <p className="bg-teal-400 px-3 py-2 rounded-lg text-teal-200 text-sm mb-8">
               {insurance.formIntro}
             </p>
-            <GetCareForm />
+            <SignUp />
           </div>
         </div>
       </section>

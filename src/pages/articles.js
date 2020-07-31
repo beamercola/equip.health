@@ -20,14 +20,14 @@ const ArticlePage = ({
       <div className="container">
         <PageHeader title="Articles" />
         <div className="lg:flex -mx-8">
-          <div className="lg:w-3/4 px-8 pt-6">
+          <div className="lg:w-2/3 px-8 pt-6">
             <div className="flex flex-wrap -mx-4">
               {articles.map(article => (
                 <ArticleCard article={article} key={article._id} />
               ))}
             </div>
           </div>
-          <div className="lg:w-1/4 px-8">
+          <div className="lg:w-1/3 px-8">
             <BlogSidebar />
           </div>
         </div>
@@ -53,6 +53,9 @@ export const ArticlePageQuery = graphql`
           }
           category {
             _id
+            name
+          }
+          author {
             name
           }
         }

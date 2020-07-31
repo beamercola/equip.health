@@ -29,22 +29,25 @@ const ArticlePage = ({ pageContext: article }) => {
                   </Link>
                 ))}
               </div>
-              <time className="px-6" date={article.date}>
+              <time className="px-6 hidden" date={article.date}>
                 {DateTime.fromISO(article.date).toLocaleString(
                   DateTime.DATETIME_MED
                 )}
               </time>
+              {article.author && (
+                <div className="px-6">Author:&nbsp;{article.author.name}</div>
+              )}
             </div>
           </div>
 
-          <div className="flex -mx-8">
-            <div className="w-3/5 px-8 pt-6">
+          <div className="md:flex md:-mx-12">
+            <div className="md:w-2/3 md:px-12 pt-6 border-b md:border-0 border-navy-300 pb-12 mb-12 md:pb-0">
               <div
                 className="my-2 text-xl leading-snug"
                 dangerouslySetInnerHTML={{ __html: article.contentHtml }}
               />
             </div>
-            <div className="w-2/5 px-8">
+            <div className="md:w-1/3 md:px-12">
               <BlogSidebar />
             </div>
           </div>
