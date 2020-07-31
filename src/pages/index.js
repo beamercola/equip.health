@@ -63,7 +63,7 @@ const IndexPage = ({
         <div className="text-center lg:mt-12">
           <a
             className="text-2xl py-1 border-b border-cream-300 grow inline-block"
-            href=""
+            href={highlights.ctaPath}
           >
             {highlights.callToAction}
           </a>

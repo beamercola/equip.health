@@ -92,7 +92,7 @@ const SignUpButton = ({ className }) => {
   const [hover, setHover] = useState(false)
   return (
     <Link
-      to="/signup"
+      to="/sign-up"
       className={`bg-white hover:bg-navy-300 border shadow-l tracking-wide lg:tracking-wider border-navy-300 text-navy-300 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base hover:shadow-lg flex items-center whitespace-no-wrap leading-none grow ${className}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
