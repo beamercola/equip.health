@@ -39,7 +39,7 @@ const Recruit = ({ callToAction }) => {
       onSubmit={handleSubmit}
     >
       <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="notify" />
+      <input type="hidden" name="form-name" value="Recruit" />
       <div className="my-6 w-full">
         <label htmlFor="name">Name</label>
         <Input type="text" name="name" required onChange={handleChange} />
