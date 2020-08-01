@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { states, insuranceProviders } from "../forms"
 import Input from "./Input"
 import Select from "./Select"
@@ -7,22 +7,6 @@ var _ = require("lodash")
 const SignUp = () => {
   const relationships = ["Patient", "Loved One", "Referring Provider", "Other"]
   const ages = _.flatten([_.range(39), "40+"])
-  const [params, setParams] = useState({
-    relationship: relationships[0],
-    age: ages[0],
-    state: states[0].value,
-    insurance: insuranceProviders[0],
-    message: "",
-  })
-
-  const handleChange = e => {
-    setParams({ ...params, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    e.target.submit()
-  }
 
   return (
     <form
@@ -30,24 +14,19 @@ const SignUp = () => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      // onSubmit={handleSubmit}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="Sign Up" />
 
       <div className="my-6">
         <label htmlFor="name">Name</label>
-        <Input type="text" name="name" onChange={handleChange} required />
+        <Input type="text" name="name" required />
       </div>
 
       <div className="flex flex-col lg:flex-row -mx-4 my-6">
         <div className="px-4 lg:w-1/2">
           <label>Your relationship to patient</label>
-          <Select
-            defaultValue={params.type}
-            name="relationship"
-            onChange={handleChange}
-          >
+          <Select name="relationship">
             {relationships.map(t => (
               <option key={t}>{t}</option>
             ))}
@@ -55,7 +34,7 @@ const SignUp = () => {
         </div>
         <div className="px-4 lg:w-1/2">
           <label htmlFor="age">Patient Age</label>
-          <Select defaultValue={params.age} name="age" onChange={handleChange}>
+          <Select name="age">
             {ages.map(t => (
               <option key={t}>{t}</option>
             ))}
@@ -66,22 +45,18 @@ const SignUp = () => {
       <div className="flex flex-col lg:flex-row -mx-4 my-6">
         <div className="px-4 lg:w-1/2">
           <label htmlFor="email">Email</label>
-          <Input type="email" name="email" onChange={handleChange} required />
+          <Input type="email" name="email" required />
         </div>
         <div className="px-4 lg:w-1/2">
           <label htmlFor="phone">Phone</label>
-          <Input type="text" name="phone" onChange={handleChange} />
+          <Input type="text" name="phone" />
         </div>
       </div>
 
       <div className="flex flex-col lg:flex-row -mx-4 my-6">
         <div className="px-4 lg:w-1/2">
           <label htmlFor="state">Insurance</label>
-          <Select
-            defaultValue={params.provider}
-            name="insurance"
-            onChange={handleChange}
-          >
+          <Select name="insurance">
             {insuranceProviders.map(provider => (
               <option key={provider}>{provider}</option>
             ))}
@@ -89,11 +64,7 @@ const SignUp = () => {
         </div>
         <div className="px-4 lg:w-1/2">
           <label htmlFor="state">Location</label>
-          <Select
-            defaultValue={params.state}
-            name="state"
-            onChange={handleChange}
-          >
+          <Select name="state">
             {states.map(state => (
               <option key={state.value}>{state.value}</option>
             ))}
@@ -105,8 +76,6 @@ const SignUp = () => {
         <label htmlFor="message">Message</label>
         <textarea
           className="w-full p-4 rounded-lg shadow text-navy-300"
-          value={params.message}
-          onChange={handleChange}
           name="message"
         />
       </div>
