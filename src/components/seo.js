@@ -35,6 +35,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `/equip.png`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
