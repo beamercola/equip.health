@@ -7,7 +7,7 @@ const FeatureTable = ({ features }) => {
       <div className="flex items-center border-b border-navy-300">
         <div className="w-2/5 flex-shrink-0"></div>
         <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">
-          General Treatment
+          Standard Treatment
         </div>
         <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">
           Family Based Treatment
