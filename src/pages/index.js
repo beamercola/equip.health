@@ -87,8 +87,11 @@ const IndexPage = ({
             {philosophy.title}
           </h2>
           <div className="flex flex-wrap -mx-8">
-            {philosophy.items.map(({ heading, contentHtml, image }) => (
-              <div className="lg:w-1/3 mb-12 px-8 text-center text-cream-300">
+            {philosophy.items.map(({ heading, contentHtml, image }, index) => (
+              <div
+                className="lg:w-1/3 mb-12 px-8 text-center text-cream-300"
+                key={`philosophy-${index}`}
+              >
                 <img
                   className="w-48 h-48 mx-auto text-cream-300"
                   src={image && getImageUrl(image.path)}
