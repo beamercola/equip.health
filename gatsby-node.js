@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
             category {
               _id
               name
+              slug
             }
             author {
               name

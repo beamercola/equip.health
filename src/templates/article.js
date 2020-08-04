@@ -22,7 +22,7 @@ const ArticlePage = ({ pageContext: article }) => {
                 {article.category.map(category => (
                   <Link
                     className="underline pr-2"
-                    to={`/articles/${category.slug}`}
+                    to={`/articles/category/${category.slug}`}
                     key={category._id}
                   >
                     {category.name}
