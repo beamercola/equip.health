@@ -22,11 +22,13 @@ const Testimonial = ({ quoteHtml, name, title, photo }) => {
           dangerouslySetInnerHTML={{ __html: quoteHtml }}
         />
         <div className="flex items-center">
-          <img
-            className="w-10 h-10 mr-3 flex-shrink-0 bg-navy-300 rounded-full"
-            src={getImageUrl(photo.path)}
-            alt=""
-          />
+          {photo && (
+            <img
+              className="w-10 h-10 mr-3 flex-shrink-0 bg-navy-300 rounded-full"
+              src={getImageUrl(photo.path)}
+              alt=""
+            />
+          )}
           <div className="">
             <p className="italic">{name}</p>
             <p className="italic text-sm">{title}</p>

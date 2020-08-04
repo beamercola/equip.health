@@ -57,6 +57,10 @@ form label {
   @apply block mb-1 text-xs uppercase px-3;
 }
 
+.content a {
+  @apply underline;
+}
+
 .content ul {
   @apply list-disc ml-12 mb-8;
 }
