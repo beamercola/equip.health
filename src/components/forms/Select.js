@@ -2,9 +2,10 @@ import React from "react"
 
 export const Select = ({ children, name, onChange }) => {
   return (
-    <div className="inline-block relative w-full" name={name}>
+    <div className="inline-block relative w-full">
       <select
         className="block text-lg text-black appearance-none w-full bg-white px-5 py-3 pr-8 rounded-full shadow focus:shadow-lg focus:outline-none grow"
+        name={name}
         onChange={onChange}
       >
         {children}
