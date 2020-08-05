@@ -46,6 +46,7 @@ const IndexPage = ({
               controls={false}
               playing={true}
               loop={true}
+              playsinline={true}
             />
           </div>
         </div>
