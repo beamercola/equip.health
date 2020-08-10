@@ -61,7 +61,11 @@ const WhyEquip = ({
       <IndustryQuotes data={industryQuotes} />
 
       <section className="py-24 container lg:mx-32">
-        <h2 className="text-5xl mb-8">{faqs.title}</h2>
+        <h2 className="text-5xl mb-4">{faqs.title}</h2>
+        <div
+          className="mb-8"
+          dangerouslySetInnerHTML={{ __html: faqs.descriptionHtml }}
+        />
         <FAQs questions={faqs.questions} />
       </section>
     </Layout>
@@ -157,6 +161,7 @@ export const WhyEquipPageQuery = graphql`
         }
         faqs {
           title
+          descriptionHtml
           questions {
             _id
             question
