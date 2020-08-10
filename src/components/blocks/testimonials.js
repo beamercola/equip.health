@@ -4,7 +4,7 @@ import { getImageUrl } from "@takeshape/routing"
 const Testimonials = ({ testimonials }) => {
   return (
     <section className="py-16 container">
-      <div className="flex flex-col flex-wrap items-center lg:-mx-8 lg:flex-row -my-8">
+      <div className="flex flex-col flex-wrap items-start lg:-mx-8 lg:flex-row -my-8">
         {testimonials.testimonials.map((testimonial, i) => (
           <Testimonial key={i} {...testimonial} />
         ))}

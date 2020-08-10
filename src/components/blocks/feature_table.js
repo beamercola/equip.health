@@ -5,33 +5,33 @@ const FeatureTable = ({ features }) => {
   return (
     <div className="border border-navy-300 rounded-xl">
       <div className="flex items-center border-b border-navy-300">
-        <div className="w-2/5 flex-shrink-0"></div>
-        <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">
+        <div className="w-2/5 flex-shrink-0 hidden md:block"></div>
+        <div className="p-4 text-center font-heading text-sm w-1/3 md:w-1/5 flex-shrink-0">
           Standard Treatment
         </div>
-        <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">
+        <div className="p-4 text-center font-heading text-sm w-1/3 md:w-1/5 flex-shrink-0">
           Family Based Treatment
         </div>
-        <div className="p-4 text-center font-heading text-sm w-1/5 flex-shrink-0">
+        <div className="p-4 text-center font-heading text-sm w-1/3 md:w-1/5 flex-shrink-0">
           Equip Treatment
         </div>
       </div>
       <div className="">
         {features.map((feature, i) => (
           <div
-            className="flex border-b border-navy-300 last:border-b-0"
+            className="flex flex-wrap border-b border-navy-300 last:border-b-0"
             key={i}
           >
-            <div className="p-4 text-righ font-bold w-2/5 flex-shrink-0">
+            <div className="p-4 w-full font-bold md:w-2/5 flex-shrink-0">
               {feature.feature}
             </div>
-            <div className="p-4 text-center w-1/5 flex-shrink-0">
+            <div className="p-4 text-center w-1/3 md:w-1/5 flex-shrink-0">
               <FeatureValue value={feature.general} />
             </div>
-            <div className="p-4 text-center w-1/5 flex-shrink-0">
+            <div className="p-4 text-center w-1/3 md:w-1/5 flex-shrink-0">
               <FeatureValue value={feature.family} />
             </div>
-            <div className="p-4 text-center w-1/5 flex-shrink-0">
+            <div className="p-4 text-center w-1/3 md:w-1/5 flex-shrink-0">
               <FeatureValue value={feature.equip} />
             </div>
           </div>
