@@ -16,6 +16,7 @@ const Recruit = ({ callToAction }) => {
   return (
     <form
       name="Recruit"
+      action="#"
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
