@@ -9,21 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
         getArticleList {
           items {
             _id
-            contentHtml
-            title
             slug
-            date
-            photo {
-              path
-            }
-            category {
-              _id
-              name
-              slug
-            }
-            author {
-              name
-            }
           }
         }
       }
@@ -34,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/articles/${article.slug}`,
       component: path.resolve(`src/templates/article.js`),
       context: {
-        ...article,
+        id: article._id,
       },
     })
   })
@@ -45,8 +31,6 @@ exports.createPages = async ({ graphql, actions }) => {
         getPageList {
           items {
             _id
-            contentHtml
-            title
             slug
           }
         }
@@ -58,7 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/${page.slug}`,
       component: path.resolve(`src/templates/page.js`),
       context: {
-        ...page,
+        id: page._id,
       },
     })
   })
@@ -69,20 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
         getArticleCategoryList {
           items {
             _id
-            name
             slug
-            articleSet {
-              items {
-                _id
-                contentHtml
-                title
-                slug
-                date
-                photo {
-                  path
-                }
-              }
-            }
           }
         }
       }
@@ -94,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/articles/category/${category.slug}`,
         component: path.resolve(`src/templates/article_category.js`),
         context: {
-          ...category,
+          id: category._id,
         },
       })
     }

@@ -13,13 +13,17 @@ import IndustryQuotes from "../components/blocks/industry_quotes"
 const WhyEquip = ({
   data: {
     takeshape: {
-      whyEquip: { callout, highlights, insurance, industryQuotes, faqs },
+      whyEquip: { callout, highlights, insurance, industryQuotes, faqs, seo },
     },
   },
 }) => {
   return (
     <Layout>
-      <SEO title={highlights.title} />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={seo.image && seo.image.path}
+      />
       <div className="container pb-16">
         <PageHeader title={highlights.title} />
 
@@ -166,6 +170,13 @@ export const WhyEquipPageQuery = graphql`
             _id
             question
             answerHtml
+          }
+        }
+        seo {
+          title
+          description
+          image {
+            path
           }
         }
       }

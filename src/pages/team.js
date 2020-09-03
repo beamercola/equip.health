@@ -6,20 +6,20 @@ import SEO from "../components/seo"
 import PageHeader from "../components/page_header"
 import Recruit from "../components/forms/Recruit"
 
-// getImageUrl(member.photo.path, {
-//   w: 800,
-//   h: 800,
-//   fit: "crop",
-// })
 const TeamPage = ({
   data: {
     takeshape: {
-      team: { contentHtml, title, members, advisors, join, story },
+      team: { contentHtml, title, members, advisors, join, story, seo },
     },
   },
 }) => {
   return (
     <Layout>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={seo.image && seo.image.path}
+      />
       <div className="container">
         <PageHeader title={title} subtitle={contentHtml} />
 
@@ -152,6 +152,13 @@ export const TeamPageQuery = graphql`
   query TeamPageQuery {
     takeshape {
       team {
+        seo {
+          title
+          description
+          image {
+            path
+          }
+        }
         advisors {
           title
           members {

@@ -12,13 +12,25 @@ import ReactPlayer from "react-player"
 const IndexPage = ({
   data: {
     takeshape: {
-      home: { hero, highlights, testimonials, compare, callout, philosophy },
+      home: {
+        hero,
+        highlights,
+        testimonials,
+        compare,
+        callout,
+        philosophy,
+        seo,
+      },
     },
   },
 }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={seo.image && seo.image.path}
+      />
 
       <div className="hero overflow-x-hidden pb-16 container">
         <div className="flex flex-col items-center mt-12 -mx-8 md:flex-row">
@@ -186,6 +198,13 @@ export const IndexPageQuery = graphql`
             }
           }
           title
+        }
+        seo {
+          title
+          description
+          image {
+            path
+          }
         }
       }
     }
