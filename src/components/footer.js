@@ -38,6 +38,14 @@ const Footer = () => (
             <li>
               <Link
                 className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
+                to="/faq"
+              >
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="pb-2 inline-block my-1 border-b-2 border-transparent hover:border-sky-200"
                 to="/contact"
               >
                 Contact
