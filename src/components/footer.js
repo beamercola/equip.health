@@ -54,17 +54,34 @@ const Footer = () => (
             <li className="text-base pt-8">
               <a
                 className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
-                href="http://instagram.com/equiphealth"
+                href="https://instagram.com/equiphealth"
               >
                 Instagram
               </a>
               &nbsp;&nbsp;/&nbsp;&nbsp;
               <a
                 className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
-                href="http://facebook.com/joinequip"
+                href="https://facebook.com/joinequip"
               >
                 Facebook
               </a>
+              &nbsp;&nbsp;/&nbsp;&nbsp;
+              <a
+                className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
+                href="https://twitter.com/joinequip"
+              >
+                Twitter
+              </a>
+            </li>
+          </ul>
+          <ul className="text-base pt-8">
+            <li>
+              <Link
+                className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
+                to="/tech-roles"
+              >
+                Tech Roles
+              </Link>
             </li>
           </ul>
         </div>
