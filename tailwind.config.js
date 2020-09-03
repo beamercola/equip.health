@@ -57,11 +57,9 @@ module.exports = {
       },
     },
     fill: theme => ({
-      marigold: theme("colors.yellow.600"),
-      cream: theme("colors.yellow.100"),
-      teal: theme("colors.teal.600"),
-      sky: theme("colors.blue.200"),
-      navy: theme("colors.blue.900"),
+      sky: theme("colors.sky.300"),
+      navy: theme("colors.navy.300"),
+      teal: theme("colors.teal.300"),
       white: theme("colors.white"),
     }),
     fontFamily: {
@@ -70,6 +68,7 @@ module.exports = {
     },
   },
   variants: {
+    backgroundColor: ["even", "odd"],
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
     borderWidth: ["last", "responsive"],
