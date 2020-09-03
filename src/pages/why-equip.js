@@ -1,19 +1,17 @@
-import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SignUp from "../components/forms/SignUp"
-import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
-import FAQs from "../components/blocks/faqs"
 import SEO from "../components/seo"
 import IndustryQuotes from "../components/blocks/industry_quotes"
 
 const WhyEquip = ({
   data: {
     takeshape: {
-      whyEquip: { callout, highlights, insurance, industryQuotes, faqs, seo },
+      whyEquip: { callout, highlights, insurance, industryQuotes, seo },
     },
   },
 }) => {
@@ -63,15 +61,6 @@ const WhyEquip = ({
       </section>
 
       <IndustryQuotes data={industryQuotes} />
-
-      <section className="py-24 container lg:mx-32">
-        <h2 className="text-5xl mb-4">{faqs.title}</h2>
-        <div
-          className="mb-8"
-          dangerouslySetInnerHTML={{ __html: faqs.descriptionHtml }}
-        />
-        <FAQs questions={faqs.questions} />
-      </section>
     </Layout>
   )
 }
@@ -139,6 +128,7 @@ export const WhyEquipPageQuery = graphql`
         }
         highlights {
           callToAction
+          title
           highlights {
             _id
             title
@@ -148,7 +138,6 @@ export const WhyEquipPageQuery = graphql`
               path
             }
           }
-          title
         }
         industryQuotes {
           title
@@ -162,15 +151,6 @@ export const WhyEquipPageQuery = graphql`
           contentHtml
           title
           formIntro
-        }
-        faqs {
-          title
-          descriptionHtml
-          questions {
-            _id
-            question
-            answerHtml
-          }
         }
         seo {
           title
