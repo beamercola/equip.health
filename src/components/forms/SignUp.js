@@ -69,6 +69,7 @@ const SignUp = () => {
             {states.map(state => (
               <option key={state.value}>{state.value}</option>
             ))}
+            <option key="international">Based outside USA</option>
           </Select>
         </div>
       </div>

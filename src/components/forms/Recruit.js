@@ -37,6 +37,7 @@ const Recruit = ({ callToAction }) => {
           {states.map(state => (
             <option key={state.value}>{state.value}</option>
           ))}
+          <option key="international">Based outside USA</option>
         </Select>
       </div>
       <div className="my-6 w-full">
