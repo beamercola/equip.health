@@ -53,6 +53,10 @@ article p {
   @apply mb-8;
 }
 
+article a {
+  @apply underline;
+}
+
 form label {
   @apply block mb-1 text-xs uppercase px-3;
 }

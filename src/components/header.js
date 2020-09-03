@@ -42,6 +42,7 @@ const Header = () => {
               <NavItem to="/why-equip">Why Equip</NavItem>
               <NavItem to="/team">Team</NavItem>
               <NavItem to="/articles">Blog</NavItem>
+              <NavItem to="/faq">FAQ</NavItem>
             </div>
 
             <div
