@@ -103,7 +103,7 @@ const MemberCard = ({
   className,
   name,
   title,
-  bio,
+  bioHtml: bio,
   size,
   photo,
   _id,
@@ -120,6 +120,8 @@ const MemberCard = ({
       titleClassName = "text-2xl leading-none"
       break
   }
+
+  console.log(bio)
 
   return (
     <div className={`member-card ${className}`}>
@@ -138,10 +140,10 @@ const MemberCard = ({
               : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
           }
         />
-        {true && (
+        {bio && (
           <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-4 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
             <h6 className="text-xs uppercase">BIO</h6>
-            {bio}
+            <div dangerouslySetInnerHTML={{ __html: bio }} />
           </div>
         )}
       </div>
@@ -174,7 +176,7 @@ export const TeamPageQuery = graphql`
             _id
             title
             name
-            bio
+            bioHtml
             photo {
               path
             }
@@ -184,7 +186,7 @@ export const TeamPageQuery = graphql`
           _id
           title
           name
-          bio
+          bioHtml
           photo {
             path
           }

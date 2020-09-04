@@ -50,6 +50,9 @@ module.exports = {
       fontSize: {
         "7xl": "5rem",
       },
+      scale: {
+        "101": "1.01",
+      },
       spacing: {
         "72": "18rem",
         "84": "21rem",
