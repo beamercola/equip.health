@@ -73,6 +73,7 @@ module.exports = {
     borderColor: ["hover"],
     borderWidth: ["last", "responsive"],
     scale: ["hover"],
+    visibility: ["hover"],
   },
   plugins: [],
 }

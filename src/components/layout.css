@@ -100,3 +100,7 @@ form label {
 .BrainhubCarousel .BrainhubCarousel__arrows:hover:enabled {
   @apply bg-teal-400;
 }
+
+.member-card:hover .bio {
+  @apply opacity-100;
+}

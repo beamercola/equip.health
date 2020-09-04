@@ -103,6 +103,7 @@ const MemberCard = ({
   className,
   name,
   title,
+  bio,
   size,
   photo,
   _id,
@@ -121,21 +122,29 @@ const MemberCard = ({
   }
 
   return (
-    <div className={`grow ${className}`}>
-      <img
-        className={imgClassName}
-        alt={name}
-        src={
-          photo
-            ? getImageUrl(photo.path, {
-                ...imageOptions,
-                w: 800,
-                h: 1100,
-                fit: "crop",
-              })
-            : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
-        }
-      />
+    <div className={`member-card ${className}`}>
+      <div className="relative grow">
+        <img
+          className={`${imgClassName}`}
+          alt={name}
+          src={
+            photo
+              ? getImageUrl(photo.path, {
+                  ...imageOptions,
+                  w: 800,
+                  h: 1100,
+                  fit: "crop",
+                })
+              : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
+          }
+        />
+        {true && (
+          <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-4 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
+            <h6 className="text-xs uppercase">BIO</h6>
+            {bio}
+          </div>
+        )}
+      </div>
       <h4 className={titleClassName}>{name}</h4>
       <p
         className={`text-navy-200 mb-1 ${
@@ -165,6 +174,7 @@ export const TeamPageQuery = graphql`
             _id
             title
             name
+            bio
             photo {
               path
             }
@@ -174,6 +184,7 @@ export const TeamPageQuery = graphql`
           _id
           title
           name
+          bio
           photo {
             path
           }
