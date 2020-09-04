@@ -100,9 +100,7 @@ const SignUpButton = ({ className }) => {
     >
       <span className="inline-block">
         <Logo
-          className={`h-6 w-6 mr-2 transition-all duration-300 ${
-            hover ? "fill-white" : "fill-navy"
-          }`}
+          className={`h-6 w-6 mr-2 ${hover ? "fill-white" : "fill-navy"}`}
         />
       </span>
       Sign Up

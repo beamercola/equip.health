@@ -68,7 +68,7 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ["even", "odd"],
+    backgroundColor: ["even", "odd", "hover"],
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
     borderWidth: ["last", "responsive"],
