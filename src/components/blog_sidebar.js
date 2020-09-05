@@ -33,34 +33,40 @@ const BlogSidebar = () => {
 
   return (
     <>
-      <section className="mb-12">
-        <h3 className="mb-2">About Us</h3>
-        <p>
+      <Section title="About Us">
+        <p className="text-sm">
           Equip is a virtual eating disorder treatment program helping families
           recover from eating disorders at home. Equip’s holistic, data-driven,
           gold-standard care program is delivered by a team of five care
           professionals, giving families confidence they’re providing the best
           opportunity for progress and lasting recovery.
         </p>
-      </section>
-      <section className="mb-12">
-        <h3 className="mb-2">Categories</h3>
+      </Section>
+
+      <Section title="Categories">
         <Categories categories={categories} />
-      </section>
-      <section className="mb-12">
-        <h3 className="mb-2">Recent Articles</h3>
+      </Section>
+
+      <Section title="Recent Articles">
         <RecentArticles articles={recentArticles} />
-      </section>
+      </Section>
     </>
   )
 }
+
+const Section = ({ title, children }) => (
+  <section className="mb-12">
+    <h3 className="mb-2">{title}</h3>
+    {children}
+  </section>
+)
 
 const Categories = ({ categories }) => (
   <ul>
     {categories.map(category => (
       <li key={category._id}>
         <Link
-          className="underline leading-loose"
+          className="underline text-xs"
           to={`/articles/category/${category.slug}`}
         >
           {category.name}
@@ -73,9 +79,9 @@ const Categories = ({ categories }) => (
 const RecentArticles = ({ articles }) => (
   <ul>
     {articles.map(article => (
-      <li key={article._id}>
+      <li className="mb-2" key={article._id}>
         <Link
-          className="underline leading-loose"
+          className="underline leading-normal block text-xs"
           to={`/articles/${article.slug}`}
         >
           {article.title}
