@@ -75,6 +75,7 @@ module.exports = {
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
     borderWidth: ["last", "responsive"],
+    fill: ["hover"],
     scale: ["hover"],
     visibility: ["hover"],
   },

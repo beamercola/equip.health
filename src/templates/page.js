@@ -3,11 +3,12 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/page_header"
+import { Provider } from "../components/forms"
 
 const Page = ({
   data: {
     takeshape: {
-      getPage: { title, contentHtml },
+      getPage: { title, contentHtml, slug },
     },
   },
 }) => {
@@ -20,6 +21,7 @@ const Page = ({
           className="text-xl"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
+        {slug === "providers" && <Provider />}
       </div>
     </Layout>
   )

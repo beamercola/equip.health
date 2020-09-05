@@ -104,3 +104,6 @@ form label {
 .member-card:hover .bio {
   @apply opacity-100;
 }
+
+.btn-signup:hover svg {
+}
