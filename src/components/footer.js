@@ -25,30 +25,9 @@ const Footer = () => (
 
         <div className="lg:w-2/6 lg:px-12">
           <ul className="mb-8">
-            <li>
-              <Link
-                className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
-                to="/tech-roles"
-              >
-                Tech Roles
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
-                to="/providers"
-              >
-                Make a Referral
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
-                to="/privacy"
-              >
-                Privacy Policy
-              </Link>
-            </li>
+            <SmallLink to="/tech-roles">Tech Roles</SmallLink>
+            <SmallLink to="/providers">Make a Referral</SmallLink>
+            <SmallLink to="/privacy">Privacy Policy</SmallLink>
           </ul>
           <SignUpButton className="border-navy-300 text-navy-300" />
         </div>
@@ -63,6 +42,17 @@ const BigLink = ({ to, children }) => (
   <li className="mb-5">
     <Link
       className="pb-2 border-b-2 border-transparent hover:border-sky-200 text-3xl lg:text-4xl leading-tight"
+      to={to}
+    >
+      {children}
+    </Link>
+  </li>
+)
+
+const SmallLink = ({ to, children }) => (
+  <li>
+    <Link
+      className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
       to={to}
     >
       {children}
