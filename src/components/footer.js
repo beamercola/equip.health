@@ -17,6 +17,7 @@ const Footer = () => (
             <BigLink to="/">Home</BigLink>
             <BigLink to="/why-equip">Why Equip</BigLink>
             <BigLink to="/team">Team</BigLink>
+            <BigLink to="/faq">FAQ</BigLink>
             <BigLink to="/contact">Contact</BigLink>
           </ul>
           <Socials />
@@ -35,9 +36,9 @@ const Footer = () => (
             <li>
               <Link
                 className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
-                to="/faq"
+                to="/providers"
               >
-                FAQ
+                Make a Referral
               </Link>
             </li>
             <li>
@@ -45,7 +46,7 @@ const Footer = () => (
                 className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
                 to="/privacy"
               >
-                Privacy
+                Privacy Policy
               </Link>
             </li>
           </ul>
