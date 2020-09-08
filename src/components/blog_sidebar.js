@@ -32,7 +32,7 @@ const BlogSidebar = () => {
   `)
 
   return (
-    <>
+    <div className="bg-cream-200 p-8 rounded-lg">
       <Section title="About Us">
         <p className="text-sm">
           Equip is a virtual eating disorder treatment program helping families
@@ -50,7 +50,7 @@ const BlogSidebar = () => {
       <Section title="Recent Articles">
         <RecentArticles articles={recentArticles} />
       </Section>
-    </>
+    </div>
   )
 }
 
