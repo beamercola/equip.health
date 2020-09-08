@@ -109,19 +109,18 @@ const MemberCard = ({
   _id,
   imageOptions,
 }) => {
-  let imgClassName, titleClassName
+  let imgClassName, titleClassName, bioClassName
   switch (size) {
     case "small":
       imgClassName = "mb-2"
       titleClassName = "text-xs lg:text-sm font-normal leading-tight"
+      bioClassName = "leading-tight text-xxs"
       break
     case "large":
       imgClassName = "mb-4"
       titleClassName = "text-2xl leading-none"
       break
   }
-
-  console.log(bio)
 
   return (
     <div className={`member-card ${className}`}>
@@ -141,9 +140,12 @@ const MemberCard = ({
           }
         />
         {bio && (
-          <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-4 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
-            <h6 className="text-xs uppercase">BIO</h6>
-            <div dangerouslySetInnerHTML={{ __html: bio }} />
+          <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-2 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
+            {size === "large" && <h6 className="text-xs uppercase">BIO</h6>}
+            <div
+              className={bioClassName}
+              dangerouslySetInnerHTML={{ __html: bio }}
+            />
           </div>
         )}
       </div>
