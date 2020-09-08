@@ -45,8 +45,8 @@ const ProviderForm = () => (
 
       <div className="flex flex-wrap -mx-6">
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Child's Name</label>
-          <Input type="text" name="Patient Child Name" />
+          <label htmlFor="name">Patient's Name</label>
+          <Input type="text" name="Patient Name" />
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
@@ -62,10 +62,10 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Gender</label>
+          <label htmlFor="name">Sex</label>
           <Select name="Patient Gender">
-            <option>Male</option>
             <option>Female</option>
+            <option>Male</option>
             <option>Other</option>
           </Select>
         </div>
@@ -76,7 +76,7 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Phone Number</label>
+          <label htmlFor="name">Phone Number*</label>
           <Input type="tel" name="Provider Phone*" required />
         </div>
 
@@ -100,7 +100,7 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Past ED history</label>
+          <label htmlFor="name">Eating disorder history</label>
           <textarea
             className="w-full p-4 rounded-lg shadow text-navy-300"
             name="Patient ED History"
@@ -108,11 +108,22 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Past ED treatments</label>
+          <label htmlFor="name">Past eating disorder treatments</label>
           <textarea
             className="w-full p-4 rounded-lg shadow text-navy-300"
             name="Patient ED Treatments"
           />
+        </div>
+
+        <div className="my-3 px-6 w-full md:w-1/2">
+          <label htmlFor="name">
+            Is the patient/family aware of your referral to Equip?*
+          </label>
+          <Select name="Provider State" required>
+            <option value=""></option>
+            <option>Yes</option>
+            <option>No</option>
+          </Select>
         </div>
       </div>
     </section>
