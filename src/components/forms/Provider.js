@@ -7,7 +7,7 @@ const ProviderForm = () => (
     className="mt-12"
     name="Providers"
     method="post"
-    action="/thanks"
+    action="/thanks?provider"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >

@@ -12,7 +12,7 @@ const SignUp = () => {
     <form
       name="Sign Up"
       method="post"
-      action="/thanks"
+      action="/thanks?patient"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
