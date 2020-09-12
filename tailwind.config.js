@@ -50,6 +50,9 @@ module.exports = {
       fontSize: {
         "7xl": "5rem",
       },
+      scale: {
+        "101": "1.01",
+      },
       spacing: {
         "72": "18rem",
         "84": "21rem",
@@ -57,11 +60,9 @@ module.exports = {
       },
     },
     fill: theme => ({
-      marigold: theme("colors.yellow.600"),
-      cream: theme("colors.yellow.100"),
-      teal: theme("colors.teal.600"),
-      sky: theme("colors.blue.200"),
-      navy: theme("colors.blue.900"),
+      sky: theme("colors.sky.300"),
+      navy: theme("colors.navy.300"),
+      teal: theme("colors.teal.300"),
       white: theme("colors.white"),
     }),
     fontFamily: {
@@ -70,10 +71,13 @@ module.exports = {
     },
   },
   variants: {
+    backgroundColor: ["even", "odd", "hover"],
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
     borderWidth: ["last", "responsive"],
+    fill: ["hover"],
     scale: ["hover"],
+    visibility: ["hover"],
   },
   plugins: [],
 }

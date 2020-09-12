@@ -1,10 +1,14 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ArticleCard from "../components/article_card"
 
-const ArticleCategoryTemplate = ({ pageContext: category }) => {
+const ArticleCategoryTemplate = ({
+  data: {
+    takeshape: { getArticleCategory: category },
+  },
+}) => {
   const {
     articleSet: { items: articles },
   } = category
@@ -27,3 +31,27 @@ const ArticleCategoryTemplate = ({ pageContext: category }) => {
 }
 
 export default ArticleCategoryTemplate
+
+export const query = graphql`
+  query ArticleCategoryTemplate($id: ID!) {
+    takeshape {
+      getArticleCategory(_id: $id) {
+        _id
+        name
+        slug
+        articleSet {
+          items {
+            _id
+            contentHtml
+            title
+            slug
+            date
+            photo {
+              path
+            }
+          }
+        }
+      }
+    }
+  }
+`

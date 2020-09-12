@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import { Logo, Wordmark, Hamburger } from "../components/svg"
+import { SignUpButton } from "../components/forms"
 import useScrollPosition from "@react-hook/window-scroll"
 
 const Header = () => {
@@ -42,6 +43,7 @@ const Header = () => {
               <NavItem to="/why-equip">Why Equip</NavItem>
               <NavItem to="/team">Team</NavItem>
               <NavItem to="/articles">Blog</NavItem>
+              <NavItem to="/faq">FAQ</NavItem>
             </div>
 
             <div
@@ -55,7 +57,7 @@ const Header = () => {
               >
                 Log In
               </a>
-              <SignUpButton className="lg:ml-4 mr-4 lg:mr-0 order-1" />
+              <SignUpButton className="lg:ml-4 mr-4 lg:mr-0 order-1 border-navy-300 text-navy-300 hover:text-teal-300" />
             </div>
           </div>
         </nav>
@@ -84,27 +86,6 @@ const NavItem = ({ children, to }) => {
   return (
     <Link activeClassName="border-navy-300" to={to} getProps={getLinkProps}>
       {children}
-    </Link>
-  )
-}
-
-const SignUpButton = ({ className }) => {
-  const [hover, setHover] = useState(false)
-  return (
-    <Link
-      to="/sign-up"
-      className={`bg-white hover:bg-navy-300 border shadow-l tracking-wide lg:tracking-wider border-navy-300 text-navy-300 hover:text-white pl-2 pr-4 py-2 rounded-full text-sm lg:text-base hover:shadow-lg flex items-center whitespace-no-wrap leading-none grow ${className}`}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <span className="inline-block">
-        <Logo
-          className={`h-6 w-6 mr-2 transition-all duration-300 ${
-            hover ? "fill-white" : "fill-navy"
-          }`}
-        />
-      </span>
-      Sign Up
     </Link>
   )
 }

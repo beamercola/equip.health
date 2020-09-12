@@ -8,8 +8,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import { getImageUrl } from "@takeshape/routing"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, type, image }) {
   return (
     <Helmet
       htmlAttributes={{
@@ -32,11 +33,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: type || `website`,
         },
         {
           property: `og:image`,
-          content: `/equip.png`,
+          content: (image && getImageUrl(image)) || `/equip.png`,
         },
         {
           name: `twitter:card`,

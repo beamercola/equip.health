@@ -3,7 +3,7 @@ import { Check, Times } from "../svg"
 
 const FeatureTable = ({ features }) => {
   return (
-    <div className="border border-navy-300 rounded-xl">
+    <div className="border border-navy-300 rounded-xl overflow-hidden">
       <div className="flex items-center border-b border-navy-300">
         <div className="w-2/5 flex-shrink-0 hidden md:block"></div>
         <div className="p-4 text-center font-heading text-sm w-1/3 md:w-1/5 flex-shrink-0">
@@ -45,7 +45,11 @@ const FeatureValue = ({ value }) => {
   let result
   switch (value) {
     case "true":
-      result = <Check className="fill-navy mx-auto w-8 h-4" />
+      result = (
+        <div className="inline-block mx-auto bg-teal-300 rounded-full w-6 h-6 flex items-center justify-center">
+          <Check className="fill-white w-3 h-3 object-contain mt-px" />
+        </div>
+      )
       break
     case "false":
       result = <Times className="fill-navy mx-auto w-8 h-4" />

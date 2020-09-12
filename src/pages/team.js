@@ -6,20 +6,20 @@ import SEO from "../components/seo"
 import PageHeader from "../components/page_header"
 import Recruit from "../components/forms/Recruit"
 
-// getImageUrl(member.photo.path, {
-//   w: 800,
-//   h: 800,
-//   fit: "crop",
-// })
 const TeamPage = ({
   data: {
     takeshape: {
-      team: { contentHtml, title, members, advisors, join, story },
+      team: { contentHtml, title, members, advisors, join, story, seo },
     },
   },
 }) => {
   return (
     <Layout>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={seo.image && seo.image.path}
+      />
       <div className="container">
         <PageHeader title={title} subtitle={contentHtml} />
 
@@ -103,16 +103,18 @@ const MemberCard = ({
   className,
   name,
   title,
+  bioHtml: bio,
   size,
   photo,
   _id,
   imageOptions,
 }) => {
-  let imgClassName, titleClassName
+  let imgClassName, titleClassName, bioClassName
   switch (size) {
     case "small":
       imgClassName = "mb-2"
       titleClassName = "text-xs lg:text-sm font-normal leading-tight"
+      bioClassName = "leading-tight text-xxs"
       break
     case "large":
       imgClassName = "mb-4"
@@ -121,21 +123,32 @@ const MemberCard = ({
   }
 
   return (
-    <div className={`grow ${className}`}>
-      <img
-        className={imgClassName}
-        alt={name}
-        src={
-          photo
-            ? getImageUrl(photo.path, {
-                ...imageOptions,
-                w: 800,
-                h: 1100,
-                fit: "crop",
-              })
-            : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
-        }
-      />
+    <div className={`member-card ${className}`}>
+      <div className="relative grow">
+        <img
+          className={`${imgClassName}`}
+          alt={name}
+          src={
+            photo
+              ? getImageUrl(photo.path, {
+                  ...imageOptions,
+                  w: 800,
+                  h: 1100,
+                  fit: "crop",
+                })
+              : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
+          }
+        />
+        {bio && (
+          <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-2 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
+            {size === "large" && <h6 className="text-xs uppercase">BIO</h6>}
+            <div
+              className={bioClassName}
+              dangerouslySetInnerHTML={{ __html: bio }}
+            />
+          </div>
+        )}
+      </div>
       <h4 className={titleClassName}>{name}</h4>
       <p
         className={`text-navy-200 mb-1 ${
@@ -152,12 +165,20 @@ export const TeamPageQuery = graphql`
   query TeamPageQuery {
     takeshape {
       team {
+        seo {
+          title
+          description
+          image {
+            path
+          }
+        }
         advisors {
           title
           members {
             _id
             title
             name
+            bioHtml
             photo {
               path
             }
@@ -167,6 +188,7 @@ export const TeamPageQuery = graphql`
           _id
           title
           name
+          bioHtml
           photo {
             path
           }

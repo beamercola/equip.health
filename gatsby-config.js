@@ -47,6 +47,10 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: { icon: "static/favicon.png" },
+    },
+    {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "TS",

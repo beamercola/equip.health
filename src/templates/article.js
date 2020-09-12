@@ -1,14 +1,22 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogSidebar from "../components/blog_sidebar"
 var { DateTime } = require("luxon")
 
-const ArticlePage = ({ pageContext: article }) => {
+const ArticlePage = ({
+  data: {
+    takeshape: { getArticle: article },
+  },
+}) => {
   return (
     <Layout>
-      <SEO title={article.title} />
+      <SEO
+        title={article.title}
+        description={article.seo && article.seo.description}
+        image={article.photo.path}
+      />
 
       <div className="container">
         <article className="mb-24">
@@ -41,7 +49,7 @@ const ArticlePage = ({ pageContext: article }) => {
           </div>
 
           <div className="md:flex md:-mx-12">
-            <div className="md:w-2/3 md:px-12 pt-6 border-b md:border-0 border-navy-300 pb-12 mb-12 md:pb-0">
+            <div className="md:w-2/3 md:px-12 border-b md:border-0 border-navy-300 pb-12 mb-12 md:pb-0">
               <div
                 className="my-2 text-xl leading-snug content"
                 dangerouslySetInnerHTML={{ __html: article.contentHtml }}
@@ -58,3 +66,28 @@ const ArticlePage = ({ pageContext: article }) => {
 }
 
 export default ArticlePage
+
+export const query = graphql`
+  query ArticlePage($id: ID!) {
+    takeshape {
+      getArticle(_id: $id) {
+        _id
+        contentHtml
+        title
+        slug
+        date
+        photo {
+          path
+        }
+        category {
+          _id
+          name
+          slug
+        }
+        author {
+          name
+        }
+      }
+    }
+  }
+`

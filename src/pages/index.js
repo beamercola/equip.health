@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { getAssetUrl, getImageUrl } from "@takeshape/routing"
+import { Logo } from "../components/svg"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FeatureTable from "../components/blocks/feature_table"
@@ -12,13 +13,25 @@ import ReactPlayer from "react-player"
 const IndexPage = ({
   data: {
     takeshape: {
-      home: { hero, highlights, testimonials, compare, callout, philosophy },
+      home: {
+        hero,
+        highlights,
+        testimonials,
+        compare,
+        callout,
+        philosophy,
+        seo,
+      },
     },
   },
 }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={seo.image && seo.image.path}
+      />
 
       <div className="hero overflow-x-hidden pb-16 container">
         <div className="flex flex-col items-center mt-12 -mx-8 md:flex-row">
@@ -27,11 +40,14 @@ const IndexPage = ({
               {hero.title}
             </h1>
             <div dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }} />
-            <div className="pt-8">
+            <div className="pt-8 flex">
               <Link
                 to={hero.ctaPath}
-                className="bg-teal-300 text-white px-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow inline-block"
+                className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
               >
+                <span className="inline-block">
+                  <Logo className="h-8 w-8 mr-2" />
+                </span>
                 {hero.callToAction}
               </Link>
             </div>
@@ -186,6 +202,13 @@ export const IndexPageQuery = graphql`
             }
           }
           title
+        }
+        seo {
+          title
+          description
+          image {
+            path
+          }
         }
       }
     }

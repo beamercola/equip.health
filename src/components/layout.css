@@ -53,6 +53,10 @@ article p {
   @apply mb-8;
 }
 
+article a {
+  @apply underline;
+}
+
 form label {
   @apply block mb-1 text-xs uppercase px-3;
 }
@@ -73,6 +77,10 @@ form label {
   @apply mb-8 leading-relaxed;
 }
 
+.content hr {
+  @apply border-navy-300 w-64 mx-auto my-24;
+}
+
 .grow {
   @apply transition-all duration-300 transform;
 }
@@ -91,4 +99,11 @@ form label {
 
 .BrainhubCarousel .BrainhubCarousel__arrows:hover:enabled {
   @apply bg-teal-400;
+}
+
+.member-card:hover .bio {
+  @apply opacity-100;
+}
+
+.btn-signup:hover svg {
 }

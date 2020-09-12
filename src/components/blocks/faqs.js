@@ -1,8 +1,13 @@
 import React, { useState } from "react"
 
-const FAQs = ({ questions }) => {
+const FAQs = ({ questions, title, descriptionHtml }) => {
   return (
-    <div>
+    <div className="py-24 container lg:mx-32">
+      <h2 className="text-5xl mb-4">{title}</h2>
+      <div
+        className="mb-8"
+        dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+      />
       {questions.map(question => (
         <Question {...question} key={question._id} />
       ))}

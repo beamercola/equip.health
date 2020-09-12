@@ -1,25 +1,27 @@
-import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/layout"
 import SignUp from "../components/forms/SignUp"
-import useInView from "react-cool-inview"
 import PageHeader from "../components/page_header"
 import Callout from "../components/blocks/callout"
-import FAQs from "../components/blocks/faqs"
 import SEO from "../components/seo"
 import IndustryQuotes from "../components/blocks/industry_quotes"
 
 const WhyEquip = ({
   data: {
     takeshape: {
-      whyEquip: { callout, highlights, insurance, industryQuotes, faqs },
+      whyEquip: { callout, highlights, insurance, industryQuotes, seo },
     },
   },
 }) => {
   return (
     <Layout>
-      <SEO title={highlights.title} />
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        image={seo.image && seo.image.path}
+      />
       <div className="container pb-16">
         <PageHeader title={highlights.title} />
 
@@ -59,15 +61,6 @@ const WhyEquip = ({
       </section>
 
       <IndustryQuotes data={industryQuotes} />
-
-      <section className="py-24 container lg:mx-32">
-        <h2 className="text-5xl mb-4">{faqs.title}</h2>
-        <div
-          className="mb-8"
-          dangerouslySetInnerHTML={{ __html: faqs.descriptionHtml }}
-        />
-        <FAQs questions={faqs.questions} />
-      </section>
     </Layout>
   )
 }
@@ -135,6 +128,7 @@ export const WhyEquipPageQuery = graphql`
         }
         highlights {
           callToAction
+          title
           highlights {
             _id
             title
@@ -144,7 +138,6 @@ export const WhyEquipPageQuery = graphql`
               path
             }
           }
-          title
         }
         industryQuotes {
           title
@@ -159,13 +152,11 @@ export const WhyEquipPageQuery = graphql`
           title
           formIntro
         }
-        faqs {
+        seo {
           title
-          descriptionHtml
-          questions {
-            _id
-            question
-            answerHtml
+          description
+          image {
+            path
           }
         }
       }
