@@ -25,7 +25,9 @@ const Footer = () => (
 
         <div className="lg:w-2/6 lg:px-12">
           <ul className="mb-8">
-            <SmallLink to="/open-roles">Open Roles</SmallLink>
+            <SmallLink to="https://equiphealth.recruitee.com">
+              Open Roles
+            </SmallLink>
             <SmallLink to="/providers">Make a Referral</SmallLink>
             <SmallLink to="/privacy">Privacy Policy</SmallLink>
           </ul>
