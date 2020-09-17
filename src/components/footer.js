@@ -25,9 +25,14 @@ const Footer = () => (
 
         <div className="lg:w-2/6 lg:px-12">
           <ul className="mb-8">
-            <SmallLink to="https://equiphealth.recruitee.com">
-              Open Roles
-            </SmallLink>
+            <li>
+              <a
+                className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
+                href="https://equiphealth.recruitee.com"
+              >
+                Open Roles
+              </a>
+            </li>
             <SmallLink to="/providers">Make a Referral</SmallLink>
             <SmallLink to="/privacy">Privacy Policy</SmallLink>
           </ul>
