@@ -60,11 +60,12 @@ const Recruit = ({ callToAction }) => {
         />
       </div>
       <div className="mt-6">
-        <input
+        <button
           className="bg-teal-300 text-white text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
           type="submit"
-          value={callToAction}
-        />
+        >
+          {callToAction}
+        </button>
       </div>
     </form>
   )
