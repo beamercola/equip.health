@@ -26,7 +26,8 @@ const TeamPage = ({
         <section className="flex flex-wrap -mx-4 lg:-mx-8">
           {members.map(member => (
             <MemberCard
-              className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8"
+              className="w-full md:w-1/2 lg:w-1/3 px-4 lg:px-8 mb-16"
+              bioClassName="text-sm"
               key={`team-${member._id}`}
               size="large"
               {...member}
@@ -44,7 +45,7 @@ const TeamPage = ({
               <div className="flex flex-wrap -mx-2 lg:-mx-4">
                 {group.members.map(member => (
                   <MemberCard
-                    className="px-2 lg:px-4 mb-8 w-1/4"
+                    className="px-2 lg:px-4 mb-8 w-1/2 md:w-1/4"
                     key={`advisor-${member._id}`}
                     size="small"
                     imageOptions={{
@@ -119,36 +120,26 @@ const MemberCard = ({
     case "large":
       imgClassName = "mb-4"
       titleClassName = "text-2xl leading-none"
+      bioClassName = "text-lg py-6"
       break
   }
 
   return (
     <div className={`member-card ${className}`}>
-      <div className="relative grow">
-        <img
-          className={`${imgClassName}`}
-          alt={name}
-          src={
-            photo
-              ? getImageUrl(photo.path, {
-                  ...imageOptions,
-                  w: 800,
-                  h: 1100,
-                  fit: "crop",
-                })
-              : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
-          }
-        />
-        {bio && (
-          <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-2 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
-            {size === "large" && <h6 className="text-xs uppercase">BIO</h6>}
-            <div
-              className={bioClassName}
-              dangerouslySetInnerHTML={{ __html: bio }}
-            />
-          </div>
-        )}
-      </div>
+      <img
+        className={`${imgClassName}`}
+        alt={name}
+        src={
+          photo
+            ? getImageUrl(photo.path, {
+                ...imageOptions,
+                w: 800,
+                h: 1100,
+                fit: "crop",
+              })
+            : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
+        }
+      />
       <h4 className={titleClassName}>{name}</h4>
       <p
         className={`text-navy-200 mb-1 ${
@@ -157,6 +148,12 @@ const MemberCard = ({
       >
         {title}
       </p>
+      {bio && (
+        <div
+          className={`${bioClassName}`}
+          dangerouslySetInnerHTML={{ __html: bio }}
+        />
+      )}
     </div>
   )
 }
