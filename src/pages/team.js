@@ -26,7 +26,7 @@ const TeamPage = ({
         <section className="flex flex-wrap -mx-4 lg:-mx-8">
           {members.map(member => (
             <MemberCard
-              className="w-1/2 lg:w-1/4 px-4 lg:px-8 mb-8"
+              className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-4 lg:px-8 mb-8"
               key={`team-${member._id}`}
               size="large"
               {...member}
@@ -41,10 +41,10 @@ const TeamPage = ({
               key={`advisor-group-${group.title}`}
             >
               <h3 className="text-xl mb-4">{group.title}</h3>
-              <div className="flex flex-wrap -mx-2 lg:-mx-4">
+              <div className="flex flex-wrap -mx-2 lg:-mx-2">
                 {group.members.map(member => (
                   <MemberCard
-                    className="px-2 lg:px-4 mb-8 w-1/4"
+                    className="px-2 lg:px-2 mb-8 w-1/2 md:w-1/4"
                     key={`advisor-${member._id}`}
                     size="small"
                     imageOptions={{
@@ -109,16 +109,18 @@ const MemberCard = ({
   _id,
   imageOptions,
 }) => {
-  let imgClassName, titleClassName, bioClassName
+  let imgClassName, titleClassName, bioClassName, overlayClassName
   switch (size) {
     case "small":
       imgClassName = "mb-2"
       titleClassName = "text-xs lg:text-sm font-normal leading-tight"
       bioClassName = "leading-tight text-xxs"
+      overlayClassName = "p-2"
       break
     case "large":
       imgClassName = "mb-4"
       titleClassName = "text-2xl leading-none"
+      overlayClassName = "p-4"
       break
   }
 
@@ -140,8 +142,10 @@ const MemberCard = ({
           }
         />
         {bio && (
-          <div className="bio bg-teal-300 bg-opacity-75 absolute inset-0 p-2 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500">
-            {size === "large" && <h6 className="text-xs uppercase">BIO</h6>}
+          <div
+            className={`bio bg-teal-300 bg-opacity-75 absolute inset-0 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500 ${overlayClassName}`}
+          >
+            <h6 className="text-xs uppercase">BIO</h6>
             <div
               className={bioClassName}
               dangerouslySetInnerHTML={{ __html: bio }}
