@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FeatureTable from "../components/blocks/feature_table"
 import Testimonials from "../components/blocks/testimonials"
+import Press from "../components/blocks/press"
 import Highlight from "../components/blocks/highlight"
 import Callout from "../components/blocks/callout"
 import ReactPlayer from "react-player"
@@ -21,6 +22,7 @@ const IndexPage = ({
         callout,
         philosophy,
         seo,
+        press,
       },
     },
   },
@@ -97,6 +99,8 @@ const IndexPage = ({
       <Testimonials testimonials={testimonials} />
 
       <Callout {...callout} />
+
+      <Press press={press} />
 
       <div className="container">
         <section className="my-24">
