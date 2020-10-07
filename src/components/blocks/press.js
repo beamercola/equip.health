@@ -8,17 +8,21 @@ const Press = ({ press: { title, companies } }) => {
     <div className="px-16 py-16">
       <h2 className="text-5xl text-center text-navy-300 mb-4">{title}</h2>
       <blockquote
-        className="py-12 px-48 text-4xl italic text-center"
+        className="py-12 md:px-24 lg:px-48 text-4xl italic text-center"
         dangerouslySetInnerHTML={{ __html: company.quoteHtml }}
       />
-      <div className="flex -mx-8 items-center justify-center">
+      <div className="flex flex-wrap -mx-8 items-center justify-center">
         {companies.map(company => (
           <div
-            className="px-8 w-1/5 cursor-pointer"
+            className="px-8 w-1/3 md:w-1/5 cursor-pointer"
             onClick={() => setCompany(company)}
             onMouseEnter={() => setCompany(company)}
           >
-            <img className="h-16" src={getImageUrl(company.logo.path)} alt="" />
+            <img
+              className="h-16 object-contain"
+              src={getImageUrl(company.logo.path)}
+              alt=""
+            />
           </div>
         ))}
       </div>
