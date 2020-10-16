@@ -63,6 +63,12 @@ module.exports = {
         fetchOptions: {},
       },
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "349484373040040",
+      },
+    },
     `gatsby-plugin-sitemap`,
   ],
 }
