@@ -11,7 +11,7 @@ import IndustryQuotes from "../components/blocks/industry_quotes"
 const WhyEquip = ({
   data: {
     takeshape: {
-      whyEquip: { callout, highlights, insurance, industryQuotes, seo },
+      getWhyEquip: { callout, highlights, insurance, industryQuotes, seo },
     },
   },
 }) => {
@@ -120,7 +120,7 @@ const Highlight = ({
 export const WhyEquipPageQuery = graphql`
   query WhyEquipPageQuery {
     takeshape {
-      whyEquip {
+      getWhyEquip {
         callout {
           title
           callToAction

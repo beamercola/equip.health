@@ -9,7 +9,7 @@ import Recruit from "../components/forms/Recruit"
 const TeamPage = ({
   data: {
     takeshape: {
-      team: { contentHtml, title, members, advisors, join, story, seo },
+      getTeam: { contentHtml, title, members, advisors, join, story, seo },
     },
   },
 }) => {
@@ -168,7 +168,7 @@ const MemberCard = ({
 export const TeamPageQuery = graphql`
   query TeamPageQuery {
     takeshape {
-      team {
+      getTeam {
         seo {
           title
           description

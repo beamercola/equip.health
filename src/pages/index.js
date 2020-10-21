@@ -14,7 +14,7 @@ import ReactPlayer from "react-player"
 const IndexPage = ({
   data: {
     takeshape: {
-      home: {
+      getHome: {
         hero,
         highlights,
         testimonials,
@@ -139,7 +139,7 @@ export default IndexPage
 export const IndexPageQuery = graphql`
   query IndexQuery {
     takeshape {
-      home {
+      getHome {
         testimonials {
           title
           testimonials {

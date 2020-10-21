@@ -7,7 +7,7 @@ import PageHeader from "../components/page_header"
 const FAQPage = ({
   data: {
     takeshape: {
-      faq: { title, questions, seo, descriptionHtml },
+      getFaq: { title, questions, seo, descriptionHtml },
     },
   },
 }) => {
@@ -62,7 +62,7 @@ const Question = ({ question, answerHtml }) => {
 export const query = graphql`
   query FAQQuery {
     takeshape {
-      faq {
+      getFaq {
         title
         descriptionHtml
         questions {
