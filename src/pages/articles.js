@@ -11,26 +11,29 @@ const ArticlePage = ({
       getArticleList: { items: articles },
     },
   },
-}) => (
-  <Layout>
-    <SEO title="Articles" />
-    <div className="bleed">
-      <PageHeader title="Articles" />
-      <div className="lg:flex -mx-8">
-        <div className="lg:w-2/3 px-8">
-          <div className="flex flex-wrap -mx-4">
-            {articles.map(article => (
-              <Card article={article} key={article._id} />
-            ))}
+}) => {
+  console.log(articles.map(a => a._id))
+  return (
+    <Layout>
+      <SEO title="Articles" />
+      <div className="bleed">
+        <PageHeader title="Articles" />
+        <div className="lg:flex -mx-8">
+          <div className="lg:w-2/3 px-8">
+            <div className="flex flex-wrap -mx-4">
+              {articles.map(article => (
+                <Card article={article} key={article._id} />
+              ))}
+            </div>
+          </div>
+          <div className="lg:w-1/3 px-8">
+            <Sidebar />
           </div>
         </div>
-        <div className="lg:w-1/3 px-8">
-          <Sidebar />
-        </div>
       </div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export default ArticlePage
 
