@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   articles.data.takeshape.getArticleList.items.forEach(article => {
     createPage({
       path: `/articles/${article.slug}`,
-      component: path.resolve(`src/templates/article.js`),
+      component: path.resolve(`src/templates/Article.js`),
       context: {
         id: article._id,
       },
@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   pages.data.takeshape.getPageList.items.forEach(page => {
     createPage({
       path: `/${page.slug}`,
-      component: path.resolve(`src/templates/page.js`),
+      component: path.resolve(`src/templates/Page.js`),
       context: {
         id: page._id,
       },
@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
     category => {
       createPage({
         path: `/articles/category/${category.slug}`,
-        component: path.resolve(`src/templates/article_category.js`),
+        component: path.resolve(`src/templates/ArticleCategory.js`),
         context: {
           id: category._id,
         },

@@ -1,4 +1,6 @@
 export { default as Provider } from "./Provider"
+export { default as Recruit } from "./Recruit"
+export { default as SignUp } from "./SignUp"
 export { default as Input } from "./Input"
 export { default as Select } from "./Select"
 export { default as SignUpButton } from "./SignUpButton"

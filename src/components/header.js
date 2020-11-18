@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import { Logo, Wordmark, Hamburger } from "../components/svg"
-import { SignUpButton } from "../components/forms"
+import { Logo, Wordmark, Hamburger } from "./SVG"
+import { SignUpButton } from "./Forms"
 import useScrollPosition from "@react-hook/window-scroll"
 
 const Header = () => {
@@ -12,12 +12,12 @@ const Header = () => {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 bg-cream-300 border-b transition-all duration-300 ${
+        className={`sticky top-0 z-50 bg-cream-300 border-b transition-all duration-300 overflow-hidden ${
           sticky || open ? "border-navy-300 py-2" : "border-transparent py-6"
         }`}
       >
         <nav className="py-1">
-          <div className="container flex flex-col lg:flex-row lg:items-center justify-between">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between bleed">
             <div className="flex lg:w-1/4 w-full justify-between items-center">
               <Link className="lg:w-1/4" to="/">
                 <Wordmark

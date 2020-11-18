@@ -1,8 +1,8 @@
 import React from "react"
-import Layout from "../components/layout"
-import PageHeader from "../components/page_header"
-import SEO from "../components/seo"
-import SignUp from "../components/forms/SignUp"
+import Layout from "../components/Layout"
+import PageHeader from "../components/PageHeader"
+import SEO from "../components/SEO"
+import SignUp from "../components/Forms/SignUp"
 
 const SignUpPage = () => {
   return (

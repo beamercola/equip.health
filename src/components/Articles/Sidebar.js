@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-const BlogSidebar = () => {
+export default () => {
   const {
     takeshape: {
       getArticleCategoryList: { items: categories },
@@ -32,7 +32,7 @@ const BlogSidebar = () => {
   `)
 
   return (
-    <div className="bg-cream-200 p-8 rounded-lg">
+    <div className="bg-cream-200 p-6 rounded-lg">
       <Section title="About Us">
         <p className="text-sm">
           Equip is a virtual eating disorder treatment program helping families
@@ -90,5 +90,3 @@ const RecentArticles = ({ articles }) => (
     ))}
   </ul>
 )
-
-export default BlogSidebar

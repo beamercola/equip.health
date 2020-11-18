@@ -32,20 +32,30 @@ h6 {
   @apply font-heading font-medium;
 }
 
-.container {
+/* .container {
   @apply px-8;
 }
 
 .-container {
   @apply -mx-8;
-}
+} */
 
-@screen lg {
+/* @screen lg {
   .container {
     @apply px-16;
   }
   .-container {
     @apply -mx-16;
+  }
+} */
+
+.bleed {
+  @apply px-4;
+}
+
+@screen md {
+  .bleed {
+    @apply px-12;
   }
 }
 
@@ -106,4 +116,12 @@ form label {
 }
 
 .btn-signup:hover svg {
+}
+
+.page-section {
+  @apply py-12;
+}
+
+.page-section h2 {
+  @apply text-5xl text-center mb-4;
 }

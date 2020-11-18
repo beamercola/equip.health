@@ -1,5 +1,5 @@
 import React from "react"
-import { states } from "../forms"
+import { states } from "."
 import Input from "./Input"
 import Select from "./Select"
 
@@ -13,6 +13,7 @@ const positions = [
 ]
 
 const Recruit = ({ callToAction }) => {
+  console.log(callToAction)
   return (
     <form
       name="Recruit"
@@ -64,7 +65,8 @@ const Recruit = ({ callToAction }) => {
           className="bg-teal-300 text-white text-center p-4 rounded-full w-full font-heading shadow-lg text-xl cursor-pointer grow"
           type="submit"
         >
-          {callToAction}
+          {callToAction || "Submit"}
+          beep
         </button>
       </div>
     </form>

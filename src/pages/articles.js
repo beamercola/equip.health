@@ -1,11 +1,9 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import { getImageUrl } from "@takeshape/routing"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ArticleCard from "../components/article_card"
-import PageHeader from "../components/page_header"
-import BlogSidebar from "../components/blog_sidebar"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import PageHeader from "../components/PageHeader"
+import { Sidebar, Card } from "../components/Articles"
 
 const ArticlePage = ({
   data: {
@@ -13,28 +11,26 @@ const ArticlePage = ({
       getArticleList: { items: articles },
     },
   },
-}) => {
-  return (
-    <Layout>
-      <SEO title="Articles" />
-      <div className="container">
-        <PageHeader title="Articles" />
-        <div className="lg:flex -mx-8">
-          <div className="lg:w-2/3 px-8">
-            <div className="flex flex-wrap -mx-4">
-              {articles.map(article => (
-                <ArticleCard article={article} key={article._id} />
-              ))}
-            </div>
-          </div>
-          <div className="lg:w-1/3 px-8">
-            <BlogSidebar />
+}) => (
+  <Layout>
+    <SEO title="Articles" />
+    <div className="bleed">
+      <PageHeader title="Articles" />
+      <div className="lg:flex -mx-8">
+        <div className="lg:w-2/3 px-8">
+          <div className="flex flex-wrap -mx-4">
+            {articles.map(article => (
+              <Card article={article} key={article._id} />
+            ))}
           </div>
         </div>
+        <div className="lg:w-1/3 px-8">
+          <Sidebar />
+        </div>
       </div>
-    </Layout>
-  )
-}
+    </div>
+  </Layout>
+)
 
 export default ArticlePage
 

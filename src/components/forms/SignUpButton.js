@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Logo } from "../svg"
+import Link from "../Link"
+import { Logo } from "../SVG"
 
 const SignUpButton = ({ className }) => (
   <Link

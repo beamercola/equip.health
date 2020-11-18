@@ -1,15 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Header from "./header"
-import Footer from "./footer"
-import "./layout.css"
+import Header from "./Header"
+import Footer from "./Footer"
 import "@brainhubeu/react-carousel/lib/style.css"
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="overflow-hidden">{children}</main>
       <Footer />
     </>
   )
