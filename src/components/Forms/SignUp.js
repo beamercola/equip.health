@@ -70,6 +70,22 @@ export default () => {
           </Select>
         </div>
 
+        <div className="px-4 my-3 lg:my-4 lg:w-1/2">
+          <label htmlFor="findus">Where did you find us?</label>
+          <Select name="findus">
+            <option></option>
+            <option>My doctor</option>
+            <option>Friend or family member</option>
+            <option>Health insurer</option>
+            <option>Search engine</option>
+            <option>Digital ad</option>
+            <option>Social media</option>
+            <option>E-mail</option>
+            <option>Press / News story</option>
+            <option>Other</option>
+          </Select>
+        </div>
+
         <div className="px-4 my-3 w-full">
           <label htmlFor="message">Message</label>
           <textarea
