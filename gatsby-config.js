@@ -17,6 +17,12 @@ module.exports = {
         head: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "349484373040040",
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-anchor-links",
@@ -62,13 +68,6 @@ module.exports = {
         },
         fetchOptions: {},
       },
-    },
-    {
-      resolve: `gatsby-plugin-facebook-pixel`,
-      options: {
-        pixelId: "349484373040040",
-      },
-    },
-    `gatsby-plugin-sitemap`,
+    }`gatsby-plugin-sitemap`,
   ],
 }
