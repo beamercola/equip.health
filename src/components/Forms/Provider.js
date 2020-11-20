@@ -82,7 +82,7 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Insurance*</label>
+          <label htmlFor="name">Insurance</label>
           <Input type="tel" name="Patient Insurance" />
         </div>
 

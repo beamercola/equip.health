@@ -15,10 +15,10 @@ const Page = ({
   return (
     <Layout>
       <SEO title={title} />
-      <div className="container">
+      <div className="bleed">
         <PageHeader title={title} />
         <article
-          className="text-xl"
+          className="text-xl w-1/2"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
         {slug === "providers" && <Provider />}

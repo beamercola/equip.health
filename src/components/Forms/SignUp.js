@@ -71,17 +71,21 @@ export default () => {
         </div>
 
         <div className="px-4 my-3 lg:my-4 lg:w-1/2">
-          <label htmlFor="findus">Where did you find us?</label>
+          <label htmlFor="findus">How did you find Equip?</label>
           <Select name="findus">
             <option></option>
-            <option>My doctor</option>
+            <option>Doctor</option>
+            <option>Therapist</option>
+            <option>Dietitian</option>
+            <option>Hospital/Medical center</option>
             <option>Friend or family member</option>
             <option>Health insurer</option>
             <option>Search engine</option>
-            <option>Digital ad</option>
-            <option>Social media</option>
-            <option>E-mail</option>
-            <option>Press / News story</option>
+            <option>Digital advertisement</option>
+            <option>Messaging board/Facebook group</option>
+            <option>Other social media post</option>
+            <option>Email newsletter</option>
+            <option>Press/news story</option>
             <option>Other</option>
           </Select>
         </div>
