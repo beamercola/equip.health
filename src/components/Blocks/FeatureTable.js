@@ -1,5 +1,5 @@
 import React from "react"
-import { Check, Times } from "../svg"
+import { Check, Times } from "../SVG"
 
 const FeatureTable = ({ features }) => {
   return (

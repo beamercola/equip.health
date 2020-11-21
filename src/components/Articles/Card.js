@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 var { DateTime } = require("luxon")
 
-const ArticleCard = ({ article }) => (
+export default ({ article }) => (
   <Link
     className="w-full md:w-1/2 px-4 mb-8 grow"
     key={article._id}
@@ -23,5 +23,3 @@ const ArticleCard = ({ article }) => (
     </div>
   </Link>
 )
-
-export default ArticleCard

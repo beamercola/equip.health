@@ -24,6 +24,17 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
+          <label htmlFor="name">Provider Type</label>
+          <Select name="Provider Type" required>
+            <option>Primary Care Doctor</option>
+            <option>Pediatrician</option>
+            <option>Dietitian</option>
+            <option>Therapist</option>
+            <option>Other</option>
+          </Select>
+        </div>
+
+        <div className="my-3 px-6 w-full md:w-1/2">
           <label htmlFor="name">Provider Practice</label>
           <Input type="text" name="Provider Practice" autoCapitalize />
         </div>
@@ -71,8 +82,8 @@ const ProviderForm = () => (
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
-          <label htmlFor="name">Insurance*</label>
-          <Input type="tel" name="Patient Insurance" required />
+          <label htmlFor="name">Insurance</label>
+          <Input type="tel" name="Patient Insurance" />
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">

@@ -1,10 +1,8 @@
 import React from "react"
-import { states, insuranceProviders } from "../forms"
-import Input from "./Input"
-import Select from "./Select"
+import { states, insuranceProviders, Input, Select } from "../Forms"
 var _ = require("lodash")
 
-const SignUp = () => {
+export default () => {
   const relationships = ["Patient", "Loved One", "Referring Provider", "Other"]
   const ages = _.flatten([_.range(39), "40+"])
 
@@ -72,6 +70,26 @@ const SignUp = () => {
           </Select>
         </div>
 
+        <div className="px-4 my-3 lg:my-4 lg:w-1/2">
+          <label htmlFor="findus">How did you find Equip?</label>
+          <Select name="findus">
+            <option></option>
+            <option>Doctor</option>
+            <option>Therapist</option>
+            <option>Dietitian</option>
+            <option>Hospital/Medical center</option>
+            <option>Friend or family member</option>
+            <option>Health insurer</option>
+            <option>Search engine</option>
+            <option>Digital advertisement</option>
+            <option>Messaging board/Facebook group</option>
+            <option>Other social media post</option>
+            <option>Email newsletter</option>
+            <option>Press/news story</option>
+            <option>Other</option>
+          </Select>
+        </div>
+
         <div className="px-4 my-3 w-full">
           <label htmlFor="message">Message</label>
           <textarea
@@ -91,5 +109,3 @@ const SignUp = () => {
     </form>
   )
 }
-
-export default SignUp

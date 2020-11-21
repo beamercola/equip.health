@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageHeader from "../components/page_header"
-import { Provider } from "../components/forms"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import PageHeader from "../components/PageHeader"
+import { Provider } from "../components/Forms"
 
 const Page = ({
   data: {
@@ -15,10 +15,10 @@ const Page = ({
   return (
     <Layout>
       <SEO title={title} />
-      <div className="container">
+      <div className="bleed">
         <PageHeader title={title} />
         <article
-          className="text-xl"
+          className="text-xl w-1/2"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
         {slug === "providers" && <Provider />}

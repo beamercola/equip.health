@@ -1,11 +1,7 @@
-const { colors } = require("tailwindcss/defaultTheme")
-
 module.exports = {
-  corePlugins: {
-    container: false,
-  },
   purge: ["./src/**/*.js"],
   theme: {
+    container: { center: true },
     extend: {
       borderRadius: {
         xl: "1rem",
@@ -45,6 +41,14 @@ module.exports = {
           "200": "#C5E5F5",
           "300": "#8ACAEA",
           "400": "#6898AF",
+        },
+      },
+      container: {
+        padding: {
+          default: "1rem",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
         },
       },
       fontSize: {

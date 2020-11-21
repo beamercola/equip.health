@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageHeader from "../components/page_header"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import PageHeader from "../components/PageHeader"
 
 const FAQPage = ({
   data: {
@@ -18,17 +18,15 @@ const FAQPage = ({
         description={seo.description}
         image={seo.image && seo.image.path}
       />
-      <div className="container">
-        <div className="py-24 container lg:mx-32">
-          <h2 className="text-5xl mb-4">{title}</h2>
-          <article
-            className="mb-8"
-            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-          />
-          {questions.map(question => (
-            <Question {...question} key={question._id} />
-          ))}
-        </div>
+      <div className="container py-24 px-8 max-w-4xl">
+        <h2 className="text-5xl mb-4">{title}</h2>
+        <article
+          className="mb-8"
+          dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+        />
+        {questions.map(question => (
+          <Question {...question} key={question._id} />
+        ))}
       </div>
     </Layout>
   )

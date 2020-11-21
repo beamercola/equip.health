@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import ArticleCard from "../components/article_card"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import { Card } from "../components/Articles"
 
 const ArticleCategoryTemplate = ({
   data: {
@@ -16,13 +16,13 @@ const ArticleCategoryTemplate = ({
   return (
     <Layout>
       <SEO title={`${category.name} Category`} />
-      <div className="container">
+      <div className="bleed">
         <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-navy-300 leading-none">
           {category.name}
         </h1>
         <div className="flex flex-wrap -mx-8">
           {articles.map(article => (
-            <ArticleCard article={article} key={article._id} />
+            <Card article={article} key={article._id} />
           ))}
         </div>
       </div>

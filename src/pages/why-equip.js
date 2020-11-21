@@ -1,12 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
-import Layout from "../components/layout"
-import SignUp from "../components/forms/SignUp"
-import PageHeader from "../components/page_header"
-import Callout from "../components/blocks/callout"
-import SEO from "../components/seo"
-import IndustryQuotes from "../components/blocks/industry_quotes"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import { SignUp } from "../components/Forms"
+import PageHeader from "../components/PageHeader"
+import { Callout, IndustryQuotes } from "../components/Blocks"
 
 const WhyEquip = ({
   data: {
@@ -22,7 +21,7 @@ const WhyEquip = ({
         description={seo.description}
         image={seo.image && seo.image.path}
       />
-      <div className="container pb-16">
+      <div className="bleed pb-16">
         <PageHeader title={highlights.title} />
 
         <div>
