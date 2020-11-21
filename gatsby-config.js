@@ -68,6 +68,7 @@ module.exports = {
         },
         fetchOptions: {},
       },
-    }`gatsby-plugin-sitemap`,
+    },
+    `gatsby-plugin-sitemap`,
   ],
 }
