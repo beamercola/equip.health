@@ -32,7 +32,10 @@ const Question = ({ question, answerHtml }) => {
         </a>
       </dt>
       <dd className={`text-lg pb-8 ${!open && "hidden"}`}>
-        <article dangerouslySetInnerHTML={{ __html: answerHtml }} />
+        <article
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: answerHtml }}
+        />
       </dd>
     </dl>
   )

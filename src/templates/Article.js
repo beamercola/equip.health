@@ -49,7 +49,7 @@ const ArticlePage = ({
         <div className="md:flex md:-mx-12">
           <div className="md:w-2/3 md:px-12 border-b md:border-0 border-navy-300 pb-12 mb-12 md:pb-0">
             <div
-              className="my-2 text-xl leading-snug content"
+              className="prose-lg my-2"
               dangerouslySetInnerHTML={{ __html: article.contentHtml }}
             />
           </div>

@@ -43,7 +43,10 @@ const IndexPage = ({
             <h1 className="text-5xl xl:text-5xl font-semibold leading-tight tracking-wider mb-2">
               {hero.title}
             </h1>
-            <div dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }} />
+            <div
+              className="prose text-navy-400"
+              dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
+            />
             <div className="pt-8 flex">
               <Link
                 to={hero.ctaPath}
