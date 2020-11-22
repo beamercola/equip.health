@@ -1,18 +1,11 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Header from "./Header"
 import Footer from "./Footer"
 
-const Layout = ({ children }) => (
+export default ({ children, pad = true }) => (
   <>
     <Header />
-    <main className="overflow-hidden">{children}</main>
+    <main className={`${pad && "pt-"}`}>{children}</main>
     <Footer />
   </>
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout

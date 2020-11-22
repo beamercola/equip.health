@@ -54,6 +54,10 @@ module.exports = {
       fontSize: {
         "7xl": "5rem",
       },
+      height: {
+        "screen-75": "75vh",
+        "screen-90": "90vh",
+      },
       scale: {
         "101": "1.01",
       },
