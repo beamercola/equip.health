@@ -47,7 +47,7 @@ form label {
 }
 
 .grow {
-  @apply transition-all duration-300 transform;
+  @apply transition-all duration-200 transform;
 }
 
 .grow:hover {

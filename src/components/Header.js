@@ -55,7 +55,7 @@ const Header = () => {
               >
                 Log In
               </a>
-              <SignUpButton className="lg:ml-4 mr-4 lg:mr-0 order-1 border-navy-300 text-navy-300 hover:text-teal-300" />
+              <SignUpButton className="lg:ml-4 mr-4 lg:mr-0 order-1 border-navy-300 text-navy-300 hover:bg-sky-100 shadow-xl" />
             </div>
           </div>
         </div>
