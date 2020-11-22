@@ -24,6 +24,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
@@ -44,12 +45,6 @@ module.exports = {
       options: {
         name: "fonts",
         path: `${__dirname}/src/fonts`,
-      },
-    },
-    {
-      resolve: `gatsby-theme-tailwindcss`,
-      options: {
-        postCssPlugins: [require("autoprefixer")],
       },
     },
     {

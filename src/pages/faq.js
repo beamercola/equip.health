@@ -18,10 +18,10 @@ const FAQPage = ({
         description={seo.description}
         image={seo.image && seo.image.path}
       />
-      <div className="container py-24 px-8 max-w-4xl">
+      <div className="container py-24 px-8 max-w-3xl">
         <h2 className="text-5xl mb-4">{title}</h2>
         <article
-          className="mb-8"
+          className="mb-8 prose text-navy-300"
           dangerouslySetInnerHTML={{ __html: descriptionHtml }}
         />
         {questions.map(question => (
@@ -51,7 +51,10 @@ const Question = ({ question, answerHtml }) => {
         </a>
       </dt>
       <dd className={`text-lg pb-8 ${!open && "hidden"}`}>
-        <article dangerouslySetInnerHTML={{ __html: answerHtml }} />
+        <article
+          className="prose text-navy-300"
+          dangerouslySetInnerHTML={{ __html: answerHtml }}
+        />
       </dd>
     </dl>
   )

@@ -83,5 +83,5 @@ module.exports = {
     scale: ["hover"],
     visibility: ["hover"],
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }
