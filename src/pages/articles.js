@@ -15,7 +15,6 @@ const ArticlesPage = ({
   <Layout>
     <SEO title="Articles" />
     <div className="bleed">
-      <PageHeader title="Articles" />
       <div className="lg:flex -mx-8">
         <div className="lg:w-2/3 px-8">
           <div className="flex flex-wrap -mx-4">

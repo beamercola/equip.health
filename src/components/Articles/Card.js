@@ -5,7 +5,7 @@ var { DateTime } = require("luxon")
 
 export default ({ article }) => (
   <Link
-    className="w-full md:w-1/2 px-4 mb-8 grow"
+    className="w-full md:w-1/2 px-4 mb-8"
     key={article._id}
     to={`/articles/${article.slug}`}
   >

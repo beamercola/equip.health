@@ -37,8 +37,8 @@ const IndexPage = ({
         image={seo.image && seo.image.path}
       />
 
-      <div className="hero bg-teal-300 overflow-x-hidden pb-16 px-8 md:px-12 -mt-24 pt-24 text-white">
-        <div className="flex flex-col items-center mt-12 -mx-24 md:flex-row h-screen-75">
+      <div className="hero bg-teal-300 overflow-x-hidden pb-16 px-8 md:px-12 -mt-32 pt-24 text-white">
+        <div className="flex flex-col items-center mt-12 -mx-24 md:flex-row md:py-12">
           <div className="px-24 mb-8 md:mb-0 md:w-1/2">
             <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
             <div

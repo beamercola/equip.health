@@ -55,6 +55,8 @@ module.exports = {
         "7xl": "5rem",
       },
       height: {
+        "screen-50": "50vh",
+        "screen-60": "60vh",
         "screen-75": "75vh",
         "screen-90": "90vh",
       },
