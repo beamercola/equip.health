@@ -31,7 +31,13 @@ const Header = () => {
               </button>
             </div>
 
-            <PrimaryNav open={open} />
+            <nav
+              className={`md:w-2/4 md:justify-center py-8 md:py-0 ${
+                !open && "hidden md:flex"
+              }`}
+            >
+              <PrimaryNav open={open} />
+            </nav>
 
             <Actions open={open} />
           </div>
@@ -56,18 +62,13 @@ const NavItem = ({ children, to }) => (
 )
 
 const PrimaryNav = ({ open }) => (
-  <nav
-    className={`md:w-2/4 md:justify-center py-8 md:py-0 ${
-      !open && "hidden md:flex"
-    }`}
-  >
-    <ul className="flex flex-col md:flex-row">
-      <NavItem to="/why-equip">Why Equip</NavItem>
-      <NavItem to="/team">Team</NavItem>
-      <NavItem to="/articles">Blog</NavItem>
-      <NavItem to="/faq">FAQ</NavItem>
-    </ul>
-  </nav>
+  <ul className="flex flex-col md:flex-row">
+    <NavItem to="/why-equip">Why Equip</NavItem>
+    <NavItem to="/team">Team</NavItem>
+    <NavItem to="/articles">Blog</NavItem>
+    <NavItem to="/faq">FAQ</NavItem>
+    <NavItem to="/providers">Providers</NavItem>
+  </ul>
 )
 
 const Actions = ({ open }) => (
