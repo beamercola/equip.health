@@ -2,7 +2,7 @@ import React from "react"
 import Carousel from "@brainhubeu/react-carousel"
 
 export default ({ data: { title, quotes } }) => (
-  <section className="text-navy-300 py-24 text-center lg:px-12 border-b border-navy-300">
+  <section className="text-navy-300 py-24 text-center px-8 lg:px-12 border-b border-navy-300">
     <h2 className="text-5xl">{title}</h2>
     <Carousel arrows>
       {quotes.map((quote, i) => (
@@ -15,9 +15,9 @@ export default ({ data: { title, quotes } }) => (
 )
 
 const Quote = ({ children, author }) => (
-  <div className="lg:px-24">
+  <div className="px-8 lg:px-24">
     <div
-      className="text-2xl py-12"
+      className="md:text-2xl py-12 prse prose-navy"
       dangerouslySetInnerHTML={{ __html: children }}
     />
     <p className="text-xl">{author.name}</p>

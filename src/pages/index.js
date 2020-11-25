@@ -37,14 +37,12 @@ const IndexPage = ({
         image={seo.image && seo.image.path}
       />
 
-      <div className="hero overflow-x-hidden pb-16 px-8 md:px-12">
-        <div className="flex flex-col items-center mt-12 -mx-8 md:flex-row">
-          <div className="px-8 mb-8 md:mb-0 md:w-7/12">
-            <h1 className="text-5xl xl:text-5xl font-semibold leading-tight tracking-wider mb-2">
-              {hero.title}
-            </h1>
+      <div className="hero bg-teal-300 overflow-x-hidden pb-16 px-8 md:px-12 -mt-32 pt-24 text-white">
+        <div className="flex flex-col items-center mt-12 md:-mx-12 lg:-mx-24 md:flex-row md:py-12">
+          <div className="md:px-12 lg:px-24 mb-8 md:mb-0 md:w-1/2">
+            <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
             <div
-              className="prose text-navy-400"
+              className="prose text-white"
               dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
             />
             <div className="pt-8 flex">
@@ -59,7 +57,7 @@ const IndexPage = ({
               </Link>
             </div>
           </div>
-          <div className="w-full px-8 pt-24 md:pt-0 md:w-5/12">
+          <div className="w-full md:px-12 lg:px-24 pt-24 md:pt-0 md:w-1/2">
             <ReactPlayer
               className="w-full"
               width="100%"
@@ -76,7 +74,7 @@ const IndexPage = ({
       </div>
 
       <Section
-        className="bg-teal-300 text-white py-12 border-teal-400 border-t border-b"
+        className="bg-sky-100 text-navy-400 py-12 border-teal-400 border-t border-b"
         title={highlights.title}
       >
         <div className="container px-8">
@@ -86,7 +84,7 @@ const IndexPage = ({
             imageWrapperClassName="bg-navy-300 w-32 h-32 lg:w-48 lg:h-48 mr-8 lg:mr-auto flex items-center justify-center rounded-full border border-navy-400 mx-auto p-2 overflow-hidden md:mb-6"
             imageClassName="h-full w-full flex-shrink-0 lg:mx-auto"
             titleClassName="text-base md:text-lg tracking-wider leading-snug mb-2"
-            contentClassName="font-light text-xs md:text-base"
+            contentClassName="font-light text-xs md:text-base text-navy-400"
             items={highlights.highlights.map(h => ({
               title: h.title,
               content: h.captionHtml,
@@ -105,12 +103,12 @@ const IndexPage = ({
       </Section>
 
       <Section className="text-xs lg:text-base" title={compare.title}>
-        <div className="container text-xs lg:text-base lg:px-24">
+        <div className="container text-xs lg:text-base px-4 lg:px-24">
           <FeatureTable features={compare.features} />
         </div>
       </Section>
 
-      <Section className="pt- pb-24">
+      <Section className="px-4 pb-24">
         <div className="container">
           <Testimonials items={testimonials.testimonials} />
         </div>

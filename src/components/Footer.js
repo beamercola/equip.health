@@ -4,38 +4,48 @@ import { Logo } from "./SVG"
 import { SignUpButton } from "./Forms"
 
 const Footer = () => (
-  <footer className="bg-teal-400 py-12 text-sky-200 overflow-hidden">
-    <div className="md:flex bleed">
-      <div className="w-1/4 md:w-1/5 lg:w-2/6 md:pr-8">
+  <footer className="bg-teal-300 py-8 md:py-12 text-sky-100 overflow-hidden">
+    <div className="md:flex bleed md:-mx-8">
+      <div className="w-1/3 md:px-8 md:w-1/5 mb-8 md:mb-0">
         <Link to="/">
-          <Logo className="text-sky-200 mb-12" />
+          <Logo />
         </Link>
       </div>
-      <div className="md:w-3/5 lg:w-2/6 md:px-8">
-        <ul>
-          <BigLink to="/">Home</BigLink>
-          <BigLink to="/why-equip">Why Equip</BigLink>
-          <BigLink to="/team">Team</BigLink>
-          <BigLink to="/faq">FAQ</BigLink>
-          <BigLink to="/contact">Contact</BigLink>
-        </ul>
-        <Socials />
-      </div>
+      <div className="flex flex-wrap md:justify-center md:w-3/5 mb-8 md:mb-0">
+        <div className="w-1/2 md:px-10 md:w-auto mb-8 md:mb-0">
+          <ul>
+            <SmallLink to="/">Home</SmallLink>
+            <SmallLink to="/why-equip">Why Equip</SmallLink>
+            <SmallLink to="/team">Team</SmallLink>
+            <SmallLink to="/faq">FAQ</SmallLink>
+            <SmallLink to="/contact">Contact</SmallLink>
+          </ul>
+        </div>
 
-      <div className="md:w-1/5 lg:w-2/6">
-        <ul className="mb-8">
-          <li>
-            <a
-              className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
-              href="https://equiphealth.recruitee.com"
-            >
+        <div className="w-1/2 md:px-10 md:w-auto mb-8 md:mb-0">
+          <ul>
+            <SmallLink to="https://instagram.com/equiphealth">
+              Instagram
+            </SmallLink>
+            <SmallLink to="https://facebook.com/joinequip">Facebook</SmallLink>
+            <SmallLink to="https://twitter.com/joinequip">Twitter</SmallLink>
+          </ul>
+        </div>
+
+        <div className="md:px-10">
+          <ul>
+            <SmallLink to="https://equiphealth.recruitee.com">
               Open Roles
-            </a>
-          </li>
-          <SmallLink to="/providers">Make a Referral</SmallLink>
-          <SmallLink to="/privacy">Privacy Policy</SmallLink>
-        </ul>
-        <SignUpButton className="border-navy-300 text-navy-300" />
+            </SmallLink>
+            <SmallLink to="/providers">Make a Referral</SmallLink>
+            <SmallLink to="/privacy">Privacy Policy</SmallLink>
+          </ul>
+        </div>
+      </div>
+      <div className="md:px-8 md:w-1/5">
+        <div className="">
+          <SignUpButton className="border-navy-300 text-navy-300" />
+        </div>
       </div>
     </div>
   </footer>
@@ -56,36 +66,10 @@ const BigLink = ({ to, children }) => (
 
 const SmallLink = ({ to, children }) => (
   <li>
-    <Link
-      className="inline-block my-1 border-transparent hover:border-sky-200 hover:underline"
-      to={to}
-    >
+    <Link className="block py-1 hover:underline" to={to}>
       {children}
     </Link>
   </li>
 )
 
-const Socials = () => (
-  <div className="mt-12">
-    <a
-      className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
-      href="https://instagram.com/equiphealth"
-    >
-      Instagram
-    </a>
-    &nbsp;&nbsp;/&nbsp;&nbsp;
-    <a
-      className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
-      href="https://facebook.com/joinequip"
-    >
-      Facebook
-    </a>
-    &nbsp;&nbsp;/&nbsp;&nbsp;
-    <a
-      className="pb-2 inline-block border-b-2 my-1 border-transparent hover:border-sky-200"
-      href="https://twitter.com/joinequip"
-    >
-      Twitter
-    </a>
-  </div>
-)
+const Socials = () => <div className="mt-12"></div>

@@ -20,7 +20,7 @@ const TeamPage = ({
       image={seo.image && seo.image.path}
     />
     <div className="bleed">
-      <PageHeader title={title} subtitle={contentHtml} />
+      <PageHeader title={title} html={contentHtml}></PageHeader>
 
       <section className="flex flex-wrap -mx-4 lg:-mx-8">
         {members.map(member => (
