@@ -100,7 +100,7 @@ const Highlight = ({
             What it looks like
           </h4>
           <article
-            className="content leading-snug"
+            className="content leading-snug prose prose-navy"
             dangerouslySetInnerHTML={{ __html: whatHtml }}
           />
         </div>
@@ -110,7 +110,7 @@ const Highlight = ({
             Why it matters
           </h4>
           <article
-            className="content leading-snug"
+            className="content leading-snug prose prose-navy"
             dangerouslySetInnerHTML={{ __html: whyHtml }}
           />
         </div>

@@ -68,6 +68,21 @@ module.exports = {
         "84": "21rem",
         "96": "24rem",
       },
+      typography: theme => ({
+        navy: {
+          css: {
+            color: theme("colors.navy.300"),
+            a: { color: theme("colors.navy.400") },
+            strong: { color: theme("colors.navy.300"), fontWeight: 800 },
+            h1: { color: theme("colors.navy.300") },
+            h2: { color: theme("colors.navy.300") },
+            h3: { color: theme("colors.navy.300") },
+            h4: { color: theme("colors.navy.300") },
+            h5: { color: theme("colors.navy.300") },
+            h6: { color: theme("colors.navy.300") },
+          },
+        },
+      }),
     },
     fill: theme => ({
       sky: theme("colors.sky.300"),

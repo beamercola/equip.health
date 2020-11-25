@@ -18,7 +18,7 @@ const Page = ({
       <div className="bleed">
         <PageHeader title={title} />
         <article
-          className="text-xl w-1/2"
+          className="text-xl w-1/2 prose prose-navy pb-12"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
         {slug === "providers" && <Provider />}

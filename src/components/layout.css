@@ -110,3 +110,8 @@ header nav a.active {
   visibility: visible;
   transform: scaleX(1);
 }
+
+.appearance-none {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}

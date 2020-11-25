@@ -13,7 +13,7 @@ const Testimonial = ({ quoteHtml, name, title, photo }) => (
   <div className="lg:px-6 lg:w-1/3 mb-4">
     <div className="bg-white rounded-lg border-navy-300 border p-6">
       <div
-        className="mb-4 text-sm"
+        className="mb-4 text-sm prose text-navy-300"
         dangerouslySetInnerHTML={{ __html: quoteHtml }}
       />
       <div className="flex items-center">

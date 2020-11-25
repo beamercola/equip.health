@@ -50,7 +50,7 @@ const FeatureItem = ({
     <div>
       <h4 className={titleClassName}>{title}</h4>
       <div
-        className={contentClassName}
+        className={`${contentClassName} prose`}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>
