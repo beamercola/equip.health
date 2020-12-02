@@ -62,30 +62,6 @@ export default ({
           </TabPanel>
         ))}
       </Tabs>
-
-      <section className="my-12 lg:my-24 flex flex-wrap -mx-8">
-        {advisors.map((group, i) => (
-          <div
-            className="w-full lg:w-1/2 px-8 mb-4 lg:mb-12"
-            key={`advisor-group-${group.title}`}
-          >
-            <h3 className="text-xl mb-4">{group.title}</h3>
-            <div className="flex flex-wrap -mx-2 lg:-mx-2">
-              {group.members.map(member => (
-                <MemberCard
-                  className="px-2 lg:px-2 mb-8 w-1/2 md:w-1/4"
-                  key={member._id}
-                  size="small"
-                  imageOptions={{
-                    duotone: "0A375C,F4EDE4",
-                  }}
-                  {...member}
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </section>
     </div>
 
     <section className="my-12 lg:my-24 bg-navy-300 text-sky-300">
