@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import PageHeader from "../components/PageHeader"
 import { Recruit } from "../components/Forms"
 
-const TeamPage = ({
+export default ({
   data: {
     takeshape: {
       getTeam: { contentHtml, title, members, advisors, join, story, seo },
@@ -22,10 +23,10 @@ const TeamPage = ({
     <div className="bleed">
       <PageHeader title={title} html={contentHtml}></PageHeader>
 
-      <section className="flex flex-wrap -mx-4 lg:-mx-8">
+      <section className="flex flex-wrap -mx-4 lg:-mx-4">
         {members.map(member => (
           <MemberCard
-            className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-4 lg:px-8 mb-8"
+            className="w-full md:w-1/2 lg:w-1/4 px-4 lg:px-4 mb-8"
             key={member._id}
             size="large"
             {...member}
@@ -33,29 +34,34 @@ const TeamPage = ({
         ))}
       </section>
 
-      <section className="my-12 lg:my-24 flex flex-wrap -mx-8">
+      <Tabs selectedTabClassName="bg-teal-300 text-white">
+        <TabList className="flex justify-center my-12">
+          {advisors.map((group, i) => (
+            <Tab
+              className="mx-4 px-4 py-4 rounded-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-teal-200 focus:ring-offset-2"
+              key={i}
+            >
+              {group.title}
+            </Tab>
+          ))}
+        </TabList>
+
         {advisors.map((group, i) => (
-          <div
-            className="w-full lg:w-1/2 px-8 mb-4 lg:mb-12"
-            key={`advisor-group-${group.title}`}
-          >
-            <h3 className="text-xl mb-4">{group.title}</h3>
-            <div className="flex flex-wrap -mx-2 lg:-mx-2">
-              {group.members.map(member => (
-                <MemberCard
-                  className="px-2 lg:px-2 mb-8 w-1/2 md:w-1/4"
-                  key={member._id}
-                  size="small"
-                  imageOptions={{
-                    duotone: "0A375C,F4EDE4",
-                  }}
-                  {...member}
-                />
-              ))}
-            </div>
-          </div>
+          <TabPanel className="flex flex-wrap" key={i}>
+            {group.members.map(member => (
+              <MemberCard
+                className="px-2 lg:px-2 mb-8 w-1/2 md:w-1/6"
+                key={member._id}
+                size="small"
+                imageOptions={{
+                  duotone: "0A375C,F4EDE4",
+                }}
+                {...member}
+              />
+            ))}
+          </TabPanel>
         ))}
-      </section>
+      </Tabs>
     </div>
 
     <section className="my-12 lg:my-24 bg-navy-300 text-sky-300">
@@ -91,7 +97,21 @@ const TeamPage = ({
   </Layout>
 )
 
-export default TeamPage
+const PrimaryCard = ({ className, member }) => (
+  <div className={className}>
+    <div className="relative grow">
+      <img
+        // className={`${imgClassName}`}
+        // alt={name}
+        src={getImageUrl(member.photo.path, {
+          w: 800,
+          h: 1100,
+          fit: "crop",
+        })}
+      />
+    </div>
+  </div>
+)
 
 const MemberCard = ({
   className,

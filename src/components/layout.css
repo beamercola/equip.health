@@ -97,7 +97,7 @@ header nav a:hover {
   @apply text-gold-200;
 }
 
-header nav a::before {
+header nav a:before {
   @apply bg-gold-200 duration-300 ease-out rounded-full left-0 bottom-0 w-full h-1;
   content: "";
   position: absolute;
