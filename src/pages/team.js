@@ -6,6 +6,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import PageHeader from "../components/PageHeader"
 import { Recruit } from "../components/Forms"
+const classNames = require("classnames")
 
 export default ({
   data: {
@@ -35,10 +36,14 @@ export default ({
       </section>
 
       <Tabs selectedTabClassName="bg-teal-300 text-white">
-        <TabList className="flex justify-center my-12">
+        <TabList className="flex flex-wrap justify-center my-12">
           {advisors.map((group, i) => (
             <Tab
-              className="mx-4 px-4 py-4 rounded-lg cursor-pointer focus:outline-none focus:ring-4 focus:ring-teal-200 focus:ring-offset-2"
+              className={classNames(
+                "text-sm px-3 py-2 rounded-lg cursor-pointer mx-2",
+                "md:mx-4 md:px-4 md:py-4",
+                "focus:outline-none focus:ring-4 focus:ring-teal-200 focus:ring-offset-2"
+              )}
               key={i}
             >
               {group.title}

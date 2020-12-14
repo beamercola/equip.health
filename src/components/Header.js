@@ -17,7 +17,9 @@ const Header = () => {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between">
             <div className="flex lg:w-1/4 w-full justify-between items-center">
               <Link className="lg:w-1/4" to="/">
-                <Wordmark className={`transition-all duration-100 h-6`} />
+                <Wordmark
+                  className={`transition-all duration-100 h-5 md:h-6`}
+                />
               </Link>
               <button
                 type="button"
