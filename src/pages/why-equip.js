@@ -22,10 +22,7 @@ const WhyEquip = ({
         image={seo.image && seo.image.path}
       />
       <div className="bleed pb-16">
-        <PageHeader title={highlights.title}>
-          Build your first machine learning model in ten minutes. No code or
-          experience required.
-        </PageHeader>
+        <PageHeader title={highlights.title} />
 
         <div>
           {highlights.highlights.map((highlight, index) => (
