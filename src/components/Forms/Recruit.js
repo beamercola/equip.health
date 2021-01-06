@@ -66,7 +66,6 @@ const Recruit = ({ callToAction }) => {
           type="submit"
         >
           {callToAction || "Submit"}
-          beep
         </button>
       </div>
     </form>
