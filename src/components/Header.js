@@ -3,6 +3,8 @@ import { Wordmark, Hamburger } from "./SVG"
 import { SignUpButton } from "./Forms"
 import Link from "../components/Link"
 
+const classNames = require("classnames")
+
 const Header = () => {
   const [open, setOpen] = useState(false)
 
@@ -10,16 +12,15 @@ const Header = () => {
     <>
       <header className="fixed inset-x-0 top-0 px-4 lg:px-8 pt-4 lg:pt-6 z-50">
         <div
-          className={`bg-teal-300 border border-teal-400 border-opacity-40 text-white py-2 lg:py-3 pl-8 pr-3 shadow-xl ${
+          className={classNames(
+            "bg-teal-300 border border-teal-400 border-opacity-40 text-white py-2 lg:py-3 pl-8 pr-3",
             open ? "rounded-lg" : "rounded-full"
-          }`}
+          )}
         >
           <div className="flex flex-col lg:flex-row lg:items-center justify-between">
             <div className="flex lg:w-1/4 w-full justify-between items-center">
               <Link className="lg:w-1/4" to="/">
-                <Wordmark
-                  className={`transition-all duration-100 h-5 md:h-6`}
-                />
+                <Wordmark className="transition-all duration-100 h-5 md:h-6" />
               </Link>
               <button
                 type="button"
@@ -31,9 +32,9 @@ const Header = () => {
             </div>
 
             <nav
-              className={`lg:w-2/4 lg:justify-center py-8 lg:py-0 ${
-                !open && "hidden lg:flex"
-              }`}
+              className={classNames("lg:w-2/4 lg:justify-center py-8 lg:py-0", {
+                "hidden lg:flex": !open,
+              })}
             >
               <PrimaryNav open={open} />
             </nav>
@@ -43,9 +44,11 @@ const Header = () => {
         </div>
       </header>
       <div
-        className={`bg-black cursor-pointer inset-0 fixed z-30 opacity-25 transform duration-300 transition-all ${
+        className={classNames(
+          "bg-black cursor-pointer inset-0 fixed z-30 opacity-25",
+          "transform duration-300 transition-all",
           open ? "bg-black" : "bg-transparent hidden"
-        }`}
+        )}
         onClick={() => setOpen(false)}
       />
     </>

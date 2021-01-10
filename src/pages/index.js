@@ -5,12 +5,15 @@ import { Logo } from "../components/SVG"
 import Link from "../components/Link"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import FeatureTable from "../components/Blocks/FeatureTable"
-import Testimonials from "../components/Blocks/Testimonials"
-import Press from "../components/Blocks/Press"
-import Highlight from "../components/Blocks/Highlight"
-import Callout from "../components/Blocks/Callout"
-import { Features } from "../components/Blocks"
+import {
+  Features,
+  Hero,
+  Callout,
+  Highlight,
+  Press,
+  FeatureTable,
+  Testimonials,
+} from "../components/Blocks"
 import ReactPlayer from "react-player"
 
 const IndexPage = ({
@@ -37,27 +40,29 @@ const IndexPage = ({
         image={seo.image && seo.image.path}
       />
 
-      <div className="hero bg-teal-300 overflow-x-hidden pb-16 px-8 md:px-12 -mt-32 pt-24 text-white">
-        <div className="flex flex-col items-center mt-12 md:-mx-12 lg:-mx-24 md:flex-row md:py-12">
-          <div className="md:px-12 lg:px-24 mb-8 md:mb-0 md:w-1/2">
-            <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
-            <div
-              className="prose text-white"
-              dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
-            />
-            <div className="pt-8 flex">
-              <Link
-                to={hero.ctaPath}
-                className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
-              >
-                <span className="inline-block">
-                  <Logo className="h-8 w-8 mr-2" />
-                </span>
-                {hero.callToAction}
-              </Link>
+      <Hero>
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2">
+            <div className="md:max-w-md md:mr-12">
+              <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
+              <div
+                className="prose text-white"
+                dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
+              />
+              <div className="pt-8 flex">
+                <Link
+                  to={hero.ctaPath}
+                  className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
+                >
+                  <span className="inline-block">
+                    <Logo className="h-8 w-8 mr-2" />
+                  </span>
+                  {hero.callToAction}
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="w-full md:px-12 lg:px-24 pt-24 md:pt-0 md:w-1/2">
+          <div className="md:w-1/2 py-12">
             <ReactPlayer
               className="w-full"
               width="100%"
@@ -71,7 +76,7 @@ const IndexPage = ({
             />
           </div>
         </div>
-      </div>
+      </Hero>
 
       <Section
         className="bg-sky-100 text-navy-400 py-12 border-teal-400 border-t border-b"
