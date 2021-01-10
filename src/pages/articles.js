@@ -1,58 +1,71 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import PageHeader from "../components/PageHeader"
-import { Sidebar, Card } from "../components/Articles"
+import { Hero } from "../components/Blocks"
+import { Card, Nav } from "../components/Articles"
+import HeroCard, { themes, getTheme } from "../components/Blocks/HeroCard"
 
-const ArticlesPage = ({
+export default ({
   data: {
     takeshape: {
-      getArticleList: { items: articles },
+      getArticleList: { items: articleList },
     },
   },
-}) => (
-  <Layout>
-    <SEO title="Articles" />
-    <div className="bleed">
-      <div className="lg:flex -mx-8">
-        <div className="lg:w-2/3 px-8">
-          <div className="flex flex-wrap -mx-4">
-            {articles.map(article => (
-              <Card article={article} key={article._id} />
-            ))}
-          </div>
-        </div>
-        <div className="lg:w-1/3 px-8">
-          <Sidebar />
-        </div>
-      </div>
-    </div>
-  </Layout>
-)
+}) => {
+  var articles = articleList
+  const primary = useMemo(() => articles.shift(), [articleList])
+  const secondary = useMemo(() => articles.shift(), [articleList])
 
-export default ArticlesPage
+  return (
+    <Layout>
+      <SEO title="Articles" />
+      <Hero>
+        <div className="text-center py-12">
+          <h1 className="text-4xl font-light mb-1">The Eating Disorder Blog</h1>
+          <p>A great blog about the lorem ipsum</p>
+        </div>
+        <Nav />
+      </Hero>
+
+      <ArticleHeroCard article={primary} theme={themes[1]} />
+
+      <ArticleHeroCard
+        article={secondary}
+        theme={{ text: "text-navy-400" }}
+        flip
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-16">
+        {articles.map((article, i) => (
+          <div key={i}>
+            <Card article={article} key={article._id} />
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
+
+// Just puts article content inside the hero card
+const ArticleHeroCard = props => (
+  <HeroCard
+    theme={getTheme(props.article._id)}
+    {...props}
+    to={`/articles/${props.article.slug}`}
+  >
+    <p className="text-xs mb-2">{props.article.author?.name}</p>
+    <h2 className="text-4xl mb-4">{props.article.title}</h2>
+    <p className="">{props.article.content?.blocks[0]?.text}</p>
+  </HeroCard>
+)
 
 export const ArticlesPageQuery = graphql`
   query ArticlePageQuery {
     takeshape {
       getArticleList(sort: { field: "date", order: "DESC" }) {
         items {
-          _id
-          title
-          slug
-          date
-          contentHtml
-          photo {
-            path
-          }
-          category {
-            _id
-            name
-          }
-          author {
-            name
-          }
+          ...ArticleCardFields
         }
       }
     }
