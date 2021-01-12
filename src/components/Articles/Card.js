@@ -1,30 +1,44 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Truncate from "react-truncate"
+import { getIcon } from "../SVG/Icons"
+import { getTheme } from "../../utils/ArticleTheme"
 var { DateTime } = require("luxon")
 
 const classNames = require("classnames")
 
-export default ({ article }) => (
-  <Link
-    className={classNames(
-      "block px-6 pb-6 pt-12 border border-transparent rounded-xl",
-      "transform transition-all duration-500",
-      "hover:bg-white hover:border-navy-400 hover:shadow-lg hover:-translate-y-4"
-    )}
-    to={`/articles/${article.slug}`}
-    key={article._id}
-  >
-    <div className="mb-2">⚫️</div>
-    {article.author && (
-      <p className="text-xs font-light mb-2">{article.author?.name}</p>
-    )}
-    <h4 className="font-heading text-3xl mb-4">{article.title}</h4>
-    <p className="text-sm">{article.content?.blocks[0]?.text}</p>
-    {/* <div className="text-xs hidden">
+export default ({ article }) => {
+  const theme = getTheme(article._id)
+  const icon = getIcon({
+    uuid: article._id,
+    colors: theme.icon.light,
+    className: "h-16",
+  })
+
+  return (
+    <Link
+      className={classNames(
+        "block px-6 pb-6 pt-12 border border-transparent rounded-xl",
+        "transform transition-all duration-500",
+        "hover:bg-white hover:border-navy-400 hover:shadow-lg hover:-translate-y-4"
+      )}
+      to={`/articles/${article.slug}`}
+      key={article._id}
+    >
+      <div className="mb-4">{icon}</div>
+      {article.author && (
+        <p className="text-xs font-light mb-2">{article.author?.name}</p>
+      )}
+      <h4 className="font-heading text-3xl mb-4">{article.title}</h4>
+      <p className="text-sm">
+        <Truncate lines={5}>{article.content?.blocks[0]?.text}</Truncate>
+      </p>
+      {/* <div className="text-xs hidden">
       {DateTime.fromISO(article.date).toLocaleString(DateTime.DATETIME_MED)}
     </div> */}
-  </Link>
-)
+    </Link>
+  )
+}
 
 export const fragments = graphql`
   fragment ArticleCardFields on TS_Article {

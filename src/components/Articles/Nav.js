@@ -24,7 +24,7 @@ export default () => {
     <nav className="flex justify-center items-center">
       <NavItem to="/articles">All Articles</NavItem>
       {categories.map((category, i) => (
-        <NavItem to={`/articles/categories/${category.slug}`} key={i}>
+        <NavItem to={`/articles/category/${category.slug}`} key={i}>
           {category.name}
         </NavItem>
       ))}

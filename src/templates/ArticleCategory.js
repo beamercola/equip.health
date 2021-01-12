@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import { Card } from "../components/Articles"
+import { ArticleHeroCard, Card, Header } from "../components/Articles"
 
 const ArticleCategoryTemplate = ({
   data: {
@@ -16,15 +16,26 @@ const ArticleCategoryTemplate = ({
   return (
     <Layout>
       <SEO title={`${category.name} Category`} />
-      <div className="bleed">
-        <h1 className="text-5xl lg:text-7xl pt-8 pb-12 lg:pt-16 lg:pb-24 tracking-wider text-navy-300 leading-none">
-          {category.name}
-        </h1>
-        <div className="flex flex-wrap -mx-8">
-          {articles.map(article => (
+
+      <Header />
+
+      <ArticleHeroCard article={articles[0]} />
+
+      <ArticleHeroCard
+        article={articles[1]}
+        theme={{
+          text: "text-navy-400",
+          icon: { dark: ["text-navy-400", "text-navy-400"] },
+        }}
+        flip
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-16">
+        {articles.slice(1).map((article, i) => (
+          <div key={i}>
             <Card article={article} key={article._id} />
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </Layout>
   )
@@ -42,13 +53,10 @@ export const query = graphql`
         articleSet {
           items {
             _id
-            contentHtml
+            content
             title
             slug
             date
-            photo {
-              path
-            }
           }
         }
       }

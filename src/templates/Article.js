@@ -2,65 +2,71 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import Link from "../components/Link"
-import { Sidebar } from "../components/Articles"
-import PageHeader from "../components/PageHeader"
-var { DateTime } = require("luxon")
+import { Header } from "../components/Articles"
+import HeroCard from "../components/Blocks/HeroCard"
+import { getTheme } from "../utils/ArticleTheme"
 
 const ArticlePage = ({
   data: {
     takeshape: { getArticle: article },
   },
-}) => (
-  <Layout>
-    <SEO
-      title={article.title}
-      description={article.seo && article.seo.description}
-      image={article.photo.path}
-    />
+}) => {
+  const theme = getTheme(article._id)
 
-    <div className="bleed pb-24">
+  return (
+    <Layout>
+      <SEO
+        title={article.title}
+        description={article.seo && article.seo.description}
+        image={article.photo.path}
+      />
+
+      <Header />
+
       <article>
-        <PageHeader title={article.title}>
-          <div className="flex text-xs">
-            <div className="pr-6">
-              Category:&nbsp;
-              {article.category.map(category => (
-                <Link
-                  className="underline pr-2"
-                  to={`/articles/category/${category.slug}`}
-                  key={category._id}
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </div>
-            <time className="pr-6 hidden" date={article.date}>
-              {DateTime.fromISO(article.date).toLocaleString(
-                DateTime.DATETIME_MED
-              )}
-            </time>
-            {article.author && (
-              <div className="px-6">Author:&nbsp;{article.author.name}</div>
-            )}
-          </div>
-        </PageHeader>
+        <HeroCard uuid={article._id} size="wide">
+          <p className="text-xs mb-2">{article.author?.name}</p>
+          <h2 className="text-4xl mb-4">{article.title}</h2>
+        </HeroCard>
 
-        <div className="md:flex md:-mx-12">
-          <div className="md:w-2/3 md:px-12 border-b md:border-0 border-navy-300 pb-12 mb-12 md:pb-0">
+        <div className="flex items-stretch">
+          <div className="w-3/4 px-12 py-16">
             <div
-              className="prose-lg my-2"
+              className="prose prose-lg"
               dangerouslySetInnerHTML={{ __html: article.contentHtml }}
             />
           </div>
-          <div className="md:w-1/3 md:px-12">
-            <Sidebar />
+          <div className="w-1/4 bg-cream-300 px-6 py-16">
+            {article.author && (
+              <section className="mb-16">
+                <h3 className="font-medium text-lg">
+                  About {article.author?.name}
+                </h3>
+                <hr className="border-navy-400 border-t w-12 my-2" />
+                <div
+                  className="text-xs"
+                  dangerouslySetInnerHTML={{ __html: article.author.bioHtml }}
+                />
+              </section>
+            )}
+            <section className="mb-16">
+              <h3 className="font-medium text-lg">About Equip</h3>
+              <hr className="border-navy-400 border-t w-12 my-2" />
+              <p className="text-xs">
+                Equip is a virtual eating disorder treatment program helping
+                families recover from eating disorders at home. Equip’s
+                holistic, data-driven, gold-standard care program is delivered
+                by a team of five care professionals, giving families confidence
+                they’re providing the best opportunity for progress and lasting
+                recovery.
+              </p>
+            </section>
           </div>
         </div>
       </article>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export default ArticlePage
 
@@ -83,6 +89,7 @@ export const query = graphql`
         }
         author {
           name
+          bioHtml
         }
       }
     }
