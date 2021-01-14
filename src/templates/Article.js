@@ -5,6 +5,7 @@ import SEO from "../components/SEO"
 import { Header } from "../components/Articles"
 import HeroCard from "../components/Blocks/HeroCard"
 import { getTheme } from "../utils/ArticleTheme"
+import StickyBox from "react-sticky-box"
 
 const ArticlePage = ({
   data: {
@@ -37,30 +38,32 @@ const ArticlePage = ({
             />
           </div>
           <div className="w-1/4 bg-cream-300 px-6 py-16">
-            {article.author && (
+            <StickyBox offsetTop={140} offsetBottom={20}>
+              {article.author && (
+                <section className="mb-16">
+                  <h3 className="font-medium text-lg">
+                    About {article.author?.name}
+                  </h3>
+                  <hr className="border-navy-400 border-t w-12 my-2" />
+                  <div
+                    className="text-sm"
+                    dangerouslySetInnerHTML={{ __html: article.author.bioHtml }}
+                  />
+                </section>
+              )}
               <section className="mb-16">
-                <h3 className="font-medium text-lg">
-                  About {article.author?.name}
-                </h3>
+                <h3 className="font-medium text-lg">About Equip</h3>
                 <hr className="border-navy-400 border-t w-12 my-2" />
-                <div
-                  className="text-xs"
-                  dangerouslySetInnerHTML={{ __html: article.author.bioHtml }}
-                />
+                <p className="text-sm">
+                  Equip is a virtual eating disorder treatment program helping
+                  families recover from eating disorders at home. Equip’s
+                  holistic, data-driven, gold-standard care program is delivered
+                  by a team of five care professionals, giving families
+                  confidence they’re providing the best opportunity for progress
+                  and lasting recovery.
+                </p>
               </section>
-            )}
-            <section className="mb-16">
-              <h3 className="font-medium text-lg">About Equip</h3>
-              <hr className="border-navy-400 border-t w-12 my-2" />
-              <p className="text-xs">
-                Equip is a virtual eating disorder treatment program helping
-                families recover from eating disorders at home. Equip’s
-                holistic, data-driven, gold-standard care program is delivered
-                by a team of five care professionals, giving families confidence
-                they’re providing the best opportunity for progress and lasting
-                recovery.
-              </p>
-            </section>
+            </StickyBox>
           </div>
         </div>
       </article>
