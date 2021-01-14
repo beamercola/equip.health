@@ -31,26 +31,7 @@ const iconPadding = size => {
   }
 }
 
-export default props => {
-  const card = <HeroCard {...props} />
-  if (props.to) {
-    return (
-      <Link className="block" to={props.to}>
-        {card}
-      </Link>
-    )
-  }
-  return card
-}
-
-export const HeroCard = ({
-  theme: theTheme,
-  children,
-  flip,
-  to,
-  size,
-  uuid,
-}) => {
+export default ({ theme: theTheme, children, flip, to, size, uuid }) => {
   const theme = theTheme || getTheme(uuid)
   const icon = getIcon({
     uuid,
