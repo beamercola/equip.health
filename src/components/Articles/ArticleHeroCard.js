@@ -9,8 +9,8 @@ export default props => (
     to={`/articles/${props.article.slug}`}
   >
     <p className="text-xs mb-2">{props.article.author?.name}</p>
-    <h2 className="text-4xl mb-4">{props.article.title}</h2>
-    <p className="">
+    <h2 className="text-2xl md:text-4xl mb-4">{props.article.title}</h2>
+    <p className="text-sm md:text-base">
       <Truncate lines={5}>{props.article.content?.blocks[0]?.text}</Truncate>
     </p>
   </HeroCard>

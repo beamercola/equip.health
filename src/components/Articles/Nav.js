@@ -21,7 +21,7 @@ export default () => {
   `)
 
   return (
-    <nav className="flex justify-center items-center">
+    <nav className="flex flex-wrap md:flex-row justify-center items-center">
       <NavItem to="/articles">All Articles</NavItem>
       {categories.map((category, i) => (
         <NavItem to={`/articles/category/${category.slug}`} key={i}>
@@ -33,7 +33,11 @@ export default () => {
 }
 
 const NavItem = ({ to, children }) => (
-  <Link className="py-4 px-4" to={to} activeClassName="underline">
+  <Link
+    className="text-sm md:text-base text-center py-2 md:py-4 px-4 w-1/2"
+    to={to}
+    activeClassName="underline"
+  >
     {children}
   </Link>
 )

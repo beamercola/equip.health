@@ -30,14 +30,14 @@ const ArticlePage = ({
           <h2 className="text-4xl mb-4">{article.title}</h2>
         </HeroCard>
 
-        <div className="flex items-stretch">
-          <div className="w-3/4 px-12 py-16">
+        <div className="md:flex items-stretch overflow-hidden">
+          <div className="md:w-3/4 p-5 md:px-12 md:py-16">
             <div
-              className="prose prose-lg"
+              className="prose md:prose-lg"
               dangerouslySetInnerHTML={{ __html: article.contentHtml }}
             />
           </div>
-          <div className="w-1/4 bg-cream-300 px-6 py-16">
+          <div className="bg-cream-300 md:w-1/4 p-5 md:px-6 md:py-16">
             <StickyBox offsetTop={140} offsetBottom={20}>
               {article.author && (
                 <section className="mb-16">

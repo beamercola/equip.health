@@ -12,13 +12,13 @@ export default ({ article }) => {
   const icon = getIcon({
     uuid: article._id,
     colors: theme.icon.light,
-    className: "h-16",
+    className: "h-8 md:h-16",
   })
 
   return (
     <Link
       className={classNames(
-        "block px-6 pb-6 pt-12 border border-transparent rounded-xl",
+        "block p-4 pt-8 md:px-6 md:pb-6 md:pt-12 border border-transparent rounded-xl",
         "transform transition-all duration-500",
         "hover:bg-white hover:border-navy-400 hover:shadow-lg hover:-translate-y-4"
       )}
@@ -29,7 +29,7 @@ export default ({ article }) => {
       {article.author && (
         <p className="text-xs font-light mb-2">{article.author?.name}</p>
       )}
-      <h4 className="font-heading text-3xl mb-4">{article.title}</h4>
+      <h4 className="font-heading text-xl md:text-3xl mb-4">{article.title}</h4>
       <p className="text-sm">
         <Truncate lines={5}>{article.content?.blocks[0]?.text}</Truncate>
       </p>

@@ -7,9 +7,9 @@ const classNames = require("classnames")
 const widthFromSize = size => {
   switch (size) {
     case "wide":
-      return "w-3/4"
+      return "md:w-3/4"
     default:
-      return "w-1/2"
+      return "md:w-1/2"
   }
 }
 
@@ -31,7 +31,19 @@ const iconPadding = size => {
   }
 }
 
-export default ({ theme: theTheme, children, flip, to, size, uuid }) => {
+export default props => {
+  const card = <HeroCard {...props} />
+  if (props.to) {
+    return (
+      <Link className="block" to={props.to}>
+        {card}
+      </Link>
+    )
+  }
+  return card
+}
+
+const HeroCard = ({ theme: theTheme, children, flip, to, size, uuid }) => {
   const theme = theTheme || getTheme(uuid)
   const icon = getIcon({
     uuid,
@@ -41,23 +53,19 @@ export default ({ theme: theTheme, children, flip, to, size, uuid }) => {
 
   return (
     <div
-      className={classNames("flex items-stretch", { "flex-row-reverse": flip })}
+      className={classNames("md:flex items-stretch", {
+        "flex-row-reverse": flip,
+      })}
     >
       <div
         className={classNames(
-          "p-16 flex flex-col justify-center flex-shrink-0",
+          "p-5 md:p-16 flex flex-col justify-center flex-shrink-0",
           widthFromSize(size),
           theme.background,
           theme.text
         )}
       >
-        {to ? (
-          <Link className="block" to={to}>
-            {children}
-          </Link>
-        ) : (
-          children
-        )}
+        {children}
       </div>
       <div
         className={classNames(
