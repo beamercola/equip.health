@@ -115,3 +115,12 @@ header nav a.active {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+.prose .oembed {
+  @apply relative;
+  padding-bottom: 56.25%;
+}
+
+.prose .oembed iframe {
+  @apply absolute inset-0 h-full w-full !important;
+}
