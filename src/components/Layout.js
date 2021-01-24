@@ -2,10 +2,10 @@ import React from "react"
 import Header from "./Header"
 import Footer from "./Footer"
 
-export default ({ children, pad = true }) => (
+export default ({ children }) => (
   <>
     <Header />
-    <main className={`${pad && "pt-"}`}>{children}</main>
+    <main>{children}</main>
     <Footer />
   </>
 )

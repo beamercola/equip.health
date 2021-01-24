@@ -69,17 +69,17 @@ module.exports = {
         "96": "24rem",
       },
       typography: theme => ({
-        navy: {
+        DEFAULT: {
           css: {
-            color: theme("colors.navy.300"),
+            color: theme("colors.navy.400"),
             a: { color: theme("colors.navy.400") },
-            strong: { color: theme("colors.navy.300"), fontWeight: 800 },
-            h1: { color: theme("colors.navy.300") },
-            h2: { color: theme("colors.navy.300") },
-            h3: { color: theme("colors.navy.300") },
-            h4: { color: theme("colors.navy.300") },
-            h5: { color: theme("colors.navy.300") },
-            h6: { color: theme("colors.navy.300") },
+            strong: { color: theme("colors.navy.400"), fontWeight: 800 },
+            h1: { color: theme("colors.navy.400"), fontWeight: "medium" },
+            h2: { color: theme("colors.navy.400"), fontWeight: "medium" },
+            h3: { color: theme("colors.navy.400"), fontWeight: "medium" },
+            h4: { color: theme("colors.navy.400"), fontWeight: "medium" },
+            h5: { color: theme("colors.navy.400"), fontWeight: "medium" },
+            h6: { color: theme("colors.navy.400"), fontWeight: "medium" },
           },
         },
       }),
