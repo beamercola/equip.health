@@ -7,9 +7,9 @@ export default () => (
   <Hero>
     <div className="text-center py-12">
       <h1 className="text-4xl font-light mb-1">
-        <Link to="/articles">The Eating Disorder Blog</Link>
+        <Link to="/articles">Reconvene</Link>
       </h1>
-      <p>A great blog about the lorem ipsum</p>
+      <p>A blog about eating disorders and recovery in a modern world</p>
     </div>
     <Nav />
   </Hero>

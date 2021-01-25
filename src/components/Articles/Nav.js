@@ -34,7 +34,7 @@ export default () => {
 
 const NavItem = ({ to, children }) => (
   <Link
-    className="text-sm md:text-base text-center py-2 md:py-4 px-4 w-1/2"
+    className="text-sm md:text-base text-center py-2 md:py-4 px-4 w-1/2 md:w-auto"
     to={to}
     activeClassName="underline"
   >
