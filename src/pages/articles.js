@@ -28,7 +28,7 @@ export default ({
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-4 md:gap-16">
-        {articles.map((article, i) => (
+        {articles.slice(2).map((article, i) => (
           <div key={i}>
             <Card article={article} key={article._id} />
           </div>
