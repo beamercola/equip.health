@@ -2,7 +2,7 @@ import React from "react"
 import { states, insuranceProviders, Input, Select } from "../Forms"
 var _ = require("lodash")
 
-export default () => {
+const SignUp = () => {
   const relationships = ["Patient", "Loved One", "Referring Provider", "Other"]
   const ages = _.flatten([_.range(39), "40+"])
 
@@ -109,3 +109,5 @@ export default () => {
     </form>
   )
 }
+
+export default SignUp

@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import { ArticleHeroCard, Card, Header } from "../components/Articles"
 
-export default ({
+const Articles = ({
   data: {
     takeshape: {
       getArticleList: { items: articles },
@@ -37,6 +37,8 @@ export default ({
     </Layout>
   )
 }
+
+export default Articles
 
 export const ArticlesPageQuery = graphql`
   query ArticlePageQuery {

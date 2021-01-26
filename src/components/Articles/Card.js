@@ -7,7 +7,7 @@ var { DateTime } = require("luxon")
 
 const classNames = require("classnames")
 
-export default ({ article }) => {
+const Card = ({ article }) => {
   const theme = getTheme(article._id)
   const icon = getIcon({
     uuid: article._id,
@@ -39,6 +39,8 @@ export default ({ article }) => {
     </Link>
   )
 }
+
+export default Card
 
 export const fragments = graphql`
   fragment ArticleCardFields on TS_Article {

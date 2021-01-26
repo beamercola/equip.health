@@ -1,7 +1,7 @@
 import React from "react"
 import Carousel from "@brainhubeu/react-carousel"
 
-export default ({ data: { title, quotes } }) => (
+const Quotes = ({ data: { title, quotes } }) => (
   <section className="text-navy-300 py-24 text-center px-8 lg:px-12 border-b border-navy-300">
     <h2 className="text-5xl">{title}</h2>
     <Carousel arrows>
@@ -13,6 +13,8 @@ export default ({ data: { title, quotes } }) => (
     </Carousel>
   </section>
 )
+
+export default Quotes
 
 const Quote = ({ children, author }) => (
   <div className="px-8 lg:px-24">

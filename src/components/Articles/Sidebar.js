@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-export default () => {
+const Sidebar = () => {
   const {
     takeshape: {
       getArticleCategoryList: { items: categories },
@@ -53,6 +53,8 @@ export default () => {
     </div>
   )
 }
+
+export default Sidebar
 
 const Section = ({ title, children }) => (
   <section className="mb-12">

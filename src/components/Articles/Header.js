@@ -3,7 +3,7 @@ import { Hero } from "../Blocks"
 import { Nav } from "../Articles"
 import Link from "../Link"
 
-export default () => (
+const Header = () => (
   <Hero>
     <div className="text-center py-12">
       <h1 className="text-4xl font-light mb-1">
@@ -14,3 +14,5 @@ export default () => (
     <Nav />
   </Hero>
 )
+
+export default Header

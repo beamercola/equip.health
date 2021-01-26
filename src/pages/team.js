@@ -8,7 +8,7 @@ import PageHeader from "../components/PageHeader"
 import { Recruit } from "../components/Forms"
 const classNames = require("classnames")
 
-export default ({
+const Team = ({
   data: {
     takeshape: {
       getTeam: { contentHtml, title, members, advisors, join, story, seo },
@@ -101,6 +101,8 @@ export default ({
     </div>
   </Layout>
 )
+
+export default Team
 
 const PrimaryCard = ({ className, member }) => (
   <div className={className}>

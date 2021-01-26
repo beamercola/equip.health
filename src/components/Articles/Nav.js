@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Link from "../Link"
 
-export default () => {
+const Nav = () => {
   const {
     takeshape: {
       getArticleCategoryList: { items: categories },
@@ -41,6 +41,8 @@ const NavItem = ({ to, children }) => (
     {children}
   </Link>
 )
+
+export default Nav
 
 export const fragments = graphql`
   fragment ArticleCategory on TS_ArticleCategory {

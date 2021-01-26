@@ -1,7 +1,7 @@
 import React from "react"
 import { getImageUrl } from "@takeshape/routing"
 
-export default ({
+const Features = ({
   className,
   items,
   itemClassName,
@@ -56,3 +56,5 @@ const FeatureItem = ({
     </div>
   </div>
 )
+
+export default Features

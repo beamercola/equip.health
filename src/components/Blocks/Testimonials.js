@@ -1,13 +1,15 @@
 import React from "react"
 import { getImageUrl } from "@takeshape/routing"
 
-export default ({ items }) => (
+const Testimonials = ({ items }) => (
   <div className="flex flex-col flex-wrap items-center lg:-mx-8 lg:flex-row -my-6">
     {items.map((testimonial, i) => (
       <Testimonial key={i} {...testimonial} />
     ))}
   </div>
 )
+
+export default Testimonials
 
 const Testimonial = ({ quoteHtml, name, title, photo }) => (
   <div className="lg:px-6 lg:w-1/3 mb-4">

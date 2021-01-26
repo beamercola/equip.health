@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export default ({ title, subtitleHtml, callToAction, ctaPath }) => (
+const Callout = ({ title, subtitleHtml, callToAction, ctaPath }) => (
   <section className="bg-sky-300 border-t border-b border-navy-300 text-navy-300 py-16 px-8">
     <div className="container flex flex-col lg:flex-row items-center">
       <div className="lg:w-3/5 container mb-12 lg:mb-0">
@@ -31,3 +31,5 @@ export default ({ title, subtitleHtml, callToAction, ctaPath }) => (
     </div>
   </section>
 )
+
+export default Callout
