@@ -40,7 +40,7 @@ const IndexPage = ({
         image={seo.image && seo.image.path}
       />
 
-      <Hero>
+      <Hero className="bg-teal-300">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2">
             <div className="md:max-w-md md:mr-12">
