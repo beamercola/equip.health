@@ -21,13 +21,17 @@ const AccordionTable = ({ className, items = [] }) => (
   >
     {items.map((item, i) => (
       <AccordionItem key={i}>
-        <AccordionItemHeading>
+        <AccordionItemHeading
+          className={classNames({
+            "border-t border-navy-300": i !== 0,
+          })}
+        >
           <AccordionItemButton className="px-4 py-3 flex justify-between items-center border-navy-300 outline-none ring-0">
             {item.title}
             <AccordionItemState>
               {({ expanded }) => (
                 <CaretLeft
-                  className={classNames("duration-300 transform", {
+                  className={classNames("ml-8 duration-300 transform", {
                     "-rotate-90": expanded,
                   })}
                 />
@@ -35,7 +39,7 @@ const AccordionTable = ({ className, items = [] }) => (
             </AccordionItemState>
           </AccordionItemButton>
         </AccordionItemHeading>
-        <AccordionItemPanel className="px-4 py-3 border-b last:border-b-0 border-navy-300">
+        <AccordionItemPanel className="px-4 py-3">
           <Fade>
             <div
               className="prose prose-sm"

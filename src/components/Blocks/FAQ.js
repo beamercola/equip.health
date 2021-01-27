@@ -1,16 +1,22 @@
 import React, { useState } from "react"
+import Accordion from "../Accordion"
 
 const FAQs = ({ questions, title, descriptionHtml }) => {
   return (
-    <div className="py-24 container lg:mx-32">
+    <div className="">
       <h2 className="text-5xl mb-4">{title}</h2>
       <div
         className="mb-8"
         dangerouslySetInnerHTML={{ __html: descriptionHtml }}
       />
-      {questions.map(question => (
-        <Question {...question} key={question._id} />
-      ))}
+
+      <Accordion
+        className="py-24 container lg:mx-32"
+        items={questions.map(q => ({
+          title: q.question,
+          bodyHtml: q.answerHtml,
+        }))}
+      />
     </div>
   )
 }

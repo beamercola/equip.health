@@ -99,7 +99,7 @@ module.exports = {
     backgroundColor: ["even", "odd", "hover"],
     boxShadow: ["hover", "focus"],
     borderColor: ["hover"],
-    borderWidth: ["last", "responsive"],
+    borderWidth: ["first", "last", "responsive"],
     fill: ["hover"],
     scale: ["hover"],
     visibility: ["hover"],
