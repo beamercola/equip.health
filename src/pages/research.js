@@ -44,7 +44,7 @@ const Research = ({
           </div>
         </div>
       </Hero>
-      <div className="container">
+      <div className="bleed">
         <div className="py-24">
           <h2 className="text-5xl">Accordion</h2>
         </div>
