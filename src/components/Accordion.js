@@ -1,6 +1,6 @@
 import React from "react"
 import { Fade } from "react-awesome-reveal"
-import { CaretLeft, CaretDown } from "phosphor-react"
+import { CaretLeft } from "phosphor-react"
 
 import {
   Accordion,

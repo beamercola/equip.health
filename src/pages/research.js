@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Fade } from "react-awesome-reveal"
-import Layout from "../../components/Layout"
-import Hero from "../../components/Blocks/Hero"
-import Accordion from "./Accordion"
-import Stat from "./Stat"
+import Layout from "../components/Layout"
+import Hero from "../components/Blocks/Hero"
+import Accordion from "../components/Accordion"
+import Stat from "../components/Stat"
 
 const classNames = require("classnames")
 
@@ -20,11 +20,13 @@ const Research = ({
       <Hero className="bg-sky-200 border-b border-sky-300">
         <div className="grid grid-cols-2 gap-12 py-12">
           <div className="text-navy-300 flex flex-col justify-center">
-            <h1 className="text-4xl mb-2">{hero.title}</h1>
-            <div
-              className="prose"
-              dangerouslySetInnerHTML={{ __html: hero.paragraph }}
-            />
+            <Fade direction="up" duration={500}>
+              <h1 className="text-5xl mb-2">{hero.title}</h1>
+              <div
+                className="prose"
+                dangerouslySetInnerHTML={{ __html: hero.paragraph }}
+              />
+            </Fade>
           </div>
           <div className="grid grid-cols-1 gap-4 px-12">
             <Fade duration={1000} direction="up" cascade triggerOnce={true}>
