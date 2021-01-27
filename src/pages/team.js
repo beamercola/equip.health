@@ -29,7 +29,7 @@ const Team = ({
 
       <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8 -mx-1 md:-mx-0">
         {members.map((member, i) => (
-          <Fade delay={i * 50}>
+          <Fade delay={i * 50} triggerOnce={true}>
             <MemberCard className="" key={i} size="large" member={member} />
           </Fade>
         ))}
@@ -57,7 +57,7 @@ const Team = ({
             key={i}
           >
             {group.members.map((member, i) => (
-              <Fade delay={i * 50}>
+              <Fade delay={i * 50} triggerOnce={true}>
                 <MemberCard
                   key={i}
                   member={member}
@@ -88,16 +88,20 @@ const Team = ({
       </div>
     </section>
 
-    <div className="container" id="our-story">
+    <div className="bleed" id="our-story">
       <section className="my-12 lg:my-24">
-        <h2 className="text-5xl lg:text-7xl mb-12 lg:mb-24">{story.title}</h2>
-        <div className="flex flex-col lg:flex-row lg:-mx-8">
-          <div className="mb-12 lg:w-2/5 lg:px-8">
-            <img src={story.photo && getImageUrl(story.photo.path)} />
-            <div dangerouslySetInnerHTML={{ __html: story.captionHtml }} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <h2 className="col-start-2 col-span-2 text-5xl lg:text-6xl">
+            {story.title}
+          </h2>
+          <div className="col-span-1">
+            <div className="sticky top-32">
+              <img src={story.photo && getImageUrl(story.photo.path)} />
+              <div dangerouslySetInnerHTML={{ __html: story.captionHtml }} />
+            </div>
           </div>
           <article
-            className="lg:w-3/5 lg:px-8 text-2xl lg:pr-48"
+            className="col-span-2 prose prose-lg lg:pr-24"
             dangerouslySetInnerHTML={{ __html: story.contentHtml }}
           />
         </div>
