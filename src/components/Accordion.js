@@ -35,7 +35,7 @@ const AccordionTable = ({ className, items = [] }) => (
             </AccordionItemState>
           </AccordionItemButton>
         </AccordionItemHeading>
-        <AccordionItemPanel className="px-4 py-3 border-b border-navy-300">
+        <AccordionItemPanel className="px-4 py-3 border-b last:border-b-0 border-navy-300">
           <Fade>
             <div
               className="prose prose-sm"

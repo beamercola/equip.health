@@ -20,7 +20,7 @@ const Research = ({
       <Hero className="bg-sky-200 border-b border-sky-300">
         <div className="grid grid-cols-2 gap-12 py-12">
           <div className="text-navy-300 flex flex-col justify-center">
-            <Fade direction="up" duration={500}>
+            <Fade>
               <h1 className="text-5xl mb-2">{hero.title}</h1>
               <div
                 className="prose"
@@ -48,8 +48,8 @@ const Research = ({
         <div className="py-24">
           <h2 className="text-5xl">Accordion</h2>
         </div>
-        <div className="grid grid-cols-3">
-          <div className="col-span-2">
+        <div className="grid grid-cols-2">
+          <div className="col-span-1">
             <Fade duration={1000}>
               <Accordion
                 className="border border-navy-300 rounded-lg mb-24"
