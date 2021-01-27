@@ -1,5 +1,4 @@
 export { default as Callout } from "./Callout"
-export { default as FAQ } from "./FAQ"
 export { default as FeatureTable } from "./FeatureTable"
 export { default as Highlight } from "./Highlight"
 export { default as IndustryQuotes } from "./Quotes"
