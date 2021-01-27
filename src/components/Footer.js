@@ -5,7 +5,7 @@ import { SignUpButton } from "./Forms"
 
 const Footer = () => (
   <footer className="bg-teal-300 py-8 md:py-12 text-sky-100 overflow-hidden">
-    <div className="bleed grid grid-cols-2 md:grid-cols-5 gap-12">
+    <div className="bleed grid grid-cols-2 md:grid-cols-5 gap-12 md:gap-32">
       <div className="col-span-1">
         <Link to="/">
           <Logo />
