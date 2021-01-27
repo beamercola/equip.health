@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 px-4 lg:px-8 pt-4 lg:pt-6 z-50">
+      <header className="fixed inset-x-0 top-0 px-1 lg:px-8 pt-4 lg:pt-6 z-50">
         <div
           className={classNames(
             "bg-teal-300 border border-teal-400 border-opacity-40 text-white py-2 lg:py-3 pl-8 pr-3",

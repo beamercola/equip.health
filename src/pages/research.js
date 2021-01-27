@@ -29,7 +29,13 @@ const Research = ({
             </Fade>
           </div>
           <div className="grid grid-cols-1 gap-4 px-12">
-            <Fade duration={1000} direction="up" cascade triggerOnce={true}>
+            <Fade
+              className="flex justify-end w-full"
+              duration={1000}
+              direction="up"
+              cascade
+              triggerOnce={true}
+            >
               {hero.stats.map((stat, i) => (
                 <Stat
                   end={stat.number}

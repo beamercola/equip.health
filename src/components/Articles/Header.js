@@ -24,7 +24,7 @@ const Header = () => {
   `)
 
   return (
-    <Hero className="bg-teal-300 overflow-hidden">
+    <Hero className="bg-teal-300">
       <div className="text-center py-16 md:py-24">
         <Fade>
           <h1 className="text-4xl font-light mb-1">

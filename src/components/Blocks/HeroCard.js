@@ -1,4 +1,5 @@
 import React from "react"
+import { Fade } from "react-awesome-reveal"
 import Link from "../Link"
 import { getIcon } from "../SVG/Icons"
 import { getTheme } from "../../utils/ArticleTheme"
@@ -68,13 +69,9 @@ const HeroCard = ({ theme: theTheme, children, flip, to, size, uuid }) => {
         {children}
       </div>
       <div
-        className={classNames(
-          "flex-grow flex items-center justify-center",
-          iconPadding(size),
-          theme.overlay
-        )}
+        className={classNames("flex-grow", iconPadding(size), theme.overlay)}
       >
-        {icon}
+        <Fade className="flex items-center justify-center">{icon}</Fade>
       </div>
     </div>
   )

@@ -1,11 +1,14 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
+import { Fade } from "react-awesome-reveal"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import PageHeader from "../components/PageHeader"
 import { Recruit } from "../components/Forms"
+import MemberCard from "../components/MemberCard"
+
 const classNames = require("classnames")
 
 const Team = ({
@@ -24,14 +27,11 @@ const Team = ({
     <div className="bleed">
       <PageHeader title={title} html={contentHtml}></PageHeader>
 
-      <section className="flex flex-wrap -mx-4 lg:-mx-4">
-        {members.map(member => (
-          <MemberCard
-            className="w-full md:w-1/2 lg:w-1/4 px-4 lg:px-4 mb-8"
-            key={member._id}
-            size="large"
-            {...member}
-          />
+      <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8 -mx-1 md:-mx-0">
+        {members.map((member, i) => (
+          <Fade delay={i * 50}>
+            <MemberCard className="" key={i} size="large" member={member} />
+          </Fade>
         ))}
       </section>
 
@@ -52,17 +52,21 @@ const Team = ({
         </TabList>
 
         {advisors.map((group, i) => (
-          <TabPanel className="flex flex-wrap" key={i}>
-            {group.members.map(member => (
-              <MemberCard
-                className="px-2 lg:px-2 mb-8 w-1/2 md:w-1/6"
-                key={member._id}
-                size="small"
-                imageOptions={{
-                  duotone: "0A375C,F4EDE4",
-                }}
-                {...member}
-              />
+          <TabPanel
+            className="grid grid-cols-3 md:grid-cols-6 gap-1 md:gap-8 justify-center"
+            key={i}
+          >
+            {group.members.map((member, i) => (
+              <Fade delay={i * 50}>
+                <MemberCard
+                  key={i}
+                  member={member}
+                  size="small"
+                  imageOptions={{
+                    duotone: "0A375C,F4EDE4",
+                  }}
+                />
+              </Fade>
             ))}
           </TabPanel>
         ))}
@@ -103,88 +107,6 @@ const Team = ({
 )
 
 export default Team
-
-const PrimaryCard = ({ className, member }) => (
-  <div className={className}>
-    <div className="relative grow">
-      <img
-        // className={`${imgClassName}`}
-        // alt={name}
-        src={getImageUrl(member.photo.path, {
-          w: 800,
-          h: 1100,
-          fit: "crop",
-        })}
-      />
-    </div>
-  </div>
-)
-
-const MemberCard = ({
-  className,
-  name,
-  title,
-  bioHtml: bio,
-  size,
-  photo,
-  _id,
-  imageOptions,
-}) => {
-  let imgClassName, titleClassName, bioClassName, overlayClassName
-  switch (size) {
-    case "small":
-      imgClassName = "mb-2"
-      titleClassName = "text-xs lg:text-sm font-normal leading-tight"
-      bioClassName = "leading-tight text-xxs"
-      overlayClassName = "p-2"
-      break
-    case "large":
-      imgClassName = "mb-4"
-      titleClassName = "text-2xl leading-none"
-      overlayClassName = "p-4"
-      break
-  }
-
-  return (
-    <div className={`member-card ${className}`}>
-      <div className="relative grow">
-        <img
-          className={`${imgClassName}`}
-          alt={name}
-          src={
-            photo
-              ? getImageUrl(photo.path, {
-                  ...imageOptions,
-                  w: 800,
-                  h: 1100,
-                  fit: "crop",
-                })
-              : `https://source.unsplash.com/800x1100?avatar&sig=${_id}`
-          }
-        />
-        {bio && (
-          <div
-            className={`bio bg-teal-300 bg-opacity-75 absolute inset-0 text-teal-100 text-xs flex flex-col justify-end opacity-0 transition-all duration-500 ${overlayClassName}`}
-          >
-            <h6 className="text-xs uppercase">BIO</h6>
-            <div
-              className={bioClassName}
-              dangerouslySetInnerHTML={{ __html: bio }}
-            />
-          </div>
-        )}
-      </div>
-      <h4 className={titleClassName}>{name}</h4>
-      <p
-        className={`text-navy-200 mb-1 ${
-          size === "small" ? "text-xs" : "text-sm"
-        }`}
-      >
-        {title}
-      </p>
-    </div>
-  )
-}
 
 export const TeamPageQuery = graphql`
   query TeamPageQuery {
