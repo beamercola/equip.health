@@ -21,15 +21,20 @@ const Research = ({
 
       <div className="py-24 container">
         <h1 className="text-center text-3xl mb-12">{page.callouts.title}</h1>
-        <div className="flex justify-center">
+        <div className="flex justify-center items-stretch">
           {page.callouts.cards.map((card, i) => (
             <Fade delay={i * 500} triggerOnce>
               <div
-                className="bg-white rounded-xl h-72 border border-navy-300 w-full max-w-sm mx-6 shadow-xl p-6 flex flex-col justify-end overflow-hidden"
+                className="bg-white h-full rounded-xl border border-navy-300 w-full max-w-sm mx-6 shadow-xl p-6 flex flex-col justify-end overflow-hidden"
                 key={i}
               >
-                <Fade direction="up" delay={(i + 1) * 250} triggerOnce>
-                  <h1 className="font-sans text-4xl leading-none">
+                <Fade
+                  className="h-full"
+                  direction="up"
+                  delay={(i + 1) * 250}
+                  triggerOnce
+                >
+                  <h1 className="font-sans text-3xl leading-none">
                     {card.paragraph}
                   </h1>
                 </Fade>
@@ -67,7 +72,7 @@ const StatBlock = ({ block, reverse }) => (
     <div className="-mx-6 flex">
       <div className="text-navy-300 flex flex-col justify-center w-1/2 px-6">
         <Fade>
-          <h1 className="text-5xl mb-2">{block.title}</h1>
+          <h1 className="text-4xl mb-2">{block.title}</h1>
           <div
             className="prose"
             dangerouslySetInnerHTML={{ __html: block.paragraph }}

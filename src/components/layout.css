@@ -20,7 +20,7 @@
 }
 
 body {
-  @apply bg-cream-100 text-navy-400 pt-32 overflow-x-hidden antialiased font-sans;
+  @apply bg-cream-100 text-navy-300 pt-32 overflow-x-hidden antialiased font-sans;
 }
 
 h1,
