@@ -31,16 +31,19 @@ const AccordionTable = ({ className, items = [] }) => (
             <AccordionItemState>
               {({ expanded }) => (
                 <CaretLeft
-                  className={classNames("ml-8 duration-300 transform", {
-                    "-rotate-90": expanded,
-                  })}
+                  className={classNames(
+                    "ml-8 duration-300 transform flex-shrink-0",
+                    {
+                      "-rotate-90": expanded,
+                    }
+                  )}
                 />
               )}
             </AccordionItemState>
           </AccordionItemButton>
         </AccordionItemHeading>
         <AccordionItemPanel className="px-4 py-3">
-          <Fade>
+          <Fade duration={500}>
             <div
               className="prose prose-sm"
               dangerouslySetInnerHTML={{ __html: item.bodyHtml }}
