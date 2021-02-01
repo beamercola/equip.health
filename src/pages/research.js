@@ -20,7 +20,10 @@ const Research = ({
       </Hero>
 
       <div className="py-24 container">
-        <h1 className="text-center text-3xl mb-12">{page.callouts.title}</h1>
+        <div className="mb-12 text-center">
+          <h1 className="text-3xl">{page.callouts.title}</h1>
+          <p>{page.callouts.paragraph}</p>
+        </div>
         <div className="flex justify-center items-stretch">
           {page.callouts.cards.map((card, i) => (
             <Fade delay={i * 500} triggerOnce>
@@ -86,7 +89,7 @@ const StatBlock = ({ block, reverse }) => (
             duration={1000}
             direction="up"
             cascade
-            triggerOnce={true}
+            triggerOnce
           >
             {block.stats.map((stat, i) => (
               <Stat
