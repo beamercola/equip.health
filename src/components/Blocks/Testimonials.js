@@ -4,7 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 const Testimonials = ({ items }) => (
   <div className="press">
-    <Swiper spaceBetween={48} slidesPerView={2}>
+    <Swiper
+      spaceBetween={12}
+      slidesPerView={1.2}
+      breakpoints={{ 500: { slidesPerView: 2, spaceBetween: 48 } }}
+    >
       {items.map((testimonial, i) => (
         <SwiperSlide key={i}>
           <Testimonial key={i} {...testimonial} />

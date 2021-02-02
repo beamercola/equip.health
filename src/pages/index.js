@@ -79,7 +79,7 @@ const IndexPage = ({
         </div>
       </Hero>
 
-      <Section className="container my-24" title={philosophy.title}>
+      <Section className="container px-4 my-24" title={philosophy.title}>
         <Philosophy items={philosophy.items} />
       </Section>
 
@@ -87,9 +87,9 @@ const IndexPage = ({
         className="bg-sky-100 text-navy-400 py-12 border-sky-200 border-t border-b"
         title={highlights.title}
       >
-        <div className="container px-8">
+        <div className="container px-4">
           <Works items={highlights.highlights} />
-          <div className="text-center lg:mt-12">
+          <div className="text-center mt-12">
             <Link
               className="text-2xl py-1 border-b border-cream-300 grow inline-block"
               to={highlights.ctaPath}
@@ -127,7 +127,7 @@ const Section = ({ className, children, title, titleClassName }) => (
   <section className={`py-12 md:py-16 ${className}`}>
     {title && (
       <h2
-        className={`text-3xl md:text-5xl text-center mb-12 md:mb-16 ${titleClassName}`}
+        className={`container px-4 text-3xl md:text-5xl md:text-center mb-12 md:mb-16 ${titleClassName}`}
       >
         {title}
       </h2>
