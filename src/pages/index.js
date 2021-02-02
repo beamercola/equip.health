@@ -41,38 +41,37 @@ const IndexPage = ({
       />
 
       <Hero className="bg-teal-300">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2">
-            <div className="md:max-w-md md:mr-12">
-              <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
-              <div
-                className="prose text-white"
-                dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
-              />
-              <div className="pt-8 flex">
-                <Link
-                  to={hero.ctaPath}
-                  className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
-                >
-                  <span className="inline-block">
-                    <Logo className="h-8 w-8 mr-2" />
-                  </span>
-                  {hero.callToAction}
-                </Link>
-              </div>
+        <div className="md:flex md:justify-between items-center py-16">
+          <div className="md:max-w-md md:mr-12">
+            <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
+            <div
+              className="prose text-white"
+              dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
+            />
+            <div className="pt-8 flex">
+              <Link
+                to={hero.ctaPath}
+                className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
+              >
+                <span className="inline-block">
+                  <Logo className="h-8 w-8 mr-2" />
+                </span>
+                {hero.callToAction}
+              </Link>
             </div>
           </div>
-          <div className="md:w-1/2 py-12">
+
+          <div className="md:max-w-lg md:mr-12 mt-12 md:mt-0">
             <ReactPlayer
               className="w-full"
               width="100%"
               height="100%"
               url={getAssetUrl(hero.image.path)}
-              muted={true}
               controls={false}
-              playing={true}
-              loop={true}
-              playsinline={true}
+              muted
+              playing
+              loop
+              playsinline
             />
           </div>
         </div>
@@ -107,22 +106,22 @@ const IndexPage = ({
         </div>
       </Section>
 
-      <Section className="text-xs lg:text-base" title={compare.title}>
-        <div className="container text-xs lg:text-base px-4 lg:px-24">
-          <FeatureTable features={compare.features} />
-        </div>
+      <Section className="lg:text-base container px-4" title={compare.title}>
+        <FeatureTable features={compare.features} />
       </Section>
 
-      <Section className="px-4 pb-24">
-        <div className="container">
+      <div className="overflow-hidden">
+        <Section className="container pb-24">
           <Testimonials items={testimonials.testimonials} />
-        </div>
-      </Section>
+        </Section>
+      </div>
 
       <Callout {...callout} />
 
-      <Section title={press.title}>
-        <Press press={press} />
+      <Section className="bg-cream-300 border-b border-cream-400">
+        <div className="container">
+          <Press press={press} />
+        </div>
       </Section>
 
       <Section
@@ -150,11 +149,13 @@ export default IndexPage
 
 const Section = ({ className, children, title, titleClassName }) => (
   <section className={`py-12 md:py-16 ${className}`}>
-    <h2
-      className={`text-3xl md:text-5xl text-center mb-12 md:mb-8 ${titleClassName}`}
-    >
-      {title}
-    </h2>
+    {title && (
+      <h2
+        className={`text-3xl md:text-5xl text-center mb-12 md:mb-8 ${titleClassName}`}
+      >
+        {title}
+      </h2>
+    )}
     {children}
   </section>
 )
@@ -174,15 +175,7 @@ export const IndexPageQuery = graphql`
             }
           }
         }
-        press {
-          companies {
-            quoteHtml
-            logo {
-              path
-            }
-          }
-          title
-        }
+        ...Press
         hero {
           image {
             path

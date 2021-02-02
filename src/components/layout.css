@@ -46,6 +46,10 @@ form label {
   @apply block mb-1 text-xs uppercase px-3;
 }
 
+.press .swiper-container {
+  @apply overflow-visible;
+}
+
 .grow {
   @apply transition-all duration-200 transform;
 }
