@@ -32,94 +32,91 @@ const IndexPage = ({
       },
     },
   },
-}) => {
-  console.log(philosophy.items)
-  return (
-    <Layout>
-      <SEO
-        title={seo.title}
-        description={seo.description}
-        image={seo.image && seo.image.path}
-      />
+}) => (
+  <Layout>
+    <SEO
+      title={seo.title}
+      description={seo.description}
+      image={seo.image && seo.image.path}
+    />
 
-      <Hero className="bg-teal-300">
-        <div className="md:flex md:justify-between items-center py-16 container">
-          <div className="md:max-w-md md:mr-12">
-            <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
-            <div
-              className="prose text-white"
-              dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
-            />
-            <div className="pt-8 flex">
-              <Link
-                to={hero.ctaPath}
-                className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
-              >
-                <span className="inline-block">
-                  <Logo className="h-8 w-8 mr-2" />
-                </span>
-                {hero.callToAction}
-              </Link>
-            </div>
-          </div>
-
-          <div className="md:max-w-lg mt-12 md:mt-0">
-            <ReactPlayer
-              className="w-full"
-              width="100%"
-              height="100%"
-              url={getAssetUrl(hero.image.path)}
-              controls={false}
-              muted
-              playing
-              loop
-              playsinline
-            />
-          </div>
-        </div>
-      </Hero>
-
-      <Section className="container px-4 my-24" title={philosophy.title}>
-        <Philosophy items={philosophy.items} />
-      </Section>
-
-      <Section
-        className="bg-sky-100 text-navy-400 py-12 border-sky-200 border-t border-b"
-        title={highlights.title}
-      >
-        <div className="container px-4">
-          <Works items={highlights.highlights} />
-          <div className="text-center mt-12">
+    <Hero className="bg-teal-300">
+      <div className="md:flex md:justify-between items-center py-16 container">
+        <div className="md:max-w-md md:mr-12">
+          <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
+          <div
+            className="prose text-white"
+            dangerouslySetInnerHTML={{ __html: hero.subtitleHtml }}
+          />
+          <div className="pt-8 flex">
             <Link
-              className="text-2xl py-1 border-b border-cream-300 grow inline-block"
-              to={highlights.ctaPath}
+              to={hero.ctaPath}
+              className="bg-white border-navy-300 border text-navy-300 pl-4 pr-6 py-4 text-2xl rounded-full leading-none shadow-2xl tracking-wide grow flex items-center"
             >
-              {highlights.callToAction}
+              <span className="inline-block">
+                <Logo className="h-8 w-8 mr-2" />
+              </span>
+              {hero.callToAction}
             </Link>
           </div>
         </div>
-      </Section>
 
-      <Section className="lg:text-base container px-4" title={compare.title}>
-        <FeatureTable features={compare.features} />
-      </Section>
-
-      <div className="overflow-hidden">
-        <Section className="container pb-24">
-          <Testimonials items={testimonials.testimonials} />
-        </Section>
-      </div>
-
-      <Section className="bg-cream-300 border-t border-cream-400">
-        <div className="container">
-          <Press press={press} />
+        <div className="md:max-w-lg mt-12 md:mt-0">
+          <ReactPlayer
+            className="w-full"
+            width="100%"
+            height="100%"
+            url={getAssetUrl(hero.image.path)}
+            controls={false}
+            muted
+            playing
+            loop
+            playsinline
+          />
         </div>
-      </Section>
+      </div>
+    </Hero>
 
-      <Callout {...callout} />
-    </Layout>
-  )
-}
+    <Section className="container px-4 my-24" title={philosophy.title}>
+      <Philosophy items={philosophy.items} />
+    </Section>
+
+    <Section
+      className="bg-sky-100 text-navy-400 py-12 border-sky-200 border-t border-b"
+      title={highlights.title}
+    >
+      <div className="container px-4">
+        <Works items={highlights.highlights} />
+        <div className="text-center mt-12">
+          <Link
+            className="text-2xl py-1 border-b border-cream-300 grow inline-block"
+            to={highlights.ctaPath}
+          >
+            {highlights.callToAction}
+          </Link>
+        </div>
+      </div>
+    </Section>
+
+    <Section className="lg:text-base container px-4" title={compare.title}>
+      <FeatureTable features={compare.features} />
+    </Section>
+
+    <div className="overflow-hidden">
+      <Section className="container pb-24">
+        <Testimonials items={testimonials.testimonials} />
+      </Section>
+    </div>
+
+    <Section className="bg-cream-300 border-t border-cream-400">
+      <div className="container">
+        <Press press={press} />
+      </div>
+    </Section>
+
+    <Callout {...callout} />
+  </Layout>
+)
 
 export default IndexPage
 
