@@ -6,7 +6,7 @@ const Works = ({ items }) => (
     {items.map((item, i) => (
       <div className="md:text-center flex flex-col md:block items-start">
         <img
-          className="flex-shrink-0 w-24 h-24 md:w-48 md:h-48 mr-4 md:mr-auto rounded-full mb-4 md:mb-12"
+          className="flex-shrink-0 w-24 h-24 md:w-48 md:h-48 mr-4 md:mr-auto rounded-full mb-4 md:mb-12 md:mx-auto"
           src={getImageUrl(item.image?.path)}
           alt={item.heading}
         />
