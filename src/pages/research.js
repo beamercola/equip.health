@@ -18,7 +18,6 @@ const Research = ({
       <Hero className="bg-sky-200 border-b border-sky-300">
         <StatBlock block={page.hero} />
       </Hero>
-
       <div className="py-24 container">
         <div className="mb-12 text-center">
           <h1 className="text-3xl">{page.callouts.title}</h1>
@@ -46,12 +45,11 @@ const Research = ({
           ))}
         </div>
       </div>
-
       <div className="bg-cream-300 py-12">
         <StatBlock block={page.section2} reverse />
       </div>
 
-      <div className="container mx-auto py-24">
+      <div className="container mx-auto pt-24">
         <h2 className="text-5xl text-center mb-12">{page.research.title}</h2>
         <Fade className="w-full max-w-2xl mx-auto" duration={1000}>
           <Accordion
@@ -59,6 +57,14 @@ const Research = ({
             items={page.research.accordion}
           />
         </Fade>
+      </div>
+
+      <div className="container mx-auto py-12 text-black opacity-30">
+        <h1 className="font-heading text-3xl mb-8">Appendix</h1>
+        <div
+          className="text-sm"
+          dangerouslySetInnerHTML={{ __html: page.appendixHtml }}
+        />
       </div>
     </Layout>
   )
@@ -144,6 +150,7 @@ export const query = graphql`
             bodyHtml
           }
         }
+        appendixHtml
       }
     }
   }
