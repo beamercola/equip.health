@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 
 const Press = ({ press }) => (
-  <div className="grid grid-cols-3 gap-24">
+  <div className="grid grid-cols-3 gap-24 justify-center">
     {press.map((item, i) => (
       <div
         className="opacity-50 hover:opacity-75 transition-opacity duration-500"
