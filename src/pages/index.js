@@ -43,7 +43,7 @@ const IndexPage = ({
       />
 
       <Hero className="bg-teal-300">
-        <div className="md:flex md:justify-between items-center py-16">
+        <div className="md:flex md:justify-between items-center py-16 container">
           <div className="md:max-w-md md:mr-12">
             <h1 className="text-4xl leading-tight mb-2">{hero.title}</h1>
             <div
@@ -63,7 +63,7 @@ const IndexPage = ({
             </div>
           </div>
 
-          <div className="md:max-w-lg md:mr-12 mt-12 md:mt-0">
+          <div className="md:max-w-lg mt-12 md:mt-0">
             <ReactPlayer
               className="w-full"
               width="100%"

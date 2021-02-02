@@ -10,9 +10,9 @@ const Philosophy = ({ items }) => (
           src={getImageUrl(item.image?.path)}
           alt={item.heading}
         />
-        <h2>{item.heading}</h2>
+        <h2 className="mb-2">{item.heading}</h2>
         <div
-          className="text-sm"
+          className="text-sm leading-snug"
           dangerouslySetInnerHTML={{ __html: item.contentHtml }}
         />
       </div>
