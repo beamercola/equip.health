@@ -2,8 +2,18 @@ import React from "react"
 import { states, insuranceProviders, Input, Select } from "../Forms"
 var _ = require("lodash")
 
+const relationships = [
+  "Patient",
+  "Parent",
+  "Sibling",
+  "Friend",
+  "Grandparent",
+  "Extended Family Member",
+  "Referring Provider",
+  "Other",
+]
+
 const SignUp = () => {
-  const relationships = ["Patient", "Loved One", "Referring Provider", "Other"]
   const ages = _.flatten([_.range(39), "40+"])
 
   return (
