@@ -109,7 +109,7 @@ const IndexPage = ({
     </div>
 
     <Section className="bg-cream-300 border-t border-cream-400">
-      <div className="container">
+      <div className="lg:container px-8">
         <Press press={press} />
       </div>
     </Section>
