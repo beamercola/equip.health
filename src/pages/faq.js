@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import PageHeader from "../components/PageHeader"
+import Accordion from "../components/Accordion"
 
 const FAQPage = ({
   data: {
@@ -24,9 +24,14 @@ const FAQPage = ({
           className="mb-8 prose text-navy-300"
           dangerouslySetInnerHTML={{ __html: descriptionHtml }}
         />
-        {questions.map(question => (
-          <Question {...question} key={question._id} />
-        ))}
+
+        <Accordion
+          className="border border-navy-300 rounded-lg"
+          items={questions.map(q => ({
+            title: q.question,
+            bodyHtml: q.answerHtml,
+          }))}
+        />
       </div>
     </Layout>
   )

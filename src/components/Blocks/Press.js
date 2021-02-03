@@ -1,33 +1,37 @@
-import React, { useState } from "react"
+import React from "react"
+import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 
-const Press = ({ press: { title, companies } }) => {
-  const [company, setCompany] = useState(companies[0])
-
-  return (
-    <div className="container">
-      <blockquote
-        className="py-12 md:px-24 lg:px-48 text-xl md:text-3xl italic text-center"
-        dangerouslySetInnerHTML={{ __html: company.quoteHtml }}
-      />
-      <div className="flex flex-wrap -mx-8 items-center justify-center">
-        {companies.map((company, i) => (
-          <div
-            className="px-8 w-1/3 md:w-1/5 cursor-pointer text-center"
-            onClick={() => setCompany(company)}
-            onMouseEnter={() => setCompany(company)}
-            key={i}
-          >
-            <img
-              className="h-16 object-contain mx-auto"
-              src={getImageUrl(company.logo.path)}
-              alt=""
-            />
-          </div>
-        ))}
+const Press = ({ press }) => (
+  <div className="grid grid-cols-3 gap-24 justify-center">
+    {press.map((item, i) => (
+      <div
+        className="opacity-50 hover:opacity-75 transition-opacity duration-500"
+        key={i}
+      >
+        <img
+          className="w-32 h-12 object-contain mx-auto mb-4"
+          src={getImageUrl(item.logo.path)}
+          alt=""
+        />
+        <blockquote
+          className="text-black text-center font-light leading-snug"
+          dangerouslySetInnerHTML={{ __html: item.quoteHtml }}
+        />
       </div>
-    </div>
-  )
-}
+    ))}
+  </div>
+)
 
 export default Press
+
+export const fragment = graphql`
+  fragment Press on TS_Home {
+    press {
+      quoteHtml
+      logo {
+        path
+      }
+    }
+  }
+`

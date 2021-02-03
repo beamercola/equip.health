@@ -20,7 +20,7 @@
 }
 
 body {
-  @apply bg-cream-100 text-navy-400 pt-32 overflow-x-hidden antialiased font-sans;
+  @apply bg-cream-100 text-navy-300 pt-32 overflow-x-hidden antialiased font-sans;
 }
 
 h1,
@@ -33,7 +33,7 @@ h6 {
 }
 
 .bleed {
-  @apply px-4;
+  @apply px-3;
 }
 
 @screen md {
@@ -44,6 +44,10 @@ h6 {
 
 form label {
   @apply block mb-1 text-xs uppercase px-3;
+}
+
+.press .swiper-container {
+  @apply overflow-visible;
 }
 
 .grow {
