@@ -77,7 +77,7 @@ const IndexPage = ({
       </div>
     </Hero>
 
-    <Section className="container px-4 my-24" title={philosophy.title}>
+    <Section className="xl:container px-4 my-24" title={philosophy.title}>
       <Philosophy items={philosophy.items} />
     </Section>
 
