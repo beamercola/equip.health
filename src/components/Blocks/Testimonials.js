@@ -23,7 +23,7 @@ export default Testimonials
 const Testimonial = ({ quoteHtml, name, title, photo }) => (
   <div className="bg-white p-8">
     <div
-      className="mb-4 text-xl leading-snug prose text-navy-300"
+      className="mb-4 text-sm md:text-xl leading-snug prose text-navy-300"
       dangerouslySetInnerHTML={{ __html: quoteHtml }}
     />
     <div className="flex items-center">
