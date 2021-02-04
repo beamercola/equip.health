@@ -62,7 +62,7 @@ const Research = ({
       <div className="container mx-auto py-12 text-black opacity-30">
         <h1 className="font-heading text-3xl mb-8">Resources</h1>
         <div
-          className="text-sm"
+          className="prose prose-sm prose-black"
           dangerouslySetInnerHTML={{ __html: page.appendixHtml }}
         />
       </div>

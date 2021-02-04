@@ -82,6 +82,11 @@ module.exports = {
             h6: { color: theme("colors.navy.400"), fontWeight: "medium" },
           },
         },
+        black: {
+          css: {
+            color: "#000",
+          },
+        },
       }),
     },
     fill: theme => ({
