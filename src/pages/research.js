@@ -18,16 +18,17 @@ const Research = ({
       <Hero className="bg-sky-200 border-b border-sky-300">
         <StatBlock block={page.hero} />
       </Hero>
-      <div className="py-24 container">
+
+      <div className="py-24 container px-4">
         <div className="mb-12 text-center">
           <h1 className="text-3xl">{page.callouts.title}</h1>
           <p>{page.callouts.paragraph}</p>
         </div>
-        <div className="flex justify-center items-stretch">
+        <div className="md:flex justify-center items-stretch">
           {page.callouts.cards.map((card, i) => (
             <Fade delay={i * 500} triggerOnce>
               <div
-                className="bg-white h-full rounded-xl border border-navy-300 w-full max-w-sm mx-6 shadow-xl p-6 flex flex-col justify-end overflow-hidden"
+                className="bg-white h-full rounded-xl border border-navy-300 w-full max-w-sm md:mx-6 shadow-xl p-6 flex flex-col justify-end overflow-hidden mb-4 md:mb-0"
                 key={i}
               >
                 <Fade
@@ -45,24 +46,25 @@ const Research = ({
           ))}
         </div>
       </div>
+
       <div className="bg-cream-300 py-12">
         <StatBlock block={page.section2} reverse />
       </div>
 
-      <div className="container mx-auto pt-24">
+      <div className="container mx-auto pt-24 px-3">
         <h2 className="text-5xl text-center mb-12">{page.research.title}</h2>
         <Fade className="w-full max-w-2xl mx-auto" duration={1000}>
           <Accordion
-            className="border border-navy-300 rounded-lg mb-24"
+            className="border border-navy-300 rounded-lg"
             items={page.research.accordion}
           />
         </Fade>
       </div>
 
-      <div className="container mx-auto py-12 text-black opacity-30">
+      <div className="container mx-auto py-12 text-black opacity-30 px-4 md:mt-24">
         <h1 className="font-heading text-3xl mb-8">Resources</h1>
         <div
-          className="prose prose-sm prose-black"
+          className="prose prose-sm prose-black overflow-hidden"
           dangerouslySetInnerHTML={{ __html: page.appendixHtml }}
         />
       </div>
@@ -78,8 +80,8 @@ const StatBlock = ({ block, reverse }) => (
       "flex-row-reverse": reverse,
     })}
   >
-    <div className="-mx-6 flex">
-      <div className="text-navy-300 flex flex-col justify-center w-1/2 px-6">
+    <div className="md:-mx-6 md:flex mx-4">
+      <div className="text-navy-300 flex flex-col justify-center md:w-1/2 md:px-6 mb-12 md:mb-0">
         <Fade>
           <h1 className="text-4xl mb-2">{block.title}</h1>
           <div
@@ -88,7 +90,7 @@ const StatBlock = ({ block, reverse }) => (
           />
         </Fade>
       </div>
-      <div className="w-1/2 px-6 flex justify-center">
+      <div className="md:w-1/2 md:px-6 flex justify-center">
         <div className="grid grid-cols-1 gap-4">
           <Fade
             className="flex justify-center w-full"
