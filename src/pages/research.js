@@ -52,7 +52,8 @@ const Research = ({
       </div>
 
       <div className="container mx-auto pt-24 px-3">
-        <h2 className="text-5xl text-center mb-12">{page.research.title}</h2>
+        <h2 className="text-5xl text-center mb-2">{page.research.title}</h2>
+        <p className="text-center mb-12">{page.research.subtitle}</p>
         <Fade className="w-full max-w-2xl mx-auto" duration={1000}>
           <Accordion
             className="border border-navy-300 rounded-lg"
@@ -147,6 +148,7 @@ export const query = graphql`
         }
         research {
           title
+          subtitle
           accordion {
             title
             bodyHtml
