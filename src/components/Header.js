@@ -70,6 +70,7 @@ const PrimaryNav = ({ open }) => (
     <NavItem to="/articles">Blog</NavItem>
     <NavItem to="/faq">FAQ</NavItem>
     <NavItem to="/providers">Providers</NavItem>
+    <NavItem to="/research">Research</NavItem>
   </ul>
 )
 
