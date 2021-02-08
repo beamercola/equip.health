@@ -62,12 +62,15 @@ const Research = ({
         </Fade>
       </div>
 
-      <div className="container mx-auto py-12 text-black opacity-30 px-4 md:mt-24">
-        <h1 className="font-heading text-3xl mb-8">Resources</h1>
-        <div
-          className="prose prose-sm prose-black overflow-hidden"
-          dangerouslySetInnerHTML={{ __html: page.appendixHtml }}
-        />
+      <div className="container py-12 text-navy-300 px-4 mb-12 md:mt-24">
+        <div className="max-w-2xl mx-auto w-full">
+          {/* <h1 className="font-heading text-3xl mb-8">Resources</h1> */}
+          <h2 className="text-5xl text-center mb-2 mb-12">Resources</h2>
+          <div
+            className="prose prose-sm text-navy-300 w-full break-words max-w-none"
+            dangerouslySetInnerHTML={{ __html: page.appendixHtml }}
+          />
+        </div>
       </div>
     </Layout>
   )
@@ -76,12 +79,12 @@ const Research = ({
 export default Research
 
 const StatBlock = ({ block, reverse }) => (
-  <div
-    className={classNames("py-12 container", {
-      "flex-row-reverse": reverse,
-    })}
-  >
-    <div className="md:-mx-6 md:flex mx-4">
+  <div className={classNames("py-12 container")}>
+    <div
+      className={classNames("md:-mx-6 md:flex mx-4", {
+        "flex-row-reverse": reverse,
+      })}
+    >
       <div className="text-navy-300 flex flex-col justify-center md:w-1/2 md:px-6 mb-12 md:mb-0">
         <Fade>
           <h1 className="text-4xl mb-2">{block.title}</h1>
