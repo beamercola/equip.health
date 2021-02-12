@@ -3,11 +3,10 @@ import { getImageUrl } from "@takeshape/routing"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 const Testimonials = ({ items }) => (
-  <div className="press">
+  <div className="press px-4">
     <Swiper
       spaceBetween={12}
-      slidesPerView={3}
-      centeredSlides
+      slidesPerView={1}
       breakpoints={{ 500: { slidesPerView: 2, spaceBetween: 48 } }}
     >
       {items.map((testimonial, i) => (

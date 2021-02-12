@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --swiper-pagination-color: rgba(0, 0, 0, 0.5);
+}
+
 @font-face {
   font-family: "LaNord";
   font-weight: 400;
@@ -46,8 +50,12 @@ form label {
   @apply block mb-1 text-xs uppercase px-3;
 }
 
-.press .swiper-container {
-  @apply overflow-visible;
+.swiper-container {
+  @apply overflow-visible !important;
+}
+
+.press .swiper-container .swiper-pagination {
+  @apply -bottom-8;
 }
 
 .grow {
