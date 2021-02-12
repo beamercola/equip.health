@@ -6,7 +6,8 @@ const Testimonials = ({ items }) => (
   <div className="press">
     <Swiper
       spaceBetween={12}
-      slidesPerView={1.2}
+      slidesPerView={3}
+      centeredSlides
       breakpoints={{ 500: { slidesPerView: 2, spaceBetween: 48 } }}
     >
       {items.map((testimonial, i) => (
