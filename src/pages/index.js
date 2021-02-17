@@ -139,7 +139,7 @@ const Section = ({ className, children, height }) => {
 
 const SectionHeader = ({ title, children }) => (
   <div className="mb-16 flex flex-col items-center">
-    <Fade cascade direction="up">
+    <Fade cascade direction="up" duration={500}>
       <h1 className="text-3xl md:text-5xl mb-2">{title}</h1>
       <div className="">{children}</div>
     </Fade>

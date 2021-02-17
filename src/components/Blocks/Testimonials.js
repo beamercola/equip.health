@@ -8,7 +8,12 @@ const classNames = require("classnames")
 const Testimonials = ({ items }) => (
   <div className="px-4 grid grid-cols-2 gap-32">
     <div className="flex flex-col justify-center">
-      <Fade direction="up" duration={500} cascade>
+      <Fade direction="up" duration={400} cascade>
+        <img
+          className="mb-8 rounded-xl shadow-lg"
+          src="/hero-text.png"
+          alt="Testimonials"
+        />
         <p className="font-heading text-xs mb-2">Testimonials</p>
         <h1 className="font-heading text-3xl mb-8">
           We believe recovery is not only possible, it's worth it.
@@ -40,7 +45,7 @@ const Testimonials = ({ items }) => (
             )}
             key={i}
           >
-            <Fade direction="up" delay={i * 100}>
+            <Fade direction="right" delay={i * 100 + 600}>
               <Testimonial {...testimonial} />
             </Fade>
           </SwiperSlide>
