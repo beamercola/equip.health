@@ -90,12 +90,14 @@ const SignUp = () => {
             <option>Hospital/Medical center</option>
             <option>Friend or family member</option>
             <option>Health insurer</option>
-            <option>Search engine</option>
+            <option>Google search</option>
             <option>Digital advertisement</option>
-            <option>Messaging board/Facebook group</option>
+            <option>Facebook group</option>
             <option>Other social media post</option>
             <option>Email newsletter</option>
             <option>Press/news story</option>
+            <option>Instagram post</option>
+            <option>Facebook post</option>
             <option>Other</option>
           </Select>
         </div>
