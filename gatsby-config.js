@@ -38,18 +38,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: "fonts",
         path: `${__dirname}/src/fonts`,
       },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: { icon: "static/favicon.png" },
     },
     {
       resolve: "gatsby-source-graphql",

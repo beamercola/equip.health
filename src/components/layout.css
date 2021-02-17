@@ -51,7 +51,7 @@ form label {
 }
 
 .swiper-container {
-  @apply overflow-visible !important;
+  /* @apply overflow-visible !important; */
 }
 
 .press .swiper-container .swiper-pagination {
@@ -64,6 +64,10 @@ form label {
 
 .grow:hover {
   @apply scale-105;
+}
+
+.up {
+  @apply transition-all duration-500 transform hover:-translate-y-1;
 }
 
 .hero video {

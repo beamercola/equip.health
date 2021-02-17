@@ -2,14 +2,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { CaretRight, CaretLeft } from "phosphor-react"
 
 const Press = ({ press }) => (
   <div className="px-8 press">
     <Swiper
       className="justify-center overflow-visible"
-      // centeredSlides
-      // loop
       pagination
+      navigation={{
+        nextEl: ".press-swiper-next",
+        prevEl: ".press-swiper-prev",
+        disabledClass: "opacity-50",
+      }}
       breakpoints={{
         500: { slidesPerView: 3 },
       }}
@@ -35,6 +39,14 @@ const Press = ({ press }) => (
         </SwiperSlide>
       ))}
     </Swiper>
+    <div className="flex justify-center mt-8">
+      <button className="press-swiper-prev bg-cream-200 rounded-full p-2 text-black text-opacity-50 border border-cream-400 border-opacity-30 mx-6">
+        <CaretLeft size={32} />
+      </button>
+      <button className="press-swiper-next bg-cream-200 rounded-full p-2 text-black text-opacity-50 border border-cream-400 border-opacity-30 mx-6">
+        <CaretRight size={32} />
+      </button>
+    </div>
   </div>
 )
 

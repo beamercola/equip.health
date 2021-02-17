@@ -1,5 +1,5 @@
 import React from "react"
-import { Fade } from "react-awesome-reveal"
+import { Fade } from "../Animations"
 import { getImageUrl } from "@takeshape/routing"
 const classNames = require("classnames")
 
