@@ -109,7 +109,7 @@ const IndexPage = ({
       <FeatureTable features={compare.features} />
     </Section>
 
-    <Section className="px-12" height="screen">
+    <Section className="px-4 md:px-12" height="screen">
       <Testimonials items={testimonials.testimonials} />
     </Section>
 
@@ -140,7 +140,7 @@ const Section = ({ className, children, height }) => {
 const SectionHeader = ({ title, children }) => (
   <div className="mb-16 flex flex-col items-center">
     <Fade cascade direction="up" duration={500}>
-      <h1 className="text-3xl md:text-5xl mb-2">{title}</h1>
+      <h1 className="text-center text-3xl md:text-5xl mb-2">{title}</h1>
       <div className="">{children}</div>
     </Fade>
   </div>

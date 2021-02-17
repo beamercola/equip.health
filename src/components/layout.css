@@ -50,8 +50,8 @@ form label {
   @apply block mb-1 text-xs uppercase px-3;
 }
 
-.swiper-container {
-  /* @apply overflow-visible !important; */
+.press .swiper-container {
+  @apply overflow-visible !important;
 }
 
 .press .swiper-container .swiper-pagination {

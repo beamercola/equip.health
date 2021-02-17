@@ -8,7 +8,7 @@ const Works = ({ items }) => (
       <div className="text-center" key={i}>
         <Fade direction="up" delay={i * 75 + 400} cascade>
           <img
-            className="flex-shrink-0 h-24 md:h-32 mr-4 mb-4 md:mb-12 md:mx-auto"
+            className="flex-shrink-0 h-24 md:h-32 mb-4 md:mb-12 mx-auto"
             src={getImageUrl(item.imageLight?.path)}
             alt={item.heading}
           />

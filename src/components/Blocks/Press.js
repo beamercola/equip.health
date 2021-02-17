@@ -8,13 +8,13 @@ const Press = ({ press }) => (
   <div className="px-8 press">
     <Swiper
       className="justify-center overflow-visible"
-      pagination
       navigation={{
         nextEl: ".press-swiper-next",
         prevEl: ".press-swiper-prev",
         disabledClass: "opacity-50",
       }}
       breakpoints={{
+        0: { slidesPerView: 1 },
         500: { slidesPerView: 3 },
       }}
     >
