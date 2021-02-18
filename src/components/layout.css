@@ -50,7 +50,7 @@ form label {
   @apply block mb-1 text-xs uppercase px-3;
 }
 
-.swiper-container {
+.press .swiper-container {
   @apply overflow-visible !important;
 }
 
@@ -64,6 +64,10 @@ form label {
 
 .grow:hover {
   @apply scale-105;
+}
+
+.up {
+  @apply transition-all duration-500 transform hover:-translate-y-1;
 }
 
 .hero video {

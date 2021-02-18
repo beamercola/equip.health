@@ -1,12 +1,12 @@
 import React from "react"
-import { Fade } from "react-awesome-reveal"
+import { Fade } from "../Animations"
 import { getImageUrl } from "@takeshape/routing"
 const classNames = require("classnames")
 
 const Philosophy = ({ items }) => (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 md:px-12">
     {items.map((item, i) => (
-      <Fade delay={i * 100} direction="up" triggerOnce key={i}>
+      <Fade delay={i * 75} direction="up" triggerOnce key={i}>
         <div
           className={classNames("md:text-center flex md:block items-center", {
             // "flex-row-reverse": i % 2 === 1,

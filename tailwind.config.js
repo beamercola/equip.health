@@ -60,6 +60,9 @@ module.exports = {
         "screen-75": "75vh",
         "screen-90": "90vh",
       },
+      minHeight: {
+        "screen-75": "75vh",
+      },
       scale: {
         "101": "1.01",
       },
@@ -71,15 +74,15 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: theme("colors.navy.400"),
+            color: theme("colors.navy.300"),
             a: { color: theme("colors.navy.400") },
             strong: { color: theme("colors.navy.400"), fontWeight: 800 },
-            h1: { color: theme("colors.navy.400"), fontWeight: "medium" },
-            h2: { color: theme("colors.navy.400"), fontWeight: "medium" },
-            h3: { color: theme("colors.navy.400"), fontWeight: "medium" },
-            h4: { color: theme("colors.navy.400"), fontWeight: "medium" },
-            h5: { color: theme("colors.navy.400"), fontWeight: "medium" },
-            h6: { color: theme("colors.navy.400"), fontWeight: "medium" },
+            h1: { color: theme("colors.navy.300"), fontWeight: "medium" },
+            h2: { color: theme("colors.navy.300"), fontWeight: "medium" },
+            h3: { color: theme("colors.navy.300"), fontWeight: "medium" },
+            h4: { color: theme("colors.navy.300"), fontWeight: "medium" },
+            h5: { color: theme("colors.navy.300"), fontWeight: "medium" },
+            h6: { color: theme("colors.navy.300"), fontWeight: "medium" },
           },
         },
         black: {
@@ -101,13 +104,16 @@ module.exports = {
     },
   },
   variants: {
-    backgroundColor: ["even", "odd", "hover"],
-    boxShadow: ["hover", "focus"],
-    borderColor: ["hover"],
-    borderWidth: ["first", "last", "responsive"],
-    fill: ["hover"],
-    scale: ["hover"],
-    visibility: ["hover"],
+    extend: {
+      backgroundColor: ["even", "odd", "hover"],
+      boxShadow: ["hover", "focus"],
+      borderColor: ["hover"],
+      borderWidth: ["first", "last", "responsive"],
+      fill: ["hover"],
+      padding: ["hover"],
+      scale: ["hover"],
+      visibility: ["hover"],
+    },
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),
