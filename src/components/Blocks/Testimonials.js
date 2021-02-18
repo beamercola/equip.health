@@ -35,7 +35,7 @@ const Testimonials = ({ items }) => (
     <div className="flex md:justify-center">
       <div className="grid grid-cols-1 gap-12 max-w-md">
         {items.slice(1).map((testimonial, i) => (
-          <AwesomeFade direction="right" delay={i * 100}>
+          <AwesomeFade direction="right" delay={i * 100} key={i}>
             <Testimonial {...testimonial} />
           </AwesomeFade>
         ))}
