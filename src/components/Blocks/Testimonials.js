@@ -10,11 +10,11 @@ const Testimonials = ({ items }) => (
   <div className="px-4 grid grid-cols-1 md:grid-cols-2 items-center gap-12 md:gap-24 lg:gap-32">
     <div className="flex flex-col justify-center">
       <Fade direction="up" duration={400} cascade>
-        <img
+        {/* <img
           className="mb-8 rounded-xl shadow-lg"
           src="/hero.jpg"
           alt="Testimonials"
-        />
+        /> */}
         <div className="">
           <p className="font-heading text-xs mb-2">Testimonials</p>
           <h1 className="font-heading text-3xl mb-8">
