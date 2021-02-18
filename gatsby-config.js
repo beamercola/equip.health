@@ -18,6 +18,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["AW-419623818"],
+        pluginConfig: {
+          exclude: ["/preview/**"],
+          head: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: "349484373040040",
