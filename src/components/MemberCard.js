@@ -9,14 +9,14 @@ const styleForSize = size => {
         image: "mb-2",
         name: "text-xs lg:text-sm font-normal leading-tight",
         bio: "leading-tight text-xxs",
-        overlay: "p-2",
+        overlay: "p-2 hidden md:block",
       }
     case "large":
       return {
         image: "mb-4",
         name: "text-sm md:text-2xl leading-none",
         bio: "text-sm",
-        overlay: "p-4",
+        overlay: "p-4 hidden md:block",
         title: "text-xs",
       }
   }
