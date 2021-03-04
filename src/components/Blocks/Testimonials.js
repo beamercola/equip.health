@@ -33,18 +33,23 @@ const Testimonials = ({ items }) => (
       </Fade>
     </div>
     <div className="flex md:justify-center">
-      <div className="grid grid-cols-1 gap-12 max-w-md">
+      {/* <div className="grid grid-cols-1 gap-12 max-w-md">
         {items.slice(1).map((testimonial, i) => (
           <AwesomeFade direction="right" delay={i * 100} key={i}>
             <Testimonial {...testimonial} />
           </AwesomeFade>
         ))}
-      </div>
-      {/* <Swiper
-        className="max-w-sm md:h-96"
+      </div> */}
+      <Swiper
+        className="max-w-sm md:h-full"
         breakpoints={{
-          0: { direction: "vertical", slidesPerView: 2, spaceBetween: 48 },
-          500: { direction: "horizontal", slidesPerView: 2, spaceBetween: 48 },
+          0: { direction: "horizontal", slidesPerView: 1, spaceBetween: 48 },
+          500: {
+            // direction: "horizontal",
+            slidesPerColumn: 2,
+            slidesPerView: 1,
+            spaceBetween: 32,
+          },
         }}
       >
         {items.slice(1).map((testimonial, i) => (
@@ -55,12 +60,12 @@ const Testimonials = ({ items }) => (
             )}
             key={i}
           >
-            <Fade direction="right" delay={i * 100}>
-              <Testimonial {...testimonial} />
-            </Fade>
+            {/* <AwesomeFade direction="right" delay={i * 100}> */}
+            <Testimonial {...testimonial} />
+            {/* </AwesomeFade> */}
           </SwiperSlide>
         ))}
-      </Swiper> */}
+      </Swiper>
     </div>
   </div>
 )

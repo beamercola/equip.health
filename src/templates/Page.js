@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import PageHeader from "../components/PageHeader"
+import { SignUpButton } from "../components/Forms"
+import Knack from "../components/Knack"
 import { Provider } from "../components/Forms"
 
 const Page = ({
@@ -18,10 +20,11 @@ const Page = ({
       <div className="bleed">
         <PageHeader title={title} />
         <article
-          className="text-xl w-1/2 prose prose-navy pb-12"
+          className="text-xl prose prose-navy pb-12"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
-        {slug === "providers" && <Provider />}
+
+        {slug === "providers" && <Knack className="mt-12 mb-24" />}
       </div>
     </Layout>
   )

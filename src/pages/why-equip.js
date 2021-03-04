@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { getImageUrl } from "@takeshape/routing"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import { SignUp } from "../components/Forms"
+import { SignUpButton } from "../components/Forms"
 import PageHeader from "../components/PageHeader"
 import { Callout, IndustryQuotes } from "../components/Blocks"
 
@@ -38,24 +38,18 @@ const WhyEquip = ({
       <Callout {...callout} />
 
       <section
-        className="bg-navy-300 text-sky-300 border-b border-navy-400"
+        className="bg-navy-300 text-sky-300 border-b border-navy-400 px-8 py-12 lg:py-24"
         id="insurance"
       >
-        <div className="flex flex-col lg:flex-row items-stretch">
-          <div className="flex flex-col justify-center border-r border-navy-400 lg:w-1/2 p-8 lg:py-12 lg:px-16">
-            <h2 className="text-5xl mb-8 leading-tight">{insurance.title}</h2>
-            <div
-              className="text-xl lg:text-2xl content"
-              dangerouslySetInnerHTML={{ __html: insurance.contentHtml }}
-            />
-            <button></button>
-          </div>
-          <div className="lg:w-1/2 bg-teal-300 text-teal-100 p-8 lg:py-12 lg:px-16">
-            <p className="bg-teal-400 px-3 py-2 rounded-lg text-teal-200 text-sm mb-8">
-              {insurance.formIntro}
-            </p>
-            <SignUp />
-          </div>
+        <div className="max-w-xl text-center mx-auto">
+          <h2 className="text-4xl md:text-5xl mb-8 leading-tight">
+            {insurance.title}
+          </h2>
+          <div
+            className="lg:text-2xl content"
+            dangerouslySetInnerHTML={{ __html: insurance.contentHtml }}
+          />
+          <SignUpButton className="text-navy-300 mt-12 grow" />
         </div>
       </section>
 

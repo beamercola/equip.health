@@ -140,3 +140,17 @@ header nav a.active {
 .prose .oembed iframe {
   @apply absolute inset-0 h-full w-full !important;
 }
+
+.kn-info-bar,
+.kn-back-link {
+  @apply hidden !important;
+}
+
+.kn-scenes.kn-section,
+.kn-scene.kn-container {
+  @apply p-0 m-0 text-navy-300 !important;
+}
+
+.kn-title {
+  @apply text-navy-300 !important;
+}

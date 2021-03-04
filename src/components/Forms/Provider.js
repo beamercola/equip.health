@@ -20,7 +20,7 @@ const ProviderForm = () => (
       <div className="flex flex-wrap -mx-6">
         <div className="my-3 px-6 w-full md:w-1/2">
           <label htmlFor="name">Provider Name</label>
-          <Input type="text" name="Provider Name" autoCapitalize />
+          <Input type="text" name="Provider Name" autoCapitalize="true" />
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">
@@ -36,7 +36,7 @@ const ProviderForm = () => (
 
         <div className="my-3 px-6 w-full md:w-1/2">
           <label htmlFor="name">Provider Practice</label>
-          <Input type="text" name="Provider Practice" autoCapitalize />
+          <Input type="text" name="Provider Practice" autoCapitalize="true" />
         </div>
 
         <div className="my-3 px-6 w-full md:w-1/2">

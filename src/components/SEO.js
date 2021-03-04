@@ -45,6 +45,7 @@ function SEO({ description, lang, meta, title, type, image }) {
         },
       ].concat(meta)}
     >
+      <link rel="icon" type="image/png" href="/favicon.png" sizes="16x16" />
       <script>
         {`
         !function (w, d, t) {
