@@ -14,8 +14,6 @@ const customAnimation = keyframes`
   }
 `
 
-console.log(customAnimation)
-
 export const Fade = props => (
   <AwesomeFade keyframes={customAnimation} {...props} />
 )

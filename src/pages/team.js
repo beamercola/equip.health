@@ -29,8 +29,8 @@ const Team = ({
 
       <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-8 -mx-1 md:-mx-0">
         {members.map((member, i) => (
-          <Fade delay={i * 50} triggerOnce={true}>
-            <MemberCard className="" key={i} size="large" member={member} />
+          <Fade delay={i * 50} triggerOnce key={i}>
+            <MemberCard className="" size="large" member={member} />
           </Fade>
         ))}
       </section>
@@ -56,10 +56,9 @@ const Team = ({
             className="grid grid-cols-3 md:grid-cols-6 gap-1 md:gap-8 justify-center"
             key={i}
           >
-            {group.members.map((member, i) => (
-              <Fade delay={i * 50} triggerOnce={true}>
+            {group.members.map((member, k) => (
+              <Fade delay={i * 50} triggerOnce={true} key={k}>
                 <MemberCard
-                  key={i}
                   member={member}
                   size="small"
                   imageOptions={{

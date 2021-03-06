@@ -15,7 +15,7 @@ const styleForSize = size => {
       return {
         image: "mb-4",
         name: "text-sm md:text-2xl leading-none",
-        bio: "text-sm",
+        bio: "text-xs",
         overlay: "p-4 hidden md:block",
         title: "text-xs",
       }
