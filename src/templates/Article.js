@@ -19,7 +19,7 @@ const ArticlePage = ({
       <SEO
         title={article.title}
         description={article.seo && article.seo.description}
-        image={article.photo.path}
+        image={article.photo?.path}
       />
 
       <Header />
