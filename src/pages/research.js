@@ -16,42 +16,87 @@ const Research = ({
   return (
     <Layout>
       <Hero className="bg-sky-200 border-b border-sky-300">
-        <StatBlock block={page.hero} />
+        <div className="py-12 container text-navy-300">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="">
+              <img
+                className="w-32 md:w-56 mb-8"
+                src="/icon-data.svg"
+                alt="Data"
+              />
+              <Header title={page.hero.title} paragraph={page.hero.paragraph} />
+            </div>
+            <div>
+              <StatStack
+                className="grid grid-cols-1 gap-4"
+                stats={page.hero.stats}
+              />
+            </div>
+          </div>
+        </div>
       </Hero>
 
-      <div className="py-24 container px-4">
-        <div className="mb-12 text-center">
-          <h1 className="text-3xl">{page.callouts.title}</h1>
-          <p>{page.callouts.paragraph}</p>
+      <section className="py-24 container px-4">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-8 mx-auto justify-center mb-12 max-w-3xl">
+          <div className="max-w-sm">
+            <img
+              className="h-24 md:h-40 md:mx-auto"
+              src="/icon-growth.svg"
+              alt="Growth"
+            />
+          </div>
+          <Header
+            className="max-w-sm"
+            title={page.callouts.title}
+            paragraph={page.callouts.paragraph}
+          />
         </div>
-        <div className="md:flex justify-center items-stretch">
+
+        <div className="grid md:grid-cols-2 gap-4 md:gap-12 justify-center items-stretch max-w-3xl mx-auto">
           {page.callouts.cards.map((card, i) => (
-            <Fade delay={i * 500} triggerOnce>
-              <div
-                className="bg-white h-full rounded-xl border border-navy-300 w-full max-w-sm md:mx-6 shadow-xl p-6 flex flex-col justify-end overflow-hidden mb-4 md:mb-0"
-                key={i}
+            <div
+              className="bg-white rounded-xl border border-navy-300 w-full shadow-xl p-6 overflow-hidden mb-4 md:mb-0"
+              key={i}
+            >
+              <Fade
+                className="h-full"
+                direction="up"
+                delay={(i + 1) * 250}
+                triggerOnce
               >
-                <Fade
-                  className="h-full"
-                  direction="up"
-                  delay={(i + 1) * 250}
-                  triggerOnce
-                >
-                  <h1 className="font-sans text-3xl leading-none">
-                    {card.paragraph}
-                  </h1>
-                </Fade>
-              </div>
-            </Fade>
+                <h1 className="font-sans text-3xl leading-none">
+                  {card.paragraph}
+                </h1>
+              </Fade>
+            </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="bg-cream-300 py-12">
-        <StatBlock block={page.section2} reverse />
-      </div>
+      <section className="bg-sky-200 py-24 px-4">
+        <div className="grid md:grid-cols-2 gap-12 items-center container">
+          <div className="md:order-1 flex items-center justify-center">
+            <img
+              className="w-32 md:w-72 mr-auto md:mx-auto"
+              src="/icon-balance.svg"
+              alt="Balance"
+            />
+          </div>
+          <div className="flex flex-col items-start">
+            <Header
+              className="mb-12"
+              title={page.hero.title}
+              paragraph={page.hero.paragraph}
+            />
+            <StatStack
+              className="grid grid-cols-1 gap-4"
+              stats={page.hero.stats}
+            />
+          </div>
+        </div>
+      </section>
 
-      <div className="container mx-auto pt-24 px-3">
+      <section className="container mx-auto pt-24 px-3">
         <h2 className="text-5xl text-center mb-2">{page.research.title}</h2>
         <p className="text-center mb-12">{page.research.subtitle}</p>
         <Fade className="w-full max-w-2xl mx-auto" duration={1000}>
@@ -60,65 +105,59 @@ const Research = ({
             items={page.research.accordion}
           />
         </Fade>
-      </div>
+      </section>
 
-      <div className="container py-12 text-navy-300 px-4 mb-12 md:mt-24">
+      <section className="container py-12 text-navy-300 px-4 mb-12 md:mt-24">
         <div className="max-w-2xl mx-auto w-full">
-          {/* <h1 className="font-heading text-3xl mb-8">Resources</h1> */}
           <h2 className="text-5xl text-center mb-2 mb-12">Resources</h2>
           <div
             className="prose prose-sm text-navy-300 w-full break-words max-w-none"
             dangerouslySetInnerHTML={{ __html: page.appendixHtml }}
           />
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }
 
-export default Research
-
-const StatBlock = ({ block, reverse }) => (
-  <div className={classNames("py-12 container")}>
-    <div
-      className={classNames("md:-mx-6 md:flex mx-4", {
-        "flex-row-reverse": reverse,
-      })}
+const StatStack = ({ className, stats }) => (
+  <div className={className}>
+    <Fade
+      className="flex justify-center w-full"
+      duration={1000}
+      direction="up"
+      cascade
+      triggerOnce
     >
-      <div className="text-navy-300 flex flex-col justify-center md:w-1/2 md:px-6 mb-12 md:mb-0">
-        <Fade>
-          <h1 className="text-4xl mb-2">{block.title}</h1>
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: block.paragraph }}
-          />
-        </Fade>
-      </div>
-      <div className="md:w-1/2 md:px-6 flex justify-center">
-        <div className="grid grid-cols-1 gap-4">
-          <Fade
-            className="flex justify-center w-full"
-            duration={1000}
-            direction="up"
-            cascade
-            triggerOnce
-          >
-            {block.stats.map((stat, i) => (
-              <Stat
-                end={stat.number}
-                delay={i * 0.6}
-                label={stat.numberLabel}
-                key={i}
-              >
-                {stat.description}
-              </Stat>
-            ))}
-          </Fade>
-        </div>
-      </div>
-    </div>
+      {stats.map((stat, i) => (
+        <Stat
+          end={stat.number}
+          delay={i * 0.6}
+          label={stat.numberLabel}
+          key={i}
+        >
+          {stat.description}
+        </Stat>
+      ))}
+    </Fade>
   </div>
 )
+
+const Header = ({ className, center, title, paragraph }) => (
+  <div className={className}>
+    <Fade cascade>
+      <h1 className="text-4xl mb-2">{title}</h1>
+      <p
+        className={classNames("prose leading-tight", {
+          "text-center mx-auto": center,
+        })}
+        dangerouslySetInnerHTML={{ __html: paragraph }}
+      />
+    </Fade>
+  </div>
+)
+
+export default Research
 
 export const query = graphql`
   query {
