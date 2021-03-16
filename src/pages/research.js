@@ -85,12 +85,12 @@ const Research = ({
           <div className="flex flex-col items-start">
             <Header
               className="mb-12"
-              title={page.hero.title}
-              paragraph={page.hero.paragraph}
+              title={page.section2.title}
+              paragraph={page.section2.paragraph}
             />
             <StatStack
               className="grid grid-cols-1 gap-4"
-              stats={page.hero.stats}
+              stats={page.section2.stats}
             />
           </div>
         </div>
