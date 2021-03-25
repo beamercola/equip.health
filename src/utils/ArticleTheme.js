@@ -46,6 +46,8 @@ export const themes = [
   },
 ]
 
+// console.log('testing push')
+
 export const getTheme = uuid => {
   const id = parseInt(uuid.replace(/\D+/g, "") || 0)
   return themes[id % themes.length]
