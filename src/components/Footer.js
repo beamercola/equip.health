@@ -43,6 +43,12 @@ const Footer = () => (
       </div>
 
       <div className="col-span-1">
+        <address className="not-italic mb-4">
+          <div className="font-heading text-xs">Call Us</div>
+          <a className="underline" href="tel:+18553874378">
+            (855) 387-4378
+          </a>
+        </address>
         <div className="">
           <SignUpButton className="border-navy-300 text-navy-300" />
         </div>
