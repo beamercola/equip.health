@@ -5111,13 +5111,20 @@ gatsby-plugin-google-analytics@^3.0.0:
     "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
 
-gatsby-plugin-google-gtag@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-3.0.0.tgz#9d8884b256b25f9d62ab70189fd731377d178ee3"
-  integrity sha512-6zTmPUkAHd4NOEK2HY72Xf4VDGjDxvTxUaX4pE8irFqywuOfcdrmKzhbmjPfGh7mwwe1Otj1hyonI8ugKqD1Fg==
+gatsby-plugin-google-gtag@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-3.2.0.tgz#8326133ef676a9059a63091a11c6b786ac21a657"
+  integrity sha512-NmKv9bRkdxgmkGUIpK1Tk0sgnggU6WDY+oH+nQG1+gs1yJqW6g1d3zzFKf/m0c5A/44Eqb7f+6h8PTjIL/XoVw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     minimatch "^3.0.4"
+
+gatsby-plugin-google-tagmanager@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-3.2.0.tgz#c862236c4ea8c190d4e2ef9883f2f72e1aea5d7a"
+  integrity sha512-B41EvUoXRzgWbXhZof2EcK6xMBkReM7bupyaFAKNXfNw7FbJnyMA1IJ7jRQcvgsdLLacSJTIYRPA1IiyBjTT0g==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 gatsby-plugin-page-creator@^3.0.0:
   version "3.0.0"

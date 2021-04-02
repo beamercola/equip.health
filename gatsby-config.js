@@ -11,10 +11,10 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        trackingId: "UA-174538341-1",
-        head: true,
+        id: "GTM-PZB38CK",
+        includeInDevelopment: true,
       },
     },
     {
@@ -25,12 +25,6 @@ module.exports = {
           exclude: ["/preview/**"],
           head: true,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-facebook-pixel`,
-      options: {
-        pixelId: "349484373040040",
       },
     },
     `gatsby-plugin-react-helmet`,
